@@ -59,3 +59,9 @@ sysinfo.txt
 crashlytics-build.properties
 
 .UserSettings/
+UserSettings/
+.vsconfig
+ProjectSettings/ProjectSettings.asset
+ProjectSettings/SceneTemplateSettings.json
+ProjectSettings/ShaderGraphSettings.asset
+ProjectSettings\ProjectSettings.asset
