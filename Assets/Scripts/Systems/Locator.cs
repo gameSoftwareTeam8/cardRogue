@@ -12,5 +12,6 @@ using UnityEngine;
 public static class Locator
 {
     /// <summary> 현재 보드 </summary>
-    public static IBoard board;
+    public static IBoard board = null;
+    public static CardFactory card_factory = new();
 }

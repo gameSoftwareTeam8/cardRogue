@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+/*
+<callbacks>
+on_damaged(amount, source)
+on_healed(amount, source)
+*/
 public class Creature: Card
 {
+    [HideInInspector]
     public CreatureInfo info;
     private int current_hp;
-    public Creature(CreatureInfo info)
+    public void init(CreatureInfo info)
     {
-        this.info = info;
+        this.info = Instantiate(info);
         current_hp = info.hp;
     }
     
@@ -21,12 +27,14 @@ public class Creature: Card
     public void take_damage(int amount, Card source)
     {
         current_hp -= amount;
+        SendMessage("on_damaged", (amount, source), SendMessageOptions.DontRequireReceiver);
         if (current_hp <= 0)
-            destroy();
+            destroy();  
     }
 
     public void heal(int amount, Card source)
     {
         current_hp = Mathf.Min(info.hp, current_hp + amount);       
+        SendMessage("on_healed", (amount, source), SendMessageOptions.DontRequireReceiver);
     }
 }

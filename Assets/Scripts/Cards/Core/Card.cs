@@ -3,7 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Card
+/*
+<callbacks>
+on_destroyed()
+*/
+public abstract class Card: MonoBehaviour
 {
-    public virtual void destroy() { }
+    public virtual void destroy()
+    {
+        SendMessage("on_destroyed", SendMessageOptions.DontRequireReceiver);
+    }
 }

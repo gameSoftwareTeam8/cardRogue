@@ -7,12 +7,12 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 
-public abstract class CreatureEffect
+public abstract class CreatureEffect: CardEffect
 {
-    public Creature creature;
-    public CreatureEffect(Creature creature)
+    protected Creature creature;
+    public override void init()
     {
-        this.creature = creature;
+        creature = GetComponent<Creature>();
     }
 
     /// <summary> 지속 효과 </summary> 
@@ -37,8 +37,8 @@ public abstract class CreatureEffect
     public virtual void on_battle_ended() { }
 
     /// <summary> 피해를 입었을 때 </summary>
-    public virtual void on_damaged(int amount, Card source) { }
+    public virtual void on_damaged((int amount, Card source) value) { }
     
     /// <summary> 회복했을 때 </summary>
-    public virtual void on_healed(int amount, Card source) { }
+    public virtual void on_healed((int amount, Card source) value) { }
 }

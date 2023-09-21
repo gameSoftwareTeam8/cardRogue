@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public abstract class MagicEffect
+public abstract class MagicEffect: CardEffect
 {
-    public Board board;
-    public MagicEffect(Board board)
+    protected Magic magic;
+    public override void init()
     {
-        this.board = board;
+        magic = GetComponent<Magic>();
     }
 
     /// <summary> 사용시 </summary> 
