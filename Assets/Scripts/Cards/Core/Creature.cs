@@ -5,14 +5,14 @@ using UnityEngine;
 
 /*
 <callbacks>
-on_damaged(amount, source)
-on_healed(amount, source)
+on_damaged((int amount, Card source))
+on_healed((int amount, Card source))
 */
 public class Creature: Card
 {
     [HideInInspector]
     public CreatureInfo info;
-    private int current_hp;
+    public int current_hp { get; private set; }
     public void init(CreatureInfo info)
     {
         this.info = Instantiate(info);
@@ -22,6 +22,11 @@ public class Creature: Card
     public override void destroy()
     {
         base.destroy();
+    }
+
+    public void attack(Creature target)
+    {
+        target.take_damage(info.power, this);
     }
 
     public void take_damage(int amount, Card source)

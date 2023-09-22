@@ -10,15 +10,22 @@ public enum BoardSide
     AWAY = 1
 }
 
+/*
+<callbacks>
+on_card_added(card)
+on_card_removed(card)
+*/
 public interface IBoard
 {
     public int size { get; }
     public void init();
     public void run();
-    public BoardSide get_side(Card card);
-    public int get_idx(Card card);
-    public Card get_card(BoardSide side, int idx);
-    public Card get_opposite_card(Card card);
+    public Creature get_card(BoardSide side, int idx);
+    public void add_card(BoardSide side, int idx, Creature card);
+    public void remove_card(BoardSide side, int idx);
+    public BoardSide get_side(Creature card);
+    public int get_idx(Creature card);
+    public Creature get_opposite_card(Creature card);
 }
 
 public class Board: MonoBehaviour, IBoard
@@ -27,13 +34,11 @@ public class Board: MonoBehaviour, IBoard
     private int _size = 3;
     public int size { get; private set; }
 
-    private List<List<Card>> cards = new(2);
-
+    private Creature[,] cards;
     public void init()
     {
         size = _size;
-        cards[0] = new List<Card>(size);
-        cards[1] = new List<Card>(size);
+        cards = new Creature[2, size];
     }
 
     public void run()
@@ -41,31 +46,48 @@ public class Board: MonoBehaviour, IBoard
 
     }
 
-    public Card get_card(BoardSide side, int idx)
+    public Creature get_card(BoardSide side, int idx)
     {
-        return cards[(int)side][idx];
+        return cards[(int)side, idx];
     }
 
-    public BoardSide get_side(Card card)
+    public void add_card(BoardSide side, int idx, Creature card)
+    {
+        if (cards[(int)side, idx] == null) {
+            cards[(int)side, idx] = card;
+            SendMessage("on_card_added", card, SendMessageOptions.DontRequireReceiver);
+        }
+    }
+
+    public void remove_card(BoardSide side, int idx)
+    {
+        Creature card = cards[(int)side, idx];
+        if (card != null) {
+            cards[(int)side, idx] = null;
+            SendMessage("on_card_removed", card, SendMessageOptions.DontRequireReceiver);
+        }
+    }
+
+    public BoardSide get_side(Creature card)
     {
         for (int side = 0; side < 2; side++)
             for (int idx = 0; idx < size; idx++)
-                if (cards[side][idx] == card)
+                if (cards[side, idx] == card)
                     return (BoardSide)side;
         throw null;
     }
 
-    public int get_idx(Card card)
+    public int get_idx(Creature card)
     {
         for (int side = 0; side < 2; side++)
             for (int idx = 0; idx < size; idx++)
-                if (cards[side][idx] == card)
+                if (cards[side, idx] == card)
                     return idx;
         throw null;
     }
 
-    public Card get_opposite_card(Card card)
+    public Creature get_opposite_card(Creature card)
     {
-        return cards[1 - (int)get_side(card)][get_idx(card)];
+        return cards[1 - (int)get_side(card), get_idx(card)];
     }
 }

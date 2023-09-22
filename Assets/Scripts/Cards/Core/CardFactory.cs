@@ -36,7 +36,7 @@ public class CardFactory
         if (card_info is CreatureInfo creature_info) {
             game_object = GameObject.Instantiate(creature_prefab);
             game_object.GetComponent<Creature>().init(creature_info);
-            game_object.GetComponent<CreatureView>().init(creature_info);
+            game_object.GetComponent<CreatureView>().init();
         }
         else if (card_info is MagicInfo magic_info) {
             game_object = GameObject.Instantiate(magic_prefab);
