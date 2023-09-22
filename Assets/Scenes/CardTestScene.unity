@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031d1b7ca5145c040a1c4b63f721f31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test_card_info: {fileID: 11400000, guid: 2a239af5bdc44d54ca7a798b1ab8b19f, type: 2}
+  test_card_info: {fileID: 11400000, guid: 1860f71b5daf3d743b0f495f6e1a4ba7, type: 2}
 --- !u!4 &1856126874
 Transform:
   m_ObjectHideFlags: 0
