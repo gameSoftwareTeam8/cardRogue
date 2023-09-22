@@ -12,7 +12,7 @@ public class CardFactory
         creature_prefab = Resources.Load<GameObject>("Prefabs/Cards/Creature");
         magic_prefab = Resources.Load<GameObject>("Prefabs/Cards/Magic");
     }
-
+    
     public GameObject create(CardInfo card_info)
     {
         GameObject game_object = create_card_type(card_info);
@@ -22,6 +22,12 @@ public class CardFactory
         game_object.name = card_info.card_name;
         
         return game_object;
+    }
+
+    public GameObject create(string card_name)
+    {
+        CardInfo info = Resources.Load<CardInfo>("Infos/" + card_name);
+        return create(info);
     }
 
     private GameObject create_card_type(CardInfo card_info)
