@@ -1,20 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum NodeType
 {
     None,
-    Empty,  // 비어 있는 방
+    Wall,
     Monster,
     Event
 }
 
 public class Node : MonoBehaviour
 {
-    public NodeType Type { get; set; }
-
+    public NodeType Type { get; private set; }
     private SpriteRenderer spriteRenderer;
 
     private void Awake()
@@ -25,33 +22,27 @@ public class Node : MonoBehaviour
     public void SetNodeType(NodeType type)
     {
         Type = type;
-        spriteRenderer.color = GetColor();
-    }
-
-    private Color GetColor()
-    {
-        switch (Type)
+        switch (type)
         {
             case NodeType.None:
-                return Color.white;
-            case NodeType.Empty:
-                return Color.gray;
+                spriteRenderer.color = Color.white;
+                break;
+            case NodeType.Wall:
+                spriteRenderer.color = Color.black;
+                break;
             case NodeType.Monster:
-                return Color.red;
+                spriteRenderer.color = Color.red;
+                break;
             case NodeType.Event:
-                return Color.blue;
-            default:
-                return Color.white;
+                spriteRenderer.color = Color.blue;
+                break;
         }
     }
 
-    private void OnMouseDown()
+    private void OnMouseUpAsButton()
     {
         switch (Type)
         {
-            case NodeType.None:
-            case NodeType.Empty:
-                break;
             case NodeType.Monster:
                 SceneManager.LoadScene("Temp1");
                 break;
