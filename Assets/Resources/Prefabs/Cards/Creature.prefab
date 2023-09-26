@@ -605,6 +605,7 @@ GameObject:
   - component: {fileID: 8087694594754018774}
   - component: {fileID: -574450285309906217}
   - component: {fileID: -7470911105131797480}
+  - component: {fileID: 184541255280178185}
   m_Layer: 0
   m_Name: Creature
   m_TagString: Untagged
@@ -661,6 +662,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e624cde6fe83ceb40bf4eb42a0e016be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &184541255280178185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229332580041227260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b3cbfde8e8b4049a2a0a72c699fdb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burning_material: {fileID: 2100000, guid: ed0a8b7efc5c36c4db795efdf79f8d6b, type: 2}
 --- !u!1 &5585158347348839934
 GameObject:
   m_ObjectHideFlags: 0
