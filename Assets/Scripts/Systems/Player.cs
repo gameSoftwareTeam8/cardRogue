@@ -7,6 +7,7 @@ public interface IPlayer
 {
     public int max_hp { get; }
     public int hp { get; }
+    public int balance { get; set; }
     public int cards_count { get; }
     public void take_damage(int amount);
     public void heal(int amount);
@@ -22,6 +23,7 @@ public class Player: MonoBehaviour, IPlayer
 
     public int max_hp { get; private set; }
     public int hp { get; private set; }
+    public int balance { get; set; }
     public int cards_count { get { return card_objects.Count; }}
 
     private List<GameObject> card_objects = new();

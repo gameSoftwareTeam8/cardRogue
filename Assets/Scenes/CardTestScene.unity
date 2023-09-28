@@ -924,7 +924,7 @@ MonoBehaviour:
   board: {fileID: 1875178746}
   test_card_info:
   - {fileID: 11400000, guid: 2a239af5bdc44d54ca7a798b1ab8b19f, type: 2}
-  - {fileID: 11400000, guid: 2a239af5bdc44d54ca7a798b1ab8b19f, type: 2}
+  - {fileID: 11400000, guid: 36997c4daf7ad0547856dec6aa3fd9a7, type: 2}
   - {fileID: 11400000, guid: 1860f71b5daf3d743b0f495f6e1a4ba7, type: 2}
   - {fileID: 11400000, guid: 1860f71b5daf3d743b0f495f6e1a4ba7, type: 2}
   - {fileID: 11400000, guid: 1860f71b5daf3d743b0f495f6e1a4ba7, type: 2}

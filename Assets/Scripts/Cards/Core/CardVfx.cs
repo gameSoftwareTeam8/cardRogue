@@ -12,7 +12,7 @@ public class CardVfx: MonoBehaviour
 
     public void Start()
     {
-        on_destroyed();
+        
     }
     public void on_destroyed()
     {

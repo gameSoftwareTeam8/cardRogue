@@ -16,6 +16,6 @@ public abstract class CardInfo : ScriptableObject
 {
     public string card_name, description, effect_name;
     public CardRarity rarity;
-    public int cost;
+    public int cost, price;
     public Sprite sprite;
 }

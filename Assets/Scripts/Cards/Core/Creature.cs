@@ -11,7 +11,7 @@ on_healed((int amount, Card source))
 public class Creature: Card
 {
     [HideInInspector]
-    public CreatureInfo info;
+    new CreatureInfo info;
     public int current_hp { get; private set; }
     public void init(CreatureInfo info)
     {
@@ -22,6 +22,7 @@ public class Creature: Card
     public override void destroy()
     {
         base.destroy();
+        Locator.board.remove_card(this);
     }
 
     public void attack(Creature target)

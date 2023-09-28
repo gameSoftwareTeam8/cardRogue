@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CardFactory
 {
-    GameObject creature_prefab, magic_prefab;
+    private GameObject creature_prefab, magic_prefab;
     public CardFactory()
     {
         creature_prefab = Resources.Load<GameObject>("Prefabs/Cards/Creature");

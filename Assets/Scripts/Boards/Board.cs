@@ -23,8 +23,10 @@ public interface IBoard
     public Creature get_card(BoardSide side, int idx);
     public void add_card(BoardSide side, int idx, Creature card);
     public void remove_card(BoardSide side, int idx);
+    public void remove_card(Creature card);
     public BoardSide get_side(Creature card);
     public int get_idx(Creature card);
+    public BoardSide get_opposite_side(Creature card);
     public Creature get_opposite_card(Creature card);
 }
 
@@ -46,8 +48,11 @@ public class Board: MonoBehaviour, IBoard
 
     }
 
+    /// <summary> return null when out of bound </summary>
     public Creature get_card(BoardSide side, int idx)
     {
+        if (idx < 0 || idx >= size)
+            return null;
         return cards[(int)side, idx];
     }
 
@@ -68,6 +73,11 @@ public class Board: MonoBehaviour, IBoard
         }
     }
 
+    public void remove_card(Creature card)
+    {
+        remove_card(get_side(card), get_idx(card));
+    }
+
     public BoardSide get_side(Creature card)
     {
         for (int side = 0; side < 2; side++)
@@ -85,9 +95,14 @@ public class Board: MonoBehaviour, IBoard
                     return idx;
         throw null;
     }
+    
+    public BoardSide get_opposite_side(Creature card)
+    {
+        return (BoardSide)(1 - (int)get_side(card));
+    }
 
     public Creature get_opposite_card(Creature card)
     {
-        return cards[1 - (int)get_side(card), get_idx(card)];
+        return cards[(int)get_opposite_side(card), get_idx(card)];
     }
 }

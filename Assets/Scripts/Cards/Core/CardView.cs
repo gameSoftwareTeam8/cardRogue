@@ -8,7 +8,7 @@ public abstract class CardView: MonoBehaviour
 {
     void Awake()
     {
-        // hide();
+        hide();
     }
 
     public void show()
