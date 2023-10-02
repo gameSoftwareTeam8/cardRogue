@@ -10,8 +10,7 @@ on_healed((int amount, Card source))
 */
 public class Creature: Card
 {
-    [HideInInspector]
-    new CreatureInfo info;
+    public new CreatureInfo info { get; set; }
     public int current_hp { get; private set; }
     public void init(CreatureInfo info)
     {

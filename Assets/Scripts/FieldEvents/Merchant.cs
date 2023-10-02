@@ -15,6 +15,8 @@ public interface IMerchant
 public class Merchant: IMerchant
 {
     private const int CARDS_NUM = 6;
+    private const int COST_TO_REMOVE = 75;
+    private const int COST_TO_REMOVE_ADDEND = 25;
 
     private List<Card> cards;
     public int cards_size { get { return cards.Count; } }
@@ -22,7 +24,7 @@ public class Merchant: IMerchant
 
     public Merchant()
     {
-        cost_to_remove = 75;
+        cost_to_remove = COST_TO_REMOVE;
 
         var card_factory = Locator.card_factory;
         var sampled = Locator.card_pool.sample(CARDS_NUM);
@@ -52,7 +54,7 @@ public class Merchant: IMerchant
         IPlayer player = Locator.player;
         if (player.balance >= cost_to_remove) {
             player.remove_card(idx);
-            cost_to_remove += 25;
+            cost_to_remove += COST_TO_REMOVE_ADDEND;
             return true;
         }
         return false;

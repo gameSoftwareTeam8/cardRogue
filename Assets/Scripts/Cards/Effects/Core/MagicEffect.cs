@@ -15,3 +15,8 @@ public abstract class MagicEffect: CardEffect
     /// <summary> 사용시 </summary> 
     public virtual void on_used() { }
 }
+
+public abstract class TargetingMagicEffect: MagicEffect
+{
+    public virtual void on_used_to_target(Creature target) { }
+}
