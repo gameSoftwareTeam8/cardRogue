@@ -9,7 +9,7 @@ on_destroyed()
 */
 public abstract class Card: MonoBehaviour
 {
-    public CardInfo info { get; set; }
+    public CardInfo info;
     public virtual void destroy()
     {
         SendMessage("on_destroyed", SendMessageOptions.DontRequireReceiver);

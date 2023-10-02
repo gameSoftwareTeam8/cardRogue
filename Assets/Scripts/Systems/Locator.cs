@@ -16,5 +16,5 @@ public static class Locator
     public static CardFactory card_factory = new();
     public static ICardPool card_pool = new CardPool();
     public static VFXFactory vfx_factory = new();
-    public static IPlayer player = null;
+    public static IPlayer player = new Player();
 }

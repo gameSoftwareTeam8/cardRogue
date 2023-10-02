@@ -15,8 +15,8 @@ public class BuffEffect: CreatureEffect
             if (target == null || target == creature)
                 continue;
 
-            target.info.hp += 1;
-            target.info.power += 1;
+            target.creature_info.hp += 1;
+            target.creature_info.power += 1;
         }
     }
 }

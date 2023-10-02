@@ -16,9 +16,8 @@ public interface IPlayer
     public GameObject get_card(int idx);
 }
 
-public class Player: MonoBehaviour, IPlayer
+public class Player: IPlayer
 {
-    [SerializeField]
     private int _max_hp = 50;
 
     public int max_hp { get; private set; }

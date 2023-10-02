@@ -16,9 +16,9 @@ public class CreatureView: CardView
         power_text = transform.Find("Power").Find("Text").GetComponent<TextMeshPro>();
         hp_text = transform.Find("Hp").Find("Text").GetComponent<TextMeshPro>();
 
-        name_text.text = creature.info.card_name;
-        power_text.text = creature.info.power.ToString();
-        hp_text.text = creature.info.hp.ToString();
+        name_text.text = creature.creature_info.card_name;
+        power_text.text = creature.creature_info.power.ToString();
+        hp_text.text = creature.creature_info.hp.ToString();
     }
 
     public void on_damaged((int amount, Card source) value)

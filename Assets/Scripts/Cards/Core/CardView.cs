@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 public abstract class CardView: MonoBehaviour
 {
+    public event EventHandler on_clicked;
     void Awake()
     {
         hide();
@@ -25,5 +28,10 @@ public abstract class CardView: MonoBehaviour
             renderer.enabled = false;
         foreach (var tmp in GetComponentsInChildren<TextMeshPro>())
             tmp.enabled = false;
+    }
+
+    void OnMouseDown()
+    {
+        on_clicked?.Invoke(this, EventArgs.Empty);
     }
 }

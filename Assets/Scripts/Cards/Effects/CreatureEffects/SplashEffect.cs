@@ -14,7 +14,7 @@ public class SplashEffect: CreatureEffect
         {
             Creature target = board.get_card(target_side, idx - i);
             if (target != null)
-                target.take_damage(creature.info.power, creature);
+                target.take_damage(creature.creature_info.power, creature);
         }
     }
 }

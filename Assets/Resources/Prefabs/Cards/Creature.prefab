@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1560221261038259048}
   - component: {fileID: 1252720832305440686}
   - component: {fileID: 1828871686790829204}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1038337610279769930}
   - component: {fileID: 5529630275198922455}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Details_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6615702902426335241}
   - component: {fileID: 1686712135106212512}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 737613918423868951}
   - component: {fileID: 5328696505576722477}
   - component: {fileID: 6100419924134094405}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6164440946622896066}
   - component: {fileID: 4680513331049276670}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ImageBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -606,7 +606,8 @@ GameObject:
   - component: {fileID: -574450285309906217}
   - component: {fileID: -7470911105131797480}
   - component: {fileID: 184541255280178185}
-  m_Layer: 0
+  - component: {fileID: 4097127033124750602}
+  m_Layer: 7
   m_Name: Creature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -649,7 +650,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c63e0f12017da47bb9774c1d78b946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
 --- !u!114 &-7470911105131797480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,6 +675,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   burning_material: {fileID: 2100000, guid: ed0a8b7efc5c36c4db795efdf79f8d6b, type: 2}
+--- !u!61 &4097127033124750602
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229332580041227260}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &5585158347348839934
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +730,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7199740840306809457}
   - component: {fileID: 2575829332932800597}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -769,7 +814,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2285336409795668094}
   - component: {fileID: 2444512715123301857}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Details_31 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -853,7 +898,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6357752030348106109}
   - component: {fileID: 5143157379936284025}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Power
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -938,7 +983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2492583842736791316}
   - component: {fileID: 9079494853382304081}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1022,7 +1067,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1505906014712120791}
   - component: {fileID: 4962151197593508208}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1107,7 +1152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5557527469517463001}
   - component: {fileID: 2751648309721095336}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1193,7 +1238,7 @@ GameObject:
   - component: {fileID: 4359660780925982737}
   - component: {fileID: 4068048068847073561}
   - component: {fileID: 8173430561810304742}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}

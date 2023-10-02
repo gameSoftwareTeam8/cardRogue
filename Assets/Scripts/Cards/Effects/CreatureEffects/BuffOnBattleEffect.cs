@@ -7,7 +7,7 @@ public class BuffOnBattleEffect: CreatureEffect
 {
     public override void on_battle_started()
     {
-        creature.info.power += 1;
-        creature.info.hp += 1;
+        creature.creature_info.power += 1;
+        creature.creature_info.hp += 1;
     }
 }

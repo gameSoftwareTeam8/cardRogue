@@ -10,11 +10,12 @@ on_healed((int amount, Card source))
 */
 public class Creature: Card
 {
-    public new CreatureInfo info { get; set; }
+    public CreatureInfo creature_info;
     public int current_hp { get; private set; }
     public void init(CreatureInfo info)
     {
-        this.info = Instantiate(info);
+        creature_info = Instantiate(info);
+        this.info = creature_info;
         current_hp = info.hp;
     }
     
@@ -26,7 +27,7 @@ public class Creature: Card
 
     public void attack(Creature target)
     {
-        target.take_damage(info.power, this);
+        target.take_damage(creature_info.power, this);
     }
 
     public void take_damage(int amount, Card source)
@@ -39,7 +40,7 @@ public class Creature: Card
 
     public void heal(int amount, Card source)
     {
-        current_hp = Mathf.Min(info.hp, current_hp + amount);       
+        current_hp = Mathf.Min(creature_info.hp, current_hp + amount);       
         SendMessage("on_healed", (amount, source), SendMessageOptions.DontRequireReceiver);
     }
 }

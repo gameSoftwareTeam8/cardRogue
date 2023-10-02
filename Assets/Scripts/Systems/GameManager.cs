@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class GameManager: MonoBehaviour
 {
-    public Player player;
     public Board board;
     public TurnManager turn_manager = new();
     public List<CardInfo> test_card_info;
     void Awake()
     {
-        Locator.player = player;
         Locator.board = board;
         board.init();
         board.GetComponent<BoardView>().init();

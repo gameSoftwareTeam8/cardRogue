@@ -9,16 +9,18 @@ public interface IMerchant
     public int cost_to_remove { get; }
     public Card get_card(int idx);
     public bool buy(int idx);
+    public bool buy(Card card);
     public bool remove_card(int idx);
+    public bool remove_card(Card card);
 }
 
 public class Merchant: IMerchant
 {
-    private const int CARDS_NUM = 6;
+    private const int CARDS_NUM = 3;
     private const int COST_TO_REMOVE = 75;
     private const int COST_TO_REMOVE_ADDEND = 25;
 
-    private List<Card> cards;
+    private List<Card> cards = new();
     public int cards_size { get { return cards.Count; } }
     public int cost_to_remove { get; private set; }
 
@@ -27,9 +29,11 @@ public class Merchant: IMerchant
         cost_to_remove = COST_TO_REMOVE;
 
         var card_factory = Locator.card_factory;
-        var sampled = Locator.card_pool.sample(CARDS_NUM);
+        var sampled = Locator.card_pool.sample_without_replacement(CARDS_NUM);
         foreach (CardInfo info in sampled)
+        {
             cards.Add(card_factory.create(info).GetComponent<Card>());
+        }
     }
 
     public Card get_card(int idx)
@@ -49,6 +53,11 @@ public class Merchant: IMerchant
         return false;
     }
 
+    public bool buy(Card card)
+    {
+        return buy(cards.IndexOf(card));;
+    }
+
     public bool remove_card(int idx)
     {
         IPlayer player = Locator.player;
@@ -58,5 +67,10 @@ public class Merchant: IMerchant
             return true;
         }
         return false;
+    }
+
+    public bool remove_card(Card card)
+    {
+        return remove_card(cards.IndexOf(card));
     }
 }
