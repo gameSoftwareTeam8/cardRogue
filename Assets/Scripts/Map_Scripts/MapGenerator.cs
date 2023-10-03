@@ -1,39 +1,103 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class MapGenerator : MonoBehaviour
 {
     public int width = 10;
     public int height = 10;
     public GameObject nodePrefab;
 
-    private static Node[,] savedMap = null;  // 저장된 맵 상태
     private Node[,] nodes;
+    private Node currentNode;
+    private List<Node> highlightedNodes = new List<Node>(); // 활성화된 노드를 추적하기 위한 리스트
+    private List<Node> wallList = new List<Node>(); // Prim 알고리즘을 위한 wallList
 
-    private List<Node> wallList = new List<Node>();
+    public static MapGenerator Instance { get; private set; }
 
-    private void Start()
+
+    private void Awake()
     {
-        // 게임 시작후 첫 맵 
-        if (savedMap == null)
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        if (Instance == null)
         {
-            // 모든 노드를 Wall로 초기화 
-            InitializeMap();
-            // 시작 위치를 기반으로 인접한 방이 하나일 경우에만 맵 생성 
-            GenerateMazeUsingPrim();
-
-            // 생성된 맵의 상태를 savedMap에 저장
-            savedMap = nodes;
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
-        // 게임 진행중 맵 재로드 
         else
         {
-            LoadMap();
+            Destroy(this.gameObject);
+        }
+    }
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Map Scene일 때에만 Sprite를 보여줌
+        if (scene.name == "Map")
+        {
+            ShowAllSprites();
+        }
+        // 다른 씬일 경우 Sprite를 숨김 
+        else
+        {
+            HideAllSprites();
         }
     }
 
+    // 씬 전환할 때 모든 Sprite를 숨김 
+    private void HideAllSprites()
+    {
+        foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
+        {
+            sprite.enabled = false;
+        }
+    }
+     
+    // 보스를 클리어시 호출될 함수로 
+    // 모든 노드를 삭제하고 다시 생성하게 됨 
+    public void ReloadCurrentScene()
+    {
+        DestroyPersistentObject(); // 모든 노드 삭제 
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex; // 현재 씬 재로드 
+        SceneManager.LoadScene(currentSceneIndex); 
+    }
+    private void DestroyPersistentObject()
+    {
+        if (this.gameObject != null)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    // 모든 Sprite를 보여줌 
+    private void ShowAllSprites()
+    {
+        foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
+        {
+            sprite.enabled = true;
+        }
+    }
 
-    // 모든 노드를 Wall로 초기화 한다. 
+    private void Start()
+    {
+        // 1. 모든 노드를 Wall로 초기화
+        InitializeMap(); 
+        // 2. Prim 알고리즘을 이용해서 None 노드가 
+        GenerateMazeUsingPrim();
+        // 3. None 노드 중에서 확률로 Monster 노드 , Event 노드로 바뀜 
+        ConversionNode();
+        // 4. 보스를 추가 
+        PlaceBossNode();
+        // 5. 현재 노드에서 주변 노드를 회색칠 -> 이미지 추가하면서 다른 방식으로 바꿀 예정 
+        currentNode = nodes[width / 2, height / 2];
+        HighlightAdjacentNodes(currentNode);
+    }
+
+    // 위 함수를 제외한 대부분의 함수는 디자인 처리인데 나중에 에셋을 이용할 예정이므로
+    // 높은 확률로 수정하거나 삭제될 예정 
+
     private void InitializeMap()
     {
         nodes = new Node[width, height];
@@ -51,22 +115,13 @@ public class MapGenerator : MonoBehaviour
 
     private void GenerateMazeUsingPrim()
     {
-        // 임의의 시작 지점 설정
-        // int startX = Random.Range(0, width);
-        // int startY = Random.Range(0, height);
-
-        // 시작 노드는 중앙에 위치 
         int startX = width / 2;
         int startY = height / 2;
 
-        // 노드를 None로 설정 
         Node startNode = nodes[startX, startY];
         startNode.SetNodeType(NodeType.None);
-
-        // 노드 근처에 Wall을 모두 wallList안에 집어 넣음 
         AddWallsToList(startNode);
 
-        // wallList에서 랜덤한 노드 하나를 꺼내서 인접한 노드가 하나일 경우에만 Wall 노드를 None으로 전환 
         while (wallList.Count > 0)
         {
             Node currentWall = wallList[Random.Range(0, wallList.Count)];
@@ -79,9 +134,9 @@ public class MapGenerator : MonoBehaviour
 
             wallList.Remove(currentWall);
         }
-
-        // None 노드 중에서 확률로 Moster 노드나 Event 노드로 바뀜 
-        // 아래 코드는 다른 내용을 적용할 예정 
+    }
+    private void ConversionNode()
+    {
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
@@ -90,11 +145,11 @@ public class MapGenerator : MonoBehaviour
                 if (currentNode.Type == NodeType.None)
                 {
                     float randomValue = Random.value;
-                    if (randomValue < 0.1f)  // 10% 
+                    if (randomValue < 0.1f)  // 10% 확률로 Monster 노드로 변경
                     {
                         currentNode.SetNodeType(NodeType.Monster);
                     }
-                    else if (randomValue < 0.2f)  // 10% 
+                    else if (randomValue < 0.2f)  // 다음 10% 확률 (즉, 전체의 10%)로 Event 노드로 변경
                     {
                         currentNode.SetNodeType(NodeType.Event);
                     }
@@ -102,7 +157,21 @@ public class MapGenerator : MonoBehaviour
             }
         }
     }
-    // 노드의 주변 벽 노드를 WallList에 넣는다. 
+    // 알고리즘 상 문제가 있으나 
+    // 문제가 잘 안생기기에 패스 
+    private void PlaceBossNode()
+    {
+        List<Vector2Int> bossPositions = new List<Vector2Int>()
+        {
+        new Vector2Int(0, 0),           // 왼쪽 아래
+        new Vector2Int(0, height - 1),  // 왼쪽 위
+        new Vector2Int(width - 1, 0),   // 오른쪽 아래
+        new Vector2Int(width - 1, height - 1)  // 오른쪽 위
+        };
+
+        Vector2Int bossPosition = bossPositions[Random.Range(0, bossPositions.Count)];
+        nodes[bossPosition.x, bossPosition.y].SetNodeType(NodeType.Boss);
+    }
     private void AddWallsToList(Node node)
     {
         int x = (int)node.transform.position.x;
@@ -127,7 +196,69 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    // 노드 주변의 None 노드를 반환한다. 
+    private void HighlightAdjacentNodes(Node node)
+    {
+        int x = (int)node.transform.position.x;
+        int y = (int)node.transform.position.y;
+
+        for (int i = -1; i <= 1; i++)
+        {
+            for (int j = -1; j <= 1; j++)
+            {
+                if (i == 0 ^ j == 0)
+                {
+                    if (x + i >= 0 && x + i < width && y + j >= 0 && y + j < height)
+                    {
+                        Node adjacentNode = nodes[x + i, y + j];
+                        if (adjacentNode.Type != NodeType.Wall && !adjacentNode.IsClicked)
+                        {
+                            adjacentNode.HighlightNode();
+                            highlightedNodes.Add(adjacentNode);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void NodeClicked(Node clickedNode)
+    {
+        if (highlightedNodes.Contains(clickedNode))
+        {
+            currentNode = clickedNode;
+            currentNode.SetClicked();
+            HighlightAdjacentNodes(currentNode);
+            Debug.Log(clickedNode.Type);
+
+            // 모든 Sprite를 숨김
+            // 클릭된 노드의 타입에 따라 씬을 전환
+            switch (clickedNode.Type)
+            {
+                case NodeType.Monster:
+                    HideAllSprites(); 
+                    SceneManager.LoadScene("Temp1");
+                    break;
+                case NodeType.Event:
+                    HideAllSprites(); 
+                    SceneManager.LoadScene("Temp1");
+                    break;
+                case NodeType.Boss:
+                    HideAllSprites();
+                    SceneManager.LoadScene("Temp2");
+                    break;
+            }
+        }
+    }
+
+
+    private bool IsAdjacent(Node a, Node b)
+    {
+        int dx = (int)a.transform.position.x - (int)b.transform.position.x;
+        int dy = (int)a.transform.position.y - (int)b.transform.position.y;
+
+        return (dx == 1 && dy == 0) || (dx == -1 && dy == 0) || (dx == 0 && dy == 1) || (dx == 0 && dy == -1);
+    }
+
     private List<Node> GetAdjacentRooms(Node node)
     {
         List<Node> rooms = new List<Node>();
@@ -154,20 +285,5 @@ public class MapGenerator : MonoBehaviour
         }
 
         return rooms;
-    }
-
-    private void LoadMap()
-    {
-        for (int x = 0; x < width; x++)
-        {
-            for (int y = 0; y < height; y++)
-            {
-                if (savedMap[x, y] == null) continue;
-
-                GameObject nodeObj = Instantiate(nodePrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
-                Node nodeComponent = nodeObj.GetComponent<Node>();
-                nodeComponent.SetNodeType(savedMap[x, y].Type);
-            }
-        }
     }
 }
