@@ -650,6 +650,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c63e0f12017da47bb9774c1d78b946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  info: {fileID: 0}
+  creature_info: {fileID: 0}
 --- !u!114 &-7470911105131797480
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -8,9 +9,11 @@ public class MerchantView: MonoBehaviour
 {   
     public List<Transform> card_zones = new();
     private IMerchant merchant;
+    private GameObject price_tag_prefab;
     void Awake()
     {
         merchant = new Merchant();
+        price_tag_prefab = Resources.Load<GameObject>("Prefabs/Cards/PriceTag");
         for (int i = 0; i < merchant.cards_size; i++)
         {
             Card card = merchant.get_card(i);
@@ -19,6 +22,10 @@ public class MerchantView: MonoBehaviour
                 CardView card_view = card.GetComponent<CardView>();
                 card_view.show();
                 card_view.on_clicked += on_card_cliked;
+
+                GameObject price_object = Instantiate(price_tag_prefab);
+                price_object.transform.SetParent(card.transform, false);
+                price_object.GetComponent<PriceTag>().price = card.info.price;
             }
         }
     }

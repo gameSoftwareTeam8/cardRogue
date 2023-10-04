@@ -12,7 +12,7 @@ public interface IPlayer
     public void take_damage(int amount);
     public void heal(int amount);
     public void add_card(GameObject card_object);
-    public void remove_card(int idx);
+    public void remove_card(GameObject card_object);
     public GameObject get_card(int idx);
 }
 
@@ -42,9 +42,9 @@ public class Player: IPlayer
         card_objects.Add(card_object);
     }
 
-    public void remove_card(int idx)
+    public void remove_card(GameObject card_object)
     {
-        card_objects.RemoveAt(idx);
+        card_objects.Remove(card_object);
     }
 
     public void take_damage(int amount)

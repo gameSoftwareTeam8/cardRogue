@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9f2a0a188372b946973345d90e30611, type: 3}
-  m_Name: Slime
+  m_Name: Warmonge
   m_EditorClassIdentifier: 
-  card_name: Slime
-  description: This is Slime
-  effect_name: 
-  rarity: 0
-  cost: 1
-  price: 30
+  card_name: Warmonge
+  description: Gain +1/+1 before battle
+  effect_name: BuffOnBattleEffect
+  rarity: 2
+  cost: 2
+  price: 100
   sprite: {fileID: 0}
   power: 1
-  hp: 4
+  hp: 5

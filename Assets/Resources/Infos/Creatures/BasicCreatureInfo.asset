@@ -17,6 +17,7 @@ MonoBehaviour:
   effect_name: BasicCreatureEffect
   rarity: 0
   cost: 1
+  price: 30
   sprite: {fileID: 0}
   power: 2
   hp: 3

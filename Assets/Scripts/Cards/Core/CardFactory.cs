@@ -17,8 +17,10 @@ public class CardFactory
     {
         GameObject game_object = create_card_type(card_info);
         var effect_type = Type.GetType(card_info.effect_name);
-        if (effect_type is not null)
+        if (effect_type is not null) {
             game_object.AddComponent(effect_type);
+            game_object.GetComponent<CardEffect>()?.init();
+        }
         game_object.name = card_info.card_name;
         
         return game_object;

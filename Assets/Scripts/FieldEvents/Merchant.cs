@@ -44,9 +44,10 @@ public class Merchant: IMerchant
     public bool buy(int idx)
     {
         IPlayer player = Locator.player;
+        player.balance = 1000; // FOR TEST
         Card card = get_card(idx);
-        if (player.balance >= card.info.cost) {
-            player.balance -= card.info.cost;
+        if (player.balance >= card.info.price) {
+            player.balance -= card.info.price;
             player.add_card(card.gameObject);
             return true;
         }
@@ -62,7 +63,9 @@ public class Merchant: IMerchant
     {
         IPlayer player = Locator.player;
         if (player.balance >= cost_to_remove) {
-            player.remove_card(idx);
+            Card card = get_card(idx);
+            player.remove_card(card.gameObject);
+            GameObject.Destroy(card.gameObject);
             cost_to_remove += COST_TO_REMOVE_ADDEND;
             return true;
         }

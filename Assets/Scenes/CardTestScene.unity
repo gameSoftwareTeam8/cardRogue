@@ -875,7 +875,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031d1b7ca5145c040a1c4b63f721f31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   board: {fileID: 1875178746}
   test_card_info:
   - {fileID: 11400000, guid: 2a239af5bdc44d54ca7a798b1ab8b19f, type: 2}
@@ -1721,6 +1720,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c63e0f12017da47bb9774c1d78b946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  info: {fileID: 0}
+  creature_info: {fileID: 0}
 --- !u!1 &4531217052432483372
 GameObject:
   m_ObjectHideFlags: 0

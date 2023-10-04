@@ -32,14 +32,20 @@ public class Creature: Card
 
     public void take_damage(int amount, Card source)
     {
+        if (is_destroyed)
+            return;
+
         current_hp -= amount;
         SendMessage("on_damaged", (amount, source), SendMessageOptions.DontRequireReceiver);
         if (current_hp <= 0)
-            destroy();  
+            destroy();
     }
 
     public void heal(int amount, Card source)
     {
+        if (is_destroyed)
+            return;
+            
         current_hp = Mathf.Min(creature_info.hp, current_hp + amount);       
         SendMessage("on_healed", (amount, source), SendMessageOptions.DontRequireReceiver);
     }
