@@ -28,6 +28,7 @@ public class CardVfx: MonoBehaviour
                 Destroy(gameObject);
         }
     }
+
     public void on_destroyed()
     {
         GameObject smoke_object = Locator.vfx_factory.create("Smoke");

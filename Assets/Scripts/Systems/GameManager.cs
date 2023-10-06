@@ -20,7 +20,6 @@ public class GameManager: MonoBehaviour
             Locator.player.add_card(card_object);
         }
 
-        board.add_card(BoardSide.HOME, 0, Locator.card_factory.create(test_card_info[0]).GetComponent<Creature>());
         board.add_card(BoardSide.HOME, 1, Locator.card_factory.create(test_card_info[2]).GetComponent<Creature>());
         board.add_card(BoardSide.AWAY, 0, Locator.card_factory.create(test_card_info[1]).GetComponent<Creature>());
         board.add_card(BoardSide.AWAY, 1, Locator.card_factory.create(test_card_info[0]).GetComponent<Creature>());

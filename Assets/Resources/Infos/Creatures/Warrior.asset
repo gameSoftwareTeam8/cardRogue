@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f2a0a188372b946973345d90e30611, type: 3}
   m_Name: Warrior
   m_EditorClassIdentifier: 
-  card_name: Warroior
+  card_name: Warrior
   description: Deal splash damage
   effect_name: SplashEffect
   rarity: 2

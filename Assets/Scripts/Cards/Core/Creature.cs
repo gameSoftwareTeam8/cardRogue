@@ -27,7 +27,9 @@ public class Creature: Card
 
     public void attack(Creature target)
     {
+        SendMessage("on_battle_started", SendMessageOptions.DontRequireReceiver);
         target.take_damage(creature_info.power, this);
+        SendMessage("on_battle_ended", SendMessageOptions.DontRequireReceiver);
     }
 
     public void take_damage(int amount, Card source)
