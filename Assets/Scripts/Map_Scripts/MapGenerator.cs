@@ -9,8 +9,8 @@ public class MapGenerator : MonoBehaviour
 
     private Node[,] nodes;
     private Node currentNode;
-    private List<Node> highlightedNodes = new List<Node>(); // È°¼ºÈ­µÈ ³ëµå¸¦ ÃßÀûÇÏ±â À§ÇÑ ¸®½ºÆ®
-    private List<Node> wallList = new List<Node>(); // Prim ¾Ë°í¸®ÁòÀ» À§ÇÑ wallList
+    private List<Node> highlightedNodes = new List<Node>(); // È°ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+    private List<Node> wallList = new List<Node>(); // Prim ï¿½Ë°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ wallList
 
     public static MapGenerator Instance { get; private set; }
 
@@ -35,19 +35,19 @@ public class MapGenerator : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Map SceneÀÏ ¶§¿¡¸¸ Sprite¸¦ º¸¿©ÁÜ
+        // Map Sceneï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Spriteï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (scene.name == "Map")
         {
             ShowAllSprites();
         }
-        // ´Ù¸¥ ¾ÀÀÏ °æ¿ì Sprite¸¦ ¼û±è 
+        // ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Spriteï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
         else
         {
             HideAllSprites();
         }
     }
 
-    // ¾À ÀüÈ¯ÇÒ ¶§ ¸ðµç Sprite¸¦ ¼û±è 
+    // ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ Spriteï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
     private void HideAllSprites()
     {
         foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
@@ -56,12 +56,12 @@ public class MapGenerator : MonoBehaviour
         }
     }
      
-    // º¸½º¸¦ Å¬¸®¾î½Ã È£ÃâµÉ ÇÔ¼ö·Î 
-    // ¸ðµç ³ëµå¸¦ »èÁ¦ÇÏ°í ´Ù½Ã »ý¼ºÇÏ°Ô µÊ 
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ 
+    // ï¿½ï¿½ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ 
     public void ReloadCurrentScene()
     {
-        DestroyPersistentObject(); // ¸ðµç ³ëµå »èÁ¦ 
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex; // ÇöÀç ¾À Àç·Îµå 
+        DestroyPersistentObject(); // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Îµï¿½ 
         SceneManager.LoadScene(currentSceneIndex); 
     }
     private void DestroyPersistentObject()
@@ -71,7 +71,7 @@ public class MapGenerator : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    // ¸ðµç Sprite¸¦ º¸¿©ÁÜ 
+    // ï¿½ï¿½ï¿½ Spriteï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
     private void ShowAllSprites()
     {
         foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
@@ -82,21 +82,21 @@ public class MapGenerator : MonoBehaviour
 
     private void Start()
     {
-        // 1. ¸ðµç ³ëµå¸¦ Wall·Î ÃÊ±âÈ­
+        // 1. ï¿½ï¿½ï¿½ ï¿½ï¿½å¸¦ Wallï¿½ï¿½ ï¿½Ê±ï¿½È­
         InitializeMap(); 
-        // 2. Prim ¾Ë°í¸®ÁòÀ» ÀÌ¿ëÇØ¼­ None ³ëµå°¡ 
+        // 2. Prim ï¿½Ë°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ø¼ï¿½ None ï¿½ï¿½å°¡ 
         GenerateMazeUsingPrim();
-        // 3. None ³ëµå Áß¿¡¼­ È®·ü·Î Monster ³ëµå , Event ³ëµå·Î ¹Ù²ñ 
+        // 3. None ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ Monster ï¿½ï¿½ï¿½ , Event ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ 
         ConversionNode();
-        // 4. º¸½º¸¦ Ãß°¡ 
+        // 4. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ 
         PlaceBossNode();
-        // 5. ÇöÀç ³ëµå¿¡¼­ ÁÖº¯ ³ëµå¸¦ È¸»öÄ¥ -> ÀÌ¹ÌÁö Ãß°¡ÇÏ¸é¼­ ´Ù¸¥ ¹æ½ÄÀ¸·Î ¹Ù²Ü ¿¹Á¤ 
+        // 5. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¿¡ï¿½ï¿½ ï¿½Öºï¿½ ï¿½ï¿½å¸¦ È¸ï¿½ï¿½Ä¥ -> ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ï¸é¼­ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ ï¿½ï¿½ï¿½ï¿½ 
         currentNode = nodes[width / 2, height / 2];
         HighlightAdjacentNodes(currentNode);
     }
 
-    // À§ ÇÔ¼ö¸¦ Á¦¿ÜÇÑ ´ëºÎºÐÀÇ ÇÔ¼ö´Â µðÀÚÀÎ Ã³¸®ÀÎµ¥ ³ªÁß¿¡ ¿¡¼ÂÀ» ÀÌ¿ëÇÒ ¿¹Á¤ÀÌ¹Ç·Î
-    // ³ôÀº È®·ü·Î ¼öÁ¤ÇÏ°Å³ª »èÁ¦µÉ ¿¹Á¤ 
+    // ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¹Ç·ï¿½
+    // ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 
     private void InitializeMap()
     {
@@ -105,7 +105,9 @@ public class MapGenerator : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                GameObject nodeObj = Instantiate(nodePrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
+                GameObject nodeObj = Instantiate(nodePrefab);
+                nodeObj.transform.parent = transform;
+                nodeObj.transform.localPosition = new Vector3(x, y, 0);
                 Node nodeComponent = nodeObj.GetComponent<Node>();
                 nodeComponent.SetNodeType(NodeType.Wall);
                 nodes[x, y] = nodeComponent;
@@ -145,11 +147,11 @@ public class MapGenerator : MonoBehaviour
                 if (currentNode.Type == NodeType.None)
                 {
                     float randomValue = Random.value;
-                    if (randomValue < 0.1f)  // 10% È®·ü·Î Monster ³ëµå·Î º¯°æ
+                    if (randomValue < 0.1f)  // 10% È®ï¿½ï¿½ï¿½ï¿½ Monster ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                     {
                         currentNode.SetNodeType(NodeType.Monster);
                     }
-                    else if (randomValue < 0.2f)  // ´ÙÀ½ 10% È®·ü (Áï, ÀüÃ¼ÀÇ 10%)·Î Event ³ëµå·Î º¯°æ
+                    else if (randomValue < 0.2f)  // ï¿½ï¿½ï¿½ï¿½ 10% È®ï¿½ï¿½ (ï¿½ï¿½, ï¿½ï¿½Ã¼ï¿½ï¿½ 10%)ï¿½ï¿½ Event ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                     {
                         currentNode.SetNodeType(NodeType.Event);
                     }
@@ -157,16 +159,16 @@ public class MapGenerator : MonoBehaviour
             }
         }
     }
-    // ¾Ë°í¸®Áò »ó ¹®Á¦°¡ ÀÖÀ¸³ª 
-    // ¹®Á¦°¡ Àß ¾È»ý±â±â¿¡ ÆÐ½º 
+    // ï¿½Ë°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½È»ï¿½ï¿½ï¿½â¿¡ ï¿½Ð½ï¿½ 
     private void PlaceBossNode()
     {
         List<Vector2Int> bossPositions = new List<Vector2Int>()
         {
-        new Vector2Int(0, 0),           // ¿ÞÂÊ ¾Æ·¡
-        new Vector2Int(0, height - 1),  // ¿ÞÂÊ À§
-        new Vector2Int(width - 1, 0),   // ¿À¸¥ÂÊ ¾Æ·¡
-        new Vector2Int(width - 1, height - 1)  // ¿À¸¥ÂÊ À§
+        new Vector2Int(0, 0),           // ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½
+        new Vector2Int(0, height - 1),  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+        new Vector2Int(width - 1, 0),   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½
+        new Vector2Int(width - 1, height - 1)  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         };
 
         Vector2Int bossPosition = bossPositions[Random.Range(0, bossPositions.Count)];
@@ -174,8 +176,8 @@ public class MapGenerator : MonoBehaviour
     }
     private void AddWallsToList(Node node)
     {
-        int x = (int)node.transform.position.x;
-        int y = (int)node.transform.position.y;
+        int x = (int)node.transform.localPosition.x;
+        int y = (int)node.transform.localPosition.y;
 
         for (int i = -1; i <= 1; i++)
         {
@@ -198,8 +200,8 @@ public class MapGenerator : MonoBehaviour
 
     private void HighlightAdjacentNodes(Node node)
     {
-        int x = (int)node.transform.position.x;
-        int y = (int)node.transform.position.y;
+        int x = (int)node.transform.localPosition.x;
+        int y = (int)node.transform.localPosition.y;
 
         for (int i = -1; i <= 1; i++)
         {
@@ -230,8 +232,8 @@ public class MapGenerator : MonoBehaviour
             HighlightAdjacentNodes(currentNode);
             Debug.Log(clickedNode.Type);
 
-            // ¸ðµç Sprite¸¦ ¼û±è
-            // Å¬¸¯µÈ ³ëµåÀÇ Å¸ÀÔ¿¡ µû¶ó ¾ÀÀ» ÀüÈ¯
+            // ï¿½ï¿½ï¿½ Spriteï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            // Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
             switch (clickedNode.Type)
             {
                 case NodeType.Monster:
@@ -240,7 +242,7 @@ public class MapGenerator : MonoBehaviour
                     break;
                 case NodeType.Event:
                     HideAllSprites(); 
-                    SceneManager.LoadScene("Temp1");
+                    SceneManager.LoadScene("Merchant");
                     break;
                 case NodeType.Boss:
                     HideAllSprites();
@@ -253,8 +255,8 @@ public class MapGenerator : MonoBehaviour
 
     private bool IsAdjacent(Node a, Node b)
     {
-        int dx = (int)a.transform.position.x - (int)b.transform.position.x;
-        int dy = (int)a.transform.position.y - (int)b.transform.position.y;
+        int dx = (int)a.transform.localPosition.x - (int)b.transform.localPosition.x;
+        int dy = (int)a.transform.localPosition.y - (int)b.transform.localPosition.y;
 
         return (dx == 1 && dy == 0) || (dx == -1 && dy == 0) || (dx == 0 && dy == 1) || (dx == 0 && dy == -1);
     }
@@ -263,8 +265,8 @@ public class MapGenerator : MonoBehaviour
     {
         List<Node> rooms = new List<Node>();
 
-        int x = (int)node.transform.position.x;
-        int y = (int)node.transform.position.y;
+        int x = (int)node.transform.localPosition.x;
+        int y = (int)node.transform.localPosition.y;
 
         for (int i = -1; i <= 1; i++)
         {

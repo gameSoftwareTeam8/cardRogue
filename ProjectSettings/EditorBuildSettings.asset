@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Temp2.unity
     guid: 4cca793b6b742ec4b9e109fac525f6e3
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: 8c0386cc6a7734c6a949b5e633110156
+  - enabled: 1
+    path: Assets/Scenes/HeaderBar.unity
+    guid: 42bbf7a9aa18f4ccb8a4761373f6cccc
+  - enabled: 1
+    path: Assets/Scenes/Merchant.unity
+    guid: 3315ff6da89d3c24184a0faa09bf14eb
   m_configObjects: {}

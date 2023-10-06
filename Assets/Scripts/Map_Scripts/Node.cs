@@ -1,4 +1,5 @@
 using UnityEngine;
+
 public enum NodeType
 {
     None,
@@ -11,7 +12,7 @@ public class Node : MonoBehaviour
 {
     public NodeType Type { get; private set; }
     public bool IsClicked { get; private set; } = false;
-
+    
     private SpriteRenderer spriteRenderer;
     private Color defaultColor = Color.black;
     private Color highlightedColor = Color.gray;
@@ -20,7 +21,7 @@ public class Node : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = defaultColor; // ÃÊ±â »ö»ó ¼³Á¤
+        spriteRenderer.color = defaultColor; // ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     public void SetNodeType(NodeType type)
@@ -33,7 +34,7 @@ public class Node : MonoBehaviour
     {
         IsClicked = true;
 
-        // ³ëµå°¡ Å¬¸¯µÇ¸é ³ëµåÀÇ °íÀ¯ »ö»óÀ» Ç¥½Ã
+        // ï¿½ï¿½å°¡ Å¬ï¿½ï¿½ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
         UpdateNodeColor();
     }
 
@@ -41,7 +42,7 @@ public class Node : MonoBehaviour
     {
         if (!IsClicked)
         {
-            spriteRenderer.color = defaultColor;  // ³ëµå°¡ Å¬¸¯µÇÁö ¾Ê¾ÒÀ¸¸é ±âº» »ö»óÀ» »ç¿ë
+            spriteRenderer.color = defaultColor;  // ï¿½ï¿½å°¡ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             return;
         }
 
@@ -59,7 +60,7 @@ public class Node : MonoBehaviour
             case NodeType.Event:
                 spriteRenderer.color = Color.blue;
                 break;
-            // ÀÇ¹Ì ¾ø´Â ³ëµå 
+            // ï¿½Ç¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
             case NodeType.Boss:
                 spriteRenderer.color = Color.white;
                 break;
@@ -70,7 +71,7 @@ public class Node : MonoBehaviour
 
     public void HighlightNode()
     {
-        if (!IsClicked) // ³ëµå°¡ ÀÌ¹Ì Å¬¸¯µÈ »óÅÂ°¡ ¾Æ´Ï¶ó¸é
+        if (!IsClicked) // ï¿½ï¿½å°¡ ï¿½Ì¹ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Æ´Ï¶ï¿½ï¿½
         {
             spriteRenderer.color = highlightedColor;
         }

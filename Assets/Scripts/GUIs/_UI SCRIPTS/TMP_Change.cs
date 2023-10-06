@@ -8,6 +8,6 @@ public class Change : MonoBehaviour
 
     public void SceneChange()
     {
-        SceneManager.LoadScene("MapUI");
+        SceneManager.LoadScene("HeaderBar");
     }
 }
