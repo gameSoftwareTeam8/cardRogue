@@ -677,6 +677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   burning_material: {fileID: 2100000, guid: ed0a8b7efc5c36c4db795efdf79f8d6b, type: 2}
+  destroy_animation: {fileID: 7400000, guid: f6d516be9a42d0d45b5dd2266a22c459, type: 2}
   damage_animation: {fileID: 7400000, guid: 5be3590ce22235049adef2d9ddd4666e, type: 2}
 --- !u!61 &4097127033124750602
 BoxCollider2D:

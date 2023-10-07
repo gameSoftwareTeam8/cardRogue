@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -9,6 +10,8 @@ public class CardVfx: MonoBehaviour
 {
     [SerializeField]
     private Material burning_material;
+    [SerializeField]
+    private AnimationClip destroy_animation;
     private float time_to_destroy = 2.0f;
     private Card card;
     private float age = 0.0f;
@@ -40,6 +43,18 @@ public class CardVfx: MonoBehaviour
                 continue;
             
             renderer.material = burning_material;
+        }
+
+        foreach (var text in GetComponentsInChildren<TextMeshPro>())
+        {
+            if (text.name != "Text")
+                continue;
+
+            text.AddComponent<Destroyer>();
+            text.AddComponent<Animation>();
+            Animation animation = text.GetComponent<Animation>();
+            animation.AddClip(destroy_animation, "DamageAnimation");
+            animation.Play("DamageAnimation");
         }
     }
 }
