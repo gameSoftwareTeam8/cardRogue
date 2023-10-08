@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum NodeType
 {
@@ -6,90 +7,102 @@ public enum NodeType
     Wall,
     Monster,
     Event,
+    Merchant,
     Boss
 }
+
 public class Node : MonoBehaviour
 {
     public NodeType Type { get; private set; }
     public bool IsClicked { get; private set; } = false;
-    
+
     private SpriteRenderer spriteRenderer;
-    private Color defaultColor = Color.black;
-    private Color highlightedColor = Color.gray;
-    private Color clickedColor = new Color(1, 0.65f, 0);
+
+    // 각 노드 유형에 대한 스프라이트
+    public Sprite noneSprite;
+    public Sprite wallSprite;
+    public Sprite monsterSprite;
+    public Sprite eventSprite;
+    public Sprite bossSprite;
+    public Sprite MerchantSprite;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = defaultColor; // �ʱ� ���� ����
+        spriteRenderer.enabled = false; // 스프라이트를 기본적으로 숨김
+        SetNodeType(Type);  // 현재 노드의 유형에 따라 스프라이트 설정
     }
 
     public void SetNodeType(NodeType type)
     {
         Type = type;
-        UpdateNodeColor();
+        UpdateNodeSprite();
     }
 
     public void SetClicked()
     {
         IsClicked = true;
-
-        // ��尡 Ŭ���Ǹ� ����� ���� ������ ǥ��
-        UpdateNodeColor();
+        UpdateNodeSprite();  // 클릭됐을 때 스프라이트 업데이트
     }
 
-    private void UpdateNodeColor()
+    private void UpdateNodeSprite()
     {
         if (!IsClicked)
         {
-            spriteRenderer.color = defaultColor;  // ��尡 Ŭ������ �ʾ����� �⺻ ������ ���
-            return;
+            spriteRenderer.color = Color.gray;  // 활성화된 노드를 회색으로 바꿈
+        }
+        else
+        {
+            spriteRenderer.color = Color.white; // 클릭된 노드는 원래 색상을 유지
         }
 
         switch (Type)
         {
             case NodeType.None:
-                spriteRenderer.color = clickedColor;
+                spriteRenderer.sprite = noneSprite;
                 break;
             case NodeType.Wall:
-                spriteRenderer.color = Color.black;
+                spriteRenderer.sprite = wallSprite;
                 break;
             case NodeType.Monster:
-                spriteRenderer.color = Color.red;
+                spriteRenderer.sprite = monsterSprite;
                 break;
             case NodeType.Event:
-                spriteRenderer.color = Color.blue;
+                spriteRenderer.sprite = eventSprite;
                 break;
-            // �ǹ� ���� ��� 
             case NodeType.Boss:
-                spriteRenderer.color = Color.white;
+                spriteRenderer.sprite = bossSprite;
                 break;
-
-
+            case NodeType.Merchant:
+                spriteRenderer.sprite = MerchantSprite;
+                break;
         }
     }
 
     public void HighlightNode()
     {
-        if (!IsClicked) // ��尡 �̹� Ŭ���� ���°� �ƴ϶��
-        {
-            spriteRenderer.color = highlightedColor;
-        }
-    }
-
-    public void ResetColor()
-    {
-        UpdateNodeColor();
+        spriteRenderer.enabled = true;  // 노드 스프라이트 활성화
     }
 
     private void OnMouseDown()
     {
+        if (SceneManager.GetActiveScene().name != "Map"&&
+            SceneManager.GetActiveScene().name != "Map1"&&
+            SceneManager.GetActiveScene().name != "Map2")
+        {
+            return; 
+        }
+        if (IsClicked) return;
+  
         MapGenerator mapGenerator = FindObjectOfType<MapGenerator>();
         if (mapGenerator != null)
         {
             mapGenerator.NodeClicked(this);
         }
-
-
+    }
+    public bool IsSpriteEnabled
+    {
+        get { return spriteRenderer.enabled; }
+        set { spriteRenderer.enabled = value; }
     }
 }

@@ -3,7 +3,12 @@ guid: 82268992445ba584f96653604202b24d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - noneSprite: {instanceID: 0}
+  - wallSprite: {instanceID: 0}
+  - monsterSprite: {instanceID: 0}
+  - eventSprite: {instanceID: 0}
+  - bossSprite: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
