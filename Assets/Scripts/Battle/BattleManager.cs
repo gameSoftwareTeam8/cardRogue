@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class BattleManager : MonoBehaviour
 {
-    public static GameManager Inst {  get; private set; }
+    public static BattleManager Inst {  get; private set; }
     void Awake() => Inst = this;
     [SerializeField] NotificationPanel notificationPanel;
  

@@ -48,9 +48,9 @@ public class TurnManager : MonoBehaviour
     {
         isLoading = true;
         if (myTurn)
-            GameManager.Inst.Notification("���� ��");
+            BattleManager.Inst.Notification("���� ��");
         else
-            GameManager.Inst.Notification("��� ��");
+            BattleManager.Inst.Notification("��� ��");
         yield return delay07;
         OnAddCard?.Invoke(myTurn);
         yield return delay07;
