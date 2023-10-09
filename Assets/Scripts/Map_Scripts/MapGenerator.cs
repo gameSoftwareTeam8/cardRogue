@@ -1,23 +1,25 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class MapGenerator : MonoBehaviour
 {
-    public int width = 10;
-    public int height = 10;
+    public int width = 8;
+    public int height = 8;
     public GameObject nodePrefab;
 
     private Node[,] nodes;
     private Node currentNode;
-    private List<Node> highlightedNodes = new List<Node>(); // Ȱ��ȭ�� ��带 �����ϱ� ���� ����Ʈ
-    private List<Node> wallList = new List<Node>(); // Prim �˰������� ���� wallList
+    private List<Node> highlightedNodes = new List<Node>();
+    private List<Node> wallList = new List<Node>();
 
     public static MapGenerator Instance { get; private set; }
-
-
+    bool a = false;
     private void Awake()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        
         if (Instance == null)
         {
             Instance = this;
@@ -28,6 +30,7 @@ public class MapGenerator : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -35,19 +38,16 @@ public class MapGenerator : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Map Scene�� ������ Sprite�� ������
-        if (scene.name == "Map")
+        if (scene.name == "Map" && nodes != null)
         {
-            ShowAllSprites();
+            ShowActiveSprites();
         }
-        // �ٸ� ���� ��� Sprite�� ���� 
         else
         {
             HideAllSprites();
         }
     }
 
-    // �� ��ȯ�� �� ��� Sprite�� ���� 
     private void HideAllSprites()
     {
         foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
@@ -55,15 +55,14 @@ public class MapGenerator : MonoBehaviour
             sprite.enabled = false;
         }
     }
-     
-    // ������ Ŭ����� ȣ��� �Լ��� 
-    // ��� ��带 �����ϰ� �ٽ� �����ϰ� �� 
+
     public void ReloadCurrentScene()
     {
-        DestroyPersistentObject(); // ��� ��� ���� 
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex; // ���� �� ��ε� 
-        SceneManager.LoadScene(currentSceneIndex); 
+        DestroyPersistentObject();
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
+
     private void DestroyPersistentObject()
     {
         if (this.gameObject != null)
@@ -71,32 +70,46 @@ public class MapGenerator : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    // ��� Sprite�� ������ 
-    private void ShowAllSprites()
+
+    private void ShowActiveSprites()
     {
-        foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
+        /*
+        if(nodes == null)
         {
-            sprite.enabled = true;
+            return;
         }
+        */
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                Node node = nodes[x, y];
+                if (node.IsClicked || highlightedNodes.Contains(node))
+                {
+                    node.IsSpriteEnabled = true;
+                }
+                else
+                {
+                    node.IsSpriteEnabled = false;
+                }
+            }
+        }
+        
     }
 
     private void Start()
     {
-        // 1. ��� ��带 Wall�� �ʱ�ȭ
-        InitializeMap(); 
-        // 2. Prim �˰������� �̿��ؼ� None ��尡 
+        InitializeMap();
         GenerateMazeUsingPrim();
-        // 3. None ��� �߿��� Ȯ���� Monster ��� , Event ���� �ٲ� 
         ConversionNode();
-        // 4. ������ �߰� 
         PlaceBossNode();
-        // 5. ���� ��忡�� �ֺ� ��带 ȸ��ĥ -> �̹��� �߰��ϸ鼭 �ٸ� ������� �ٲ� ���� 
-        currentNode = nodes[width / 2, height / 2];
+        currentNode = nodes[width / 2, height / 2]; 
+                 
         HighlightAdjacentNodes(currentNode);
+        currentNode.SetNodeType(NodeType.None);     
+        currentNode.SetClicked();
+        currentNode.HighlightNode();
     }
-
-    // �� �Լ��� ������ ��κ��� �Լ��� ������ ó���ε� ���߿� ������ �̿��� �����̹Ƿ�
-    // ���� Ȯ���� �����ϰų� ������ ���� 
 
     private void InitializeMap()
     {
@@ -108,6 +121,7 @@ public class MapGenerator : MonoBehaviour
                 GameObject nodeObj = Instantiate(nodePrefab);
                 nodeObj.transform.parent = transform;
                 nodeObj.transform.localPosition = new Vector3(x, y, 0);
+                nodeObj.name = "Node_Wall";
                 Node nodeComponent = nodeObj.GetComponent<Node>();
                 nodeComponent.SetNodeType(NodeType.Wall);
                 nodes[x, y] = nodeComponent;
@@ -137,6 +151,7 @@ public class MapGenerator : MonoBehaviour
             wallList.Remove(currentWall);
         }
     }
+
     private void ConversionNode()
     {
         for (int x = 0; x < width; x++)
@@ -147,20 +162,26 @@ public class MapGenerator : MonoBehaviour
                 if (currentNode.Type == NodeType.None)
                 {
                     float randomValue = Random.value;
-                    if (randomValue < 0.1f)  // 10% Ȯ���� Monster ���� ����
+                    if (randomValue < 0.2f)  // 10% Ȯ���� Monster ���� ����
                     {
                         currentNode.SetNodeType(NodeType.Monster);
+                        currentNode.name = "Node_Moster";
                     }
-                    else if (randomValue < 0.2f)  // ���� 10% Ȯ�� (��, ��ü�� 10%)�� Event ���� ����
+                    else if (randomValue < 0.4f)  // ���� 10% Ȯ�� (��, ��ü�� 10%)�� Event ���� ����
                     {
                         currentNode.SetNodeType(NodeType.Event);
+                        currentNode.name = "Node_Event";
+                    }
+                    else if (randomValue < 0.5f)
+                    {
+                        currentNode.SetNodeType(NodeType.Merchant);
+                        currentNode.name = "Node_Merchant";
                     }
                 }
             }
         }
     }
-    // �˰����� �� ������ ������ 
-    // ������ �� �Ȼ���⿡ �н� 
+    // modified Boss generator Algorithm
     private void PlaceBossNode()
     {
         List<Vector2Int> bossPositions = new List<Vector2Int>()
@@ -172,7 +193,15 @@ public class MapGenerator : MonoBehaviour
         };
 
         Vector2Int bossPosition = bossPositions[Random.Range(0, bossPositions.Count)];
-        nodes[bossPosition.x, bossPosition.y].SetNodeType(NodeType.Boss);
+        Node potentialBossNode;
+        do
+        {
+            bossPosition = bossPositions[Random.Range(0, bossPositions.Count)];
+            potentialBossNode = nodes[bossPosition.x, bossPosition.y];
+        }
+        while (potentialBossNode.Type == NodeType.Wall);  
+
+        potentialBossNode.SetNodeType(NodeType.Boss);
     }
     private void AddWallsToList(Node node)
     {
@@ -230,18 +259,19 @@ public class MapGenerator : MonoBehaviour
             currentNode = clickedNode;
             currentNode.SetClicked();
             HighlightAdjacentNodes(currentNode);
-            Debug.Log(clickedNode.Type);
 
-            // ��� Sprite�� ����
-            // Ŭ���� ����� Ÿ�Կ� ���� ���� ��ȯ
             switch (clickedNode.Type)
             {
                 case NodeType.Monster:
-                    HideAllSprites(); 
+                    HideAllSprites();
                     SceneManager.LoadScene("Temp1");
                     break;
                 case NodeType.Event:
-                    HideAllSprites(); 
+                    HideAllSprites();
+                    SceneManager.LoadScene("Temp1");
+                    break;
+                case NodeType.Merchant:
+                    HideAllSprites();
                     SceneManager.LoadScene("Merchant");
                     break;
                 case NodeType.Boss:
@@ -251,6 +281,7 @@ public class MapGenerator : MonoBehaviour
             }
         }
     }
+
 
 
     private bool IsAdjacent(Node a, Node b)
