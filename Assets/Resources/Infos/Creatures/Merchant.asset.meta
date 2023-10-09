@@ -1,8 +1,4 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: f6833d112b4aa5a449af03d4d164a1fc
-NativeFormatImporter:
-=======
 <<<<<<<< HEAD:Assets/Scripts/Battle/SO.meta
 guid: 0c79f8e59f2bad14fb1f8ab8a4799d01
 folderAsset: yes
@@ -11,7 +7,6 @@ DefaultImporter:
 guid: dd7b71abe47c830499f2500291df880a
 NativeFormatImporter:
 >>>>>>>> a725c4349edd8094ede10142292770572e472e4e:Assets/Resources/Infos/Creatures/Merchant.asset.meta
->>>>>>> 733abb91346f946a96081c3f5dfd98d330d3465f
   externalObjects: {}
   mainObjectFileID: 11400000
   userData: 
