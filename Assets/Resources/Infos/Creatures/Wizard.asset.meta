@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/Infos/Creatures/Wizard.asset.meta
 guid: f6833d112b4aa5a449af03d4d164a1fc
 NativeFormatImporter:
+========
+guid: 0c79f8e59f2bad14fb1f8ab8a4799d01
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> parent of 4d120d3 (배틀씬 추가):Assets/Scripts/Battle/SO.meta
   externalObjects: {}
   mainObjectFileID: 11400000
   userData: 
