@@ -12,14 +12,14 @@ public class CardManager : MonoBehaviour
 
     [SerializeField] itemSO itemSO;
     [SerializeField] GameObject cardPrefab;
-    [SerializeField] List<Card> myCards;
+    [SerializeField] List<Cards> myCards;
     [SerializeField] Transform cardSpawnPoint;
     [SerializeField] Transform myCardLeft;
     [SerializeField] Transform myCardRight;
     [SerializeField] ECardState eCardState;
 
     List<Item> itemBuffer;
-    Card selectCard;
+    Cards selectCard;
     bool isMyCardDrag;
     bool onCardArea;
     enum ECardState { Nothing, CanMouseOver, CanMouseDrag};
@@ -55,12 +55,12 @@ public class CardManager : MonoBehaviour
     void Start()
     {
         SetupItemBuffer();
-        TurnManager.OnAddCard += AddCard;
+        TurnManage.OnAddCard += AddCard;
     }
 
     private void OnDestroy()
     {
-        TurnManager.OnAddCard -= AddCard;
+        TurnManage.OnAddCard -= AddCard;
     }
 
     private void Update()
@@ -75,7 +75,7 @@ public class CardManager : MonoBehaviour
     void AddCard(bool myTurn)
     {
         var cardObject = Instantiate(cardPrefab, cardSpawnPoint.position, Utils.QI);
-        var card = cardObject.GetComponent<Card>();
+        var card = cardObject.GetComponent<Cards>();
         card.Setup(PopItem(), true);
         if(myTurn)
             myCards.Add(card);
@@ -144,14 +144,14 @@ public class CardManager : MonoBehaviour
     }
 
     #region MyCard
-    public void CardMouseOver (Card card)
+    public void CardMouseOver (Cards card)
     {
         if (eCardState == ECardState.Nothing)
             return;
         selectCard = card;
         EnlargeCard(true, card);
     }
-    public void CardMouseExit(Card card)
+    public void CardMouseExit(Cards card)
     {
         EnlargeCard(false, card);  
     }
@@ -186,7 +186,7 @@ public class CardManager : MonoBehaviour
         onCardArea = Array.Exists(hits, x => x.collider.gameObject.layer == layer);
     }
 
-    void EnlargeCard(bool isEnlarge, Card card)
+    void EnlargeCard(bool isEnlarge, Cards card)
     {
         if (isEnlarge)
         {
@@ -201,15 +201,15 @@ public class CardManager : MonoBehaviour
 
     void SetECardState()
     {
-        if (TurnManager.Inst.isLoading)
+        if (TurnManage.Inst.isLoading)
         {
             eCardState = ECardState.Nothing;
         }
-        else if (!TurnManager.Inst.myTurn)
+        else if (!TurnManage.Inst.myTurn)
         {
             eCardState = ECardState.CanMouseOver;
         }
-        else if(TurnManager.Inst.myTurn)
+        else if(TurnManage.Inst.myTurn)
         {
             eCardState = ECardState.CanMouseDrag;
         }

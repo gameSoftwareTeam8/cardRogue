@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class GameManager: MonoBehaviour
 {
+    public static GameManager Inst { get; private set; }
     public Board board;
     public TurnManager turn_manager = new();
     public List<CardInfo> test_card_info;
+    [SerializeField] NotificationPanel notificationPanel;
     void Awake()
     {
+        Inst = this;
         Locator.board = board;
         board.init();
         board.GetComponent<BoardView>().init();
@@ -28,6 +31,25 @@ public class GameManager: MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown("space"))
-            turn_manager.battle();
+            StartGame();
+#if UNITY_EDITOR
+        InputCheatKey();
+#endif
+    }
+    void InputCheatKey()
+    {
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+            TurnManage.OnAddCard?.Invoke(true);
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+            TurnManage.Inst.EndTurn();
+    }
+    public void StartGame()
+    {
+        StartCoroutine(TurnManage.Inst.StartGameCo());
+    }
+
+    public void Notification(string message)
+    {
+        notificationPanel.Show(message);
     }
 }

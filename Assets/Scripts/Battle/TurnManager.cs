@@ -5,9 +5,9 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class TurnManager : MonoBehaviour
+public class TurnManage : MonoBehaviour
 {
-    public static TurnManager Inst {  get; private set; }
+    public static TurnManage Inst {  get; private set; }
     void Awake() => Inst = this;
 
     [Header("Develop")]
