@@ -48,7 +48,7 @@ public class TurnManager : MonoBehaviour
     {
         isLoading = true;
         if (myTurn)
-            BattleManager.Inst.Notification("���� ��");
+            BattleManager.Inst.Notification("나의 턴");
         else
             BattleManager.Inst.Notification("��� ��");
         yield return delay07;
