@@ -23,6 +23,7 @@ public class CreatureVfx: CardVfx
         vfx_object.GetComponent<TextMeshPro>().text = info.amount.ToString();
         vfx_object.AddComponent<Animation>();
         vfx_object.AddComponent<Destroyer>();
+        
         Animation animation = vfx_object.GetComponent<Animation>();
         animation.AddClip(damage_animation, "DamageAnimation");
         animation.Play("DamageAnimation");

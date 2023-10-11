@@ -17,7 +17,7 @@ public class GameManager: MonoBehaviour
         foreach (var info in test_card_info)
         {
             GameObject card_object = Locator.card_factory.create(info);
-            Locator.player.add_card(card_object);
+            Locator.player.add_card(card_object.GetComponent<Card>());
         }
 
         board.add_card(BoardSide.HOME, 1, Locator.card_factory.create(test_card_info[2]).GetComponent<Creature>());

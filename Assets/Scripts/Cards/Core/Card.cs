@@ -10,11 +10,7 @@ on_destroyed()
 public abstract class Card: MonoBehaviour
 {
     public CardInfo info;
-    public bool is_destroyed { get; private set; }
-    public Card()
-    {
-        is_destroyed = false;    
-    }
+    public bool is_destroyed { get; private set; } = false;
 
     public virtual void destroy()
     {

@@ -16,9 +16,9 @@ public interface IPlayer
     public void pay_mana(int amount);
     public void recover_mana(int amount);
     public void draw(int num=1);
-    public void add_card(GameObject card_object);
-    public void remove_card(GameObject card_object);
-    public GameObject get_card(int idx);
+    public void add_card(Card card);
+    public void remove_card(Card card);
+    public Card get_card(int idx);
 }
 
 public class Player: IPlayer
@@ -28,17 +28,17 @@ public class Player: IPlayer
     public int max_mana { get; private set; } = 3;
     public int mana { get; private set; }
     public int balance { get; set; }
-    public int cards_count { get { return card_objects.Count; }}
+    public int cards_count { get { return cards.Count; }}
 
-    private List<GameObject> card_objects = new();
+    private List<Card> cards = new();
     void Awake()
     {
         hp = max_hp;
     }
 
-    public GameObject get_card(int idx)
+    public Card get_card(int idx)
     {
-        return card_objects[idx];
+        return cards[idx];
     }
 
     public void take_damage(int amount)
@@ -66,13 +66,13 @@ public class Player: IPlayer
 
     }
 
-    public void add_card(GameObject card_object)
+    public void add_card(Card card)
     {
-        card_objects.Add(card_object);
+        cards.Add(card);
     }
 
-    public void remove_card(GameObject card_object)
+    public void remove_card(Card card)
     {
-        card_objects.Remove(card_object);
+        cards.Remove(card);
     }
 }

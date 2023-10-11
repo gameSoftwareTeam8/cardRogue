@@ -21,7 +21,7 @@ public class MerchantView: MonoBehaviour
                 card.transform.position = card_zones[i].position;
                 CardView card_view = card.GetComponent<CardView>();
                 card_view.show();
-                card_view.on_clicked += on_card_cliked;
+                card_view.on_mouse_down += on_card_cliked;
 
                 GameObject price_object = Instantiate(price_tag_prefab);
                 price_object.transform.SetParent(card.transform, false);

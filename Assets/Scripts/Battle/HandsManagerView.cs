@@ -5,65 +5,24 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class CardManager : MonoBehaviour
+public class HandsManagerView : MonoBehaviour
 {
-   public static CardManager Inst {  get; private set; }
+    public static HandsManagerView Inst {  get; private set; }
     void Awake() => Inst = this;
 
-    [SerializeField] itemSO itemSO;
-    [SerializeField] GameObject cardPrefab;
-    [SerializeField] List<Cards> myCards;
+    [SerializeField] List<CardTransform> myCards;
     [SerializeField] Transform cardSpawnPoint;
     [SerializeField] Transform myCardLeft;
     [SerializeField] Transform myCardRight;
     [SerializeField] ECardState eCardState;
+    [SerializeField] float cardScale = 1.0f;
 
-    List<Item> itemBuffer;
-    Cards selectCard;
+    CardTransform selectCard;
     bool isMyCardDrag;
     bool onCardArea;
     enum ECardState { Nothing, CanMouseOver, CanMouseDrag};
 
-    public Item PopItem()
-    {
-        if(itemBuffer.Count == 0)
-            SetupItemBuffer();
-
-        Item item = itemBuffer[0];
-        itemBuffer.RemoveAt(0);
-        return item;
-    }
-    void SetupItemBuffer()
-    {
-        itemBuffer = new List<Item>();
-        for(int i = 0;i<itemSO.items.Length;i++)
-        {
-            Item item = itemSO.items[i];
-            for (int j = 0; j < item.percent; j++)
-                itemBuffer.Add(item);
-        }
-
-        for(int i = 0; i < itemBuffer.Count; i++)
-        {
-            int rand = Random.Range(i, itemBuffer.Count);
-            Item temp = itemBuffer[i];
-            itemBuffer[i] = itemBuffer[rand];
-            itemBuffer[rand] = temp;    
-        }
-    }
-
-    void Start()
-    {
-        SetupItemBuffer();
-        TurnManager.OnAddCard += AddCard;
-    }
-
-    private void OnDestroy()
-    {
-        TurnManager.OnAddCard -= AddCard;
-    }
-
-    private void Update()
+    private void FixedUpdate()
     {
         if (isMyCardDrag)
             CardDrag();
@@ -72,13 +31,20 @@ public class CardManager : MonoBehaviour
         SetECardState();
     }
 
-    void AddCard(bool myTurn)
+    void OnCardAdded((bool myTurn, Card card) args)
     {
-        var cardObject = Instantiate(cardPrefab, cardSpawnPoint.position, Utils.QI);
-        var card = cardObject.GetComponent<Cards>();
-        card.Setup(PopItem(), true);
-        if(myTurn)
-            myCards.Add(card);
+        var cardView = args.card.GetComponent<CardView>();
+        cardView.on_mouse_up += CardMouseUp;
+        cardView.on_mouse_down += CardMouseDown;
+        cardView.on_mouse_over += CardMouseOver;
+        cardView.on_mouse_exit += CardMouseExit;
+        cardView.AddComponent<CardRenderingOrderer>();
+        cardView.AddComponent<CardTransform>();
+        cardView.show();
+
+        var cardTransform = args.card.GetComponent<CardTransform>();
+        if(args.myTurn)
+            myCards.Add(cardTransform);
 
         SetOriginOrder();
         CardAlignment();
@@ -90,7 +56,7 @@ public class CardManager : MonoBehaviour
         for(int i = 0;i < count;i++)
         {
             var targetCard = myCards[i];
-            targetCard?.GetComponent<Order>().SetOriginOrder(i);
+            targetCard?.GetComponent<CardRenderingOrderer>().SetOriginOrder(i);
         }
     }
 
@@ -104,7 +70,7 @@ public class CardManager : MonoBehaviour
             var targetCard = targetCards[i];
 
             targetCard.originPRS = originCardPRSs[i];
-            targetCard.MoveTransform(targetCard.originPRS, true, 0.7f);
+            targetCard.MoveTransform(targetCard.originPRS, true, 0.7f * cardScale);
         }
     }
 
@@ -128,7 +94,7 @@ public class CardManager : MonoBehaviour
 
         }
 
-        for(int i=0; i<objCount;i++)
+        for(int i = 0; i < objCount; i++)
         {
             var targetPos = Vector3.Lerp(leftTr.position, rightTr.position, objLerps[i]);
             var targetRot = Utils.QI;
@@ -138,44 +104,45 @@ public class CardManager : MonoBehaviour
                 targetPos.y += curve;
                 targetRot = Quaternion.Slerp(leftTr.rotation, rightTr.rotation, objLerps[i]);
             }
-            results.Add(new PRS(targetPos, targetRot, scale));
+            results.Add(new PRS(targetPos, targetRot, scale * cardScale));
         }
         return results;
     }
 
     #region MyCard
-    public void CardMouseOver (Cards card)
+    public void CardMouseOver(object sender, CardEventArgs args)
     {
+        var cardTransform = args.card.GetComponent<CardTransform>();
         if (eCardState == ECardState.Nothing)
             return;
-        selectCard = card;
-        EnlargeCard(true, card);
-    }
-    public void CardMouseExit(Cards card)
-    {
-        EnlargeCard(false, card);  
+        selectCard = cardTransform;
+        EnlargeCard(true, cardTransform);
     }
 
-    public void CardMouseDown()
+    public void CardMouseExit(object sender, CardEventArgs args)
+    {
+        EnlargeCard(false, args.card.GetComponent<CardTransform>());  
+    }
+
+    public void CardMouseDown(object sender, CardEventArgs args)
     {
         if (eCardState != ECardState.CanMouseDrag)
             return;
         isMyCardDrag = true;
     }
 
-    public void CardMouseUp()
+    public void CardMouseUp(object sender, CardEventArgs args)
     {
         isMyCardDrag = false;
-
         if (eCardState != ECardState.CanMouseDrag)
             return;
     }
 
     void CardDrag()
     {
-        if(!onCardArea)
+        if (!onCardArea)
         {
-            selectCard.MoveTransform(new PRS(Utils.MousePos, Utils.QI, selectCard.originPRS.scale), false);
+            selectCard.MoveTransform(new PRS(Utils.MousePos, Utils.QI, selectCard.originPRS.scale * cardScale), false);
         }
     }
 
@@ -186,17 +153,17 @@ public class CardManager : MonoBehaviour
         onCardArea = Array.Exists(hits, x => x.collider.gameObject.layer == layer);
     }
 
-    void EnlargeCard(bool isEnlarge, Cards card)
+    void EnlargeCard(bool isEnlarge, CardTransform card)
     {
         if (isEnlarge)
         {
             Vector3 enlargePos = new Vector3(card.originPRS.pos.x, -6f, -10f);
-            card.MoveTransform(new PRS(enlargePos, Utils.QI, Vector3.one * 2.8f), false);
+            card.MoveTransform(new PRS(enlargePos, Utils.QI, Vector3.one * 2.8f * cardScale), false);
         }
-        else
-            card.MoveTransform(card.originPRS, false);
+        else if (selectCard != null)
+            card.MoveTransform(new PRS(Utils.MousePos, Utils.QI, selectCard.originPRS.scale * cardScale), false);
 
-        card.GetComponent<Order>().SetMostFrontOrder(isEnlarge);
+        card.GetComponent<CardRenderingOrderer>().SetMostFrontOrder(isEnlarge);
     }
 
     void SetECardState()
@@ -209,7 +176,7 @@ public class CardManager : MonoBehaviour
         {
             eCardState = ECardState.CanMouseOver;
         }
-        else if(TurnManager.Inst.myTurn)
+        else if (TurnManager.Inst.myTurn)
         {
             eCardState = ECardState.CanMouseDrag;
         }

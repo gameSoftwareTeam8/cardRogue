@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Order : MonoBehaviour
+public class CardRenderingOrderer : MonoBehaviour
 {
-    [SerializeField] Renderer[] backRenderers;
-    [SerializeField] Renderer[] middleRenderers;
-    [SerializeField] string sortingLayerName;
-    int originOrder;
+    [SerializeField] string sortingLayerName = "CardArea";
+    int originOrder, lastOrder = 0;
 
     public void SetOriginOrder(int originOrder)
     {
@@ -19,20 +17,15 @@ public class Order : MonoBehaviour
     {
         SetOrder(isMostFront ? 100 : originOrder);
     }
+    
     public void SetOrder(int order)
     {
         int mulOrder = order * 10;
-        foreach (var renderer in backRenderers)
+        foreach (var renderer in GetComponentsInChildren<Renderer>())
         {
             renderer.sortingLayerName = sortingLayerName;
-            renderer.sortingOrder = mulOrder;
+            renderer.sortingOrder += mulOrder - lastOrder;
         }
-
-        foreach (var renderer in middleRenderers)
-        {
-            renderer.sortingLayerName = sortingLayerName;
-            renderer.sortingOrder = mulOrder + 1;
-        }
+        lastOrder = mulOrder;
     }
-
 }

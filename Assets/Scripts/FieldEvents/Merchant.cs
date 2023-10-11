@@ -48,7 +48,7 @@ public class Merchant: IMerchant
         Card card = get_card(idx);
         if (player.balance >= card.info.price) {
             player.balance -= card.info.price;
-            player.add_card(card.gameObject);
+            player.add_card(card);
             return true;
         }
         return false;
@@ -64,7 +64,7 @@ public class Merchant: IMerchant
         IPlayer player = Locator.player;
         if (player.balance >= cost_to_remove) {
             Card card = get_card(idx);
-            player.remove_card(card.gameObject);
+            player.remove_card(card);
             GameObject.Destroy(card.gameObject);
             cost_to_remove += COST_TO_REMOVE_ADDEND;
             return true;

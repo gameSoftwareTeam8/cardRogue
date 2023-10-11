@@ -6,12 +6,24 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
+public class CardEventArgs: EventArgs
+{
+    public Card card;
+    public CardEventArgs(Card card): base()
+    {
+        this.card = card;
+    }
+}
+
 public abstract class CardView: MonoBehaviour
 {
-    public event EventHandler on_clicked;
+    public event EventHandler<CardEventArgs> on_mouse_up, on_mouse_down, on_mouse_over, on_mouse_exit;
+    public bool is_front { get; private set; } = false;
+    private Card card;
     void Awake()
     {
         hide();
+        card = GetComponent<Card>();
     }
 
     public void show()
@@ -30,8 +42,30 @@ public abstract class CardView: MonoBehaviour
             tmp.enabled = false;
     }
 
+    public void flip(bool is_front)
+    {
+        this.is_front = is_front;
+        foreach (var tmp in GetComponentsInChildren<TextMeshPro>())
+            tmp.enabled = is_front;
+    }
+
+    void OnMouseOver()
+    {
+        on_mouse_over?.Invoke(this, new CardEventArgs(card));
+    }
+
+    void OnMouseExit()
+    {
+        on_mouse_exit?.Invoke(this, new CardEventArgs(card));
+    }
+
+    void OnMouseUp()
+    {
+        on_mouse_up?.Invoke(this, new CardEventArgs(card));
+    }
+
     void OnMouseDown()
     {
-        on_clicked?.Invoke(this, EventArgs.Empty);
+        on_mouse_down?.Invoke(this, new CardEventArgs(card));
     }
 }

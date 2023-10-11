@@ -257,6 +257,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 221302309}
   m_CullTransparentMesh: 1
+--- !u!1 &411194789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 411194790}
+  - component: {fileID: 411194791}
+  m_Layer: 0
+  m_Name: DeckSetter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &411194790
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411194789}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.48905, y: -0.52841944, z: 0.29190725}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &411194791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411194789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c99b9924df3f23b43aacf633c972d0e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infos:
+  - {fileID: 11400000, guid: 1860f71b5daf3d743b0f495f6e1a4ba7, type: 2}
+  - {fileID: 11400000, guid: 36997c4daf7ad0547856dec6aa3fd9a7, type: 2}
+  - {fileID: 11400000, guid: e69475076670cf74cb4668a8d465c570, type: 2}
+  - {fileID: 11400000, guid: dd7b71abe47c830499f2500291df880a, type: 2}
+  - {fileID: 11400000, guid: e7e2aeefd62123041b9fac70dcf86b2c, type: 2}
+  - {fileID: 11400000, guid: 8ea00280a63157b41ab3b286d9402085, type: 2}
+  - {fileID: 11400000, guid: f696beb04f31ad646ac5b3ef7afa12a0, type: 2}
+  - {fileID: 11400000, guid: f6833d112b4aa5a449af03d4d164a1fc, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,33 +442,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 817410342}
-  - component: {fileID: 817410341}
+  - component: {fileID: 817410344}
+  - component: {fileID: 817410343}
   m_Layer: 0
-  m_Name: CardManager
+  m_Name: HandsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &817410341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817410340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdf1b125674d2c14fa679b8d0e0043bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemSO: {fileID: 11400000, guid: 85750e9077b87b44b8ac608cfc078a67, type: 2}
-  cardPrefab: {fileID: 1811493187645559132, guid: a88ffafa899a09f4b9724815aaaf8954, type: 3}
-  myCards: []
-  cardSpawnPoint: {fileID: 1488099633}
-  myCardLeft: {fileID: 731403332}
-  myCardRight: {fileID: 1401449798}
-  eCardState: 0
 --- !u!4 &817410342
 Transform:
   m_ObjectHideFlags: 0
@@ -431,6 +466,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &817410343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817410340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e75423005ed3d34da46806ddc637906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCards: []
+  cardSpawnPoint: {fileID: 1488099633}
+  myCardLeft: {fileID: 731403332}
+  myCardRight: {fileID: 1401449798}
+  eCardState: 0
+  cardScale: 2
+--- !u!114 &817410344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817410340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3afdd299274bf4d93b19df95f56c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cards: []
 --- !u!1 &836103677
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,7 +944,7 @@ GameObject:
   - component: {fileID: 1444515530}
   - component: {fileID: 1444515529}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: BattleManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1298,12 +1364,59 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 21, y: 8.3}
   m_EdgeRadius: 0
+--- !u!1 &1925421363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1925421365}
+  - component: {fileID: 1925421364}
+  m_Layer: 0
+  m_Name: Deck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1925421364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925421363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a306e1e13bae30349880252cd94b26e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardBuffer: []
+--- !u!4 &1925421365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925421363}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1444515530}
   - {fileID: 1131700658}
+  - {fileID: 1925421365}
+  - {fileID: 411194790}
   - {fileID: 817410342}
   - {fileID: 519420032}
   - {fileID: 871277827}

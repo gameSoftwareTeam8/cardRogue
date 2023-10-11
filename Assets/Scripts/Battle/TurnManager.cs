@@ -23,7 +23,6 @@ public class TurnManager : MonoBehaviour
     WaitForSeconds delay = new WaitForSeconds(0.1f);
     WaitForSeconds delay07 = new WaitForSeconds(0.7f);
 
-    public static Action<bool> OnAddCard;
     void GameSetup()
     {
         if(eTurnMode == ETurnMode.My)
@@ -36,10 +35,10 @@ public class TurnManager : MonoBehaviour
     {
         GameSetup();
         isLoading = true;
-        for(int i=0; i<startCardCount; i++)
+        for(int i = 0; i < startCardCount; i++)
         {
             yield return delay;
-            OnAddCard?.Invoke(myTurn);
+            HandsManager.Inst.AddCard(myTurn);
         }
         StartCoroutine(StartTurnCo());
     }
@@ -50,11 +49,16 @@ public class TurnManager : MonoBehaviour
         if (myTurn)
             BattleManager.Inst.Notification("나의 턴");
         else
-            BattleManager.Inst.Notification("��� ��");
+            BattleManager.Inst.Notification("상대 턴");
         yield return delay07;
-        OnAddCard?.Invoke(myTurn);
+        ProcessDrawPhase();
         yield return delay07;
         isLoading = false;
+    }
+
+    public void ProcessDrawPhase()
+    {
+        HandsManager.Inst.AddCard(myTurn);
     }
 
     public void EndTurn()

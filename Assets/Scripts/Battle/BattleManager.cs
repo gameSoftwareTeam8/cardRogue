@@ -24,7 +24,7 @@ public class BattleManager : MonoBehaviour
     void InputCheatKey()
     {
         if (Input.GetKeyDown(KeyCode.Keypad1))
-            TurnManager.OnAddCard?.Invoke(true);
+            TurnManager.Inst.ProcessDrawPhase();
         if(Input.GetKeyDown(KeyCode.Keypad2))
             TurnManager.Inst.EndTurn();
     }
