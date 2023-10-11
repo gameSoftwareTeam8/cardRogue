@@ -18,7 +18,7 @@ public class HandsManagerView : MonoBehaviour
     [SerializeField] float cardScale = 1.0f;
 
     CardTransform selectCard;
-    bool isMyCardDrag;
+    bool isMyCardDrag = false;
     bool onCardArea;
     enum ECardState { Nothing, CanMouseOver, CanMouseDrag};
 
@@ -34,6 +34,7 @@ public class HandsManagerView : MonoBehaviour
     void OnCardAdded((bool myTurn, Card card) args)
     {
         var cardView = args.card.GetComponent<CardView>();
+        cardView.transform.position = cardSpawnPoint.position;
         cardView.on_mouse_up += CardMouseUp;
         cardView.on_mouse_down += CardMouseDown;
         cardView.on_mouse_over += CardMouseOver;
@@ -113,7 +114,7 @@ public class HandsManagerView : MonoBehaviour
     public void CardMouseOver(object sender, CardEventArgs args)
     {
         var cardTransform = args.card.GetComponent<CardTransform>();
-        if (eCardState == ECardState.Nothing)
+        if (eCardState == ECardState.Nothing || isMyCardDrag)
             return;
         selectCard = cardTransform;
         EnlargeCard(true, cardTransform);
@@ -160,8 +161,8 @@ public class HandsManagerView : MonoBehaviour
             Vector3 enlargePos = new Vector3(card.originPRS.pos.x, -6f, -10f);
             card.MoveTransform(new PRS(enlargePos, Utils.QI, Vector3.one * 2.8f * cardScale), false);
         }
-        else if (selectCard != null)
-            card.MoveTransform(new PRS(Utils.MousePos, Utils.QI, selectCard.originPRS.scale * cardScale), false);
+        else
+            card.MoveTransform(card.originPRS, false);
 
         card.GetComponent<CardRenderingOrderer>().SetMostFrontOrder(isEnlarge);
     }
