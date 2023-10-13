@@ -15,7 +15,6 @@ public class MapGenerator : MonoBehaviour
     private List<Node> wallList = new List<Node>();
 
     public static MapGenerator Instance { get; private set; }
-    bool a = false;
     private void Awake()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -58,17 +57,11 @@ public class MapGenerator : MonoBehaviour
 
     public void ReloadCurrentScene()
     {
-        DestroyPersistentObject();
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex);
-    }
-
-    private void DestroyPersistentObject()
-    {
-        if (this.gameObject != null)
-        {
-            Destroy(this.gameObject);
-        }
+        for (int x = 0; x < width; x++)
+            for (int y = 0; y < height; y++)
+                if (nodes[x, y] != null)
+                    Destroy(nodes[x, y]);
+        GenerateMap();
     }
 
     private void ShowActiveSprites()
@@ -98,6 +91,11 @@ public class MapGenerator : MonoBehaviour
     }
 
     private void Start()
+    {
+        GenerateMap();
+    }
+
+    private void GenerateMap()
     {
         InitializeMap();
         GenerateMazeUsingPrim();
