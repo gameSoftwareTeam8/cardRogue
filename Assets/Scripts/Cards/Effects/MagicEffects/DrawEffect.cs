@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class DrawEffect: MagicEffect
 {
-    public override void on_used()
+    public override void on_used(BoardSide user_side)
     {
         Locator.player.draw(2);
     }

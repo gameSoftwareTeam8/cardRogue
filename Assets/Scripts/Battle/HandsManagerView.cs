@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using System.Linq;
+
 
 public class HandsManagerView : MonoBehaviour
 {
@@ -134,16 +135,51 @@ public class HandsManagerView : MonoBehaviour
 
     public void CardMouseUp(object sender, CardEventArgs args)
     {
+        if (!isMyCardDrag)
+            return;
         isMyCardDrag = false;
+
+        var layer = LayerMask.GetMask("CardZone");
+        RaycastHit2D hit = Physics2D.Raycast(Utils.MousePos, Vector2.zero, Mathf.Infinity, layer);
+        if (onCardArea || !hit)
+            return;
+                
+        string zone_name = hit.transform.name;
+        BoardSide side = zone_name[0] == 'H' ? BoardSide.HOME : BoardSide.AWAY;
+        int idx = zone_name[^1] - '0';
+        use_card(side, idx, args.card);
+
         if (eCardState != ECardState.CanMouseDrag)
             return;
+    }
+
+    private void use_card(BoardSide side, int idx, Card card)
+    {
+        IBoard board = Locator.board;
+        CardEffect card_effect = card.GetComponent<CardEffect>();
+        Card target = board.get_card(side, idx);
+        if (card is Creature) {
+            Creature creature = (Creature)Instantiate(card);
+            var cardView = creature.GetComponent<CardView>();
+            cardView.on_mouse_up -= CardMouseUp;
+            cardView.on_mouse_down -= CardMouseDown;
+            cardView.on_mouse_over -= CardMouseOver;
+            cardView.on_mouse_exit -= CardMouseExit;
+            Destroy(cardView.GetComponent<CardRenderingOrderer>());
+            Destroy(cardView.GetComponent<CardTransform>());
+            board.add_card(side, idx, creature);
+        }
+        else if (card_effect is TargetingMagicEffect && target != null)
+            ((TargetingMagicEffect)card_effect).on_used_to_target((Creature)target);
+        else if (card_effect is MagicEffect)
+            ((MagicEffect)card_effect).on_used(side);
     }
 
     void CardDrag()
     {
         if (!onCardArea)
         {
-            selectCard.MoveTransform(new PRS(Utils.MousePos, Utils.QI, selectCard.originPRS.scale * cardScale), false);
+            selectCard.MoveTransform(new PRS(Utils.MousePos, Utils.QI, selectCard.originPRS.scale), false);
         }
     }
 

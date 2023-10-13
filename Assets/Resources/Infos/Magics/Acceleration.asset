@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a928f1ad3db28c4495a18c93201a279, type: 3}
-  m_Name: Spark 1
+  m_Name: Acceleration
   m_EditorClassIdentifier: 
-  card_name: Spark
-  description: Deal 2 damage to target
-  effect_name: SparkEffect
+  card_name: Acceleration
+  description: Draw 2 cards
+  effect_name: DrawEffect
   rarity: 0
   cost: 1
   price: 30

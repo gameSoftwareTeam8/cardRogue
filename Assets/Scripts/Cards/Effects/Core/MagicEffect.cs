@@ -13,7 +13,7 @@ public abstract class MagicEffect: CardEffect
     }
 
     /// <summary> 사용시 </summary> 
-    public virtual void on_used() { }
+    public virtual void on_used(BoardSide user_side) { }
 }
 
 public abstract class TargetingMagicEffect: MagicEffect
