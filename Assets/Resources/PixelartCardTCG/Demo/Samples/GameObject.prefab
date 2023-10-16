@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2335930979652560871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2335930979652560869}
+  - component: {fileID: 2335930979652560868}
+  - component: {fileID: -4232444472757857988}
+  - component: {fileID: 1269492968}
+  - component: {fileID: -562198327706467082}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2335930979652560869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2335930979652560871}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &2335930979652560868
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2335930979652560871}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!61 &-4232444472757857988
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2335930979652560871}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.0067387223}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.5633883, y: 3.6011543}
+  m_EdgeRadius: 0
+--- !u!114 &1269492968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2335930979652560871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd3104bb4c444b4e8e998b588493b01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effects: {fileID: 4059244806756677358, guid: 27a01d227f1093145b9875772f0c8d28, type: 3}
+  Templates:
+  - {fileID: 2987674040411887997, guid: e5053394af8344a4d9b55da4545ab531, type: 3}
+  - {fileID: 2859236565762580541, guid: ff3e06a62dbaaf341b5be9718289c29d, type: 3}
+  - {fileID: 4978358899499868573, guid: e57dae154a39b69488c47a54db7d0503, type: 3}
+  - {fileID: 6368393943707218406, guid: aa42c3c34f2188c429437b6dc2bae3b7, type: 3}
+  CardShirts:
+  - {fileID: 3500552766227541793, guid: 715992bfd34d41d4f95d977a88fc8829, type: 3}
+  - {fileID: 1745588337137995005, guid: 715992bfd34d41d4f95d977a88fc8829, type: 3}
+  - {fileID: -4398435546622459878, guid: 715992bfd34d41d4f95d977a88fc8829, type: 3}
+  - {fileID: -7650939817992889380, guid: 715992bfd34d41d4f95d977a88fc8829, type: 3}
+  - {fileID: 8477346377270157210, guid: 715992bfd34d41d4f95d977a88fc8829, type: 3}
+  - {fileID: -1481597448430017666, guid: 715992bfd34d41d4f95d977a88fc8829, type: 3}
+  Border: {fileID: 4132073928841064229, guid: 7925c5a97139a264499510ff29e4e028, type: 3}
+  CardLogo: {fileID: 2551512585716239366, guid: 1c8695221a439304bbb59ede985d0bf9, type: 3}
+  IsBack: 0
+--- !u!95 &-562198327706467082
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2335930979652560871}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3947fb52439c7634c91f2f29403f6599, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

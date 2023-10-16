@@ -608,7 +608,7 @@ GameObject:
   - component: {fileID: 8440860375310594567}
   - component: {fileID: 4097127033124750602}
   m_Layer: 7
-  m_Name: Creature
+  m_Name: CreatureBackup2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -679,7 +679,6 @@ MonoBehaviour:
   burning_material: {fileID: 2100000, guid: ed0a8b7efc5c36c4db795efdf79f8d6b, type: 2}
   destroy_animation: {fileID: 7400000, guid: f6d516be9a42d0d45b5dd2266a22c459, type: 2}
   damage_animation: {fileID: 7400000, guid: 5be3590ce22235049adef2d9ddd4666e, type: 2}
-  shattering_material: {fileID: 0}
 --- !u!61 &4097127033124750602
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -798,7 +797,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5203119476218637104, guid: 7925c5a97139a264499510ff29e4e028, type: 3}
+  m_Sprite: {fileID: 463835998, guid: 71ad172f81917dc4c88b385499ba85c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
