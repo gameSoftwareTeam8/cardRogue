@@ -16,7 +16,8 @@ public class CreatureVfx: CardVfx
     new void Awake()
     {
         base.Awake();
-        hp_object = transform.Find("Hp").Find("Text").gameObject;
+        Transform front = transform.Find("Front");
+        hp_object = front.Find("Hp").Find("Text").gameObject;
     }
 
     public void on_damaged((int amount, Card source) info)

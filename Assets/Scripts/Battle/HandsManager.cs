@@ -20,4 +20,10 @@ public class HandsManager : MonoBehaviour
             SendMessage("OnCardAdded", (myTurn, card), SendMessageOptions.DontRequireReceiver);
         }
     }
+    
+    public void RemoveCard(Card card)
+    {
+        cards.Remove(card);
+        SendMessage("OnCardRemoved", card, SendMessageOptions.DontRequireReceiver);
+    }
 }

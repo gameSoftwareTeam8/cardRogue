@@ -52,6 +52,14 @@ public class HandsManagerView : MonoBehaviour
         CardAlignment();
     }
 
+    void OnCardRemoved(Card card)
+    {
+        Destroy(card.gameObject);
+        myCards.Remove(card.GetComponent<CardTransform>());
+        SetOriginOrder();
+        CardAlignment();
+    }
+
     void SetOriginOrder()
     {
         int count = myCards.Count;
@@ -168,6 +176,7 @@ public class HandsManagerView : MonoBehaviour
             Destroy(cardView.GetComponent<CardRenderingOrderer>());
             Destroy(cardView.GetComponent<CardTransform>());
             board.add_card(side, idx, creature);
+            HandsManager.Inst.RemoveCard(card);
         }
         else if (card_effect is TargetingMagicEffect && target != null)
             ((TargetingMagicEffect)card_effect).on_used_to_target((Creature)target);
