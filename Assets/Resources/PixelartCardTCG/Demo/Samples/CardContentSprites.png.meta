@@ -271,64 +271,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CardContentSprites_8
+      name: CardContentSprites_0
       rect:
         serializedVersion: 2
-        x: 26
-        y: 11
-        width: 20
-        height: 28
-      alignment: 9
-      pivot: {x: 0.47368422, y: 0.14285715}
+        x: 0
+        y: 0
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 754d38a1d8f707170800000000000000
-      internalID: 8174173567689413719
+      spriteID: 6f26e70b38229e84bbc6cc750a887951
+      internalID: 2145454042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CardContentSprites_18
+      name: CardContentSprites_1
       rect:
         serializedVersion: 2
-        x: 28
-        y: 180
-        width: 22
-        height: 35
-      alignment: 9
-      pivot: {x: 0.5, y: 0.114285715}
+        x: 24
+        y: 0
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf9fe5bc2e8463960800000000000000
-      internalID: 7581327161636616699
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CardContentSprites_4
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 6
-        width: 22
-        height: 35
-      alignment: 9
-      pivot: {x: 0.5, y: 0.114285715}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de0aa927635185000800000000000000
-      internalID: 24793121545691373
+      spriteID: 54c27749bfafa9e40b02156829939748
+      internalID: -59648376
       vertices: []
       indices: 
       edges: []
@@ -344,9 +323,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CardContentSprites_18: 7581327161636616699
-      CardContentSprites_4: 24793121545691373
-      CardContentSprites_8: 8174173567689413719
+      CardContentSprites_0: 2145454042
+      CardContentSprites_1: -59648376
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -12,9 +12,9 @@ public class CardVfx: MonoBehaviour
     protected Material burning_material;
     [SerializeField]
     protected AnimationClip destroy_animation;
-    private float time_to_destroy = 2.0f;
+    private float time_to_destroy = 3.0f;
     private Card card;
-    private float age = 0.0f;
+    private float age = 0.001f;
 
     public void Awake()
     {

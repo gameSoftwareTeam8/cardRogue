@@ -14,7 +14,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -80,7 +80,7 @@ Material:
     - _Age: 0
     - _Colums: 6
     - _EnableExternalAlpha: 0
-    - _PixelsPerUnit: 32
+    - _PixelsPerUnit: 512
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Rows: 4
@@ -92,7 +92,7 @@ Material:
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _Scale: {r: 1, g: 1, b: 0, a: 0}
     - _UVHeight: {r: 0, g: 1, b: 0, a: 0}
-    - _UVWidth: {r: 0, g: 1, b: 0, a: 0}
+    - _UVWidth: {r: 0.5, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6197888952081082553
 MonoBehaviour:

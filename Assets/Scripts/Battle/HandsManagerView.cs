@@ -167,14 +167,9 @@ public class HandsManagerView : MonoBehaviour
         CardEffect card_effect = card.GetComponent<CardEffect>();
         Card target = board.get_card(side, idx);
         if (card is Creature) {
-            Creature creature = (Creature)Instantiate(card);
-            var cardView = creature.GetComponent<CardView>();
-            cardView.on_mouse_up -= CardMouseUp;
-            cardView.on_mouse_down -= CardMouseDown;
-            cardView.on_mouse_over -= CardMouseOver;
-            cardView.on_mouse_exit -= CardMouseExit;
-            Destroy(cardView.GetComponent<CardRenderingOrderer>());
-            Destroy(cardView.GetComponent<CardTransform>());
+            var card_factory = Locator.card_factory;
+            Creature creature = card_factory.create(card.info).GetComponent<Creature>();
+            creature.transform.localScale = Vector2.one * 1.5f * cardScale;
             board.add_card(side, idx, creature);
             HandsManager.Inst.RemoveCard(card);
         }
