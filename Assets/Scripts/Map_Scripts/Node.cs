@@ -86,9 +86,7 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (SceneManager.GetActiveScene().name != "Map"&&
-            SceneManager.GetActiveScene().name != "Map1"&&
-            SceneManager.GetActiveScene().name != "Map2")
+        if (SceneManager.GetActiveScene().name != "Map")
         {
             return; 
         }
