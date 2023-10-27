@@ -54,7 +54,19 @@ public class MapGenerator : MonoBehaviour
             sprite.enabled = false;
         }
     }
+    void Reset_Map()
+    {
+        if (nodes != null && nodes.Length > 0)
+        {
+            foreach (Node node in nodes)
+            {
+                Destroy(node.gameObject);
+            }
+        }
+        nodes = null; 
 
+        GenerateMap();
+    }
     public void ReloadCurrentScene()
     {
         for (int x = 0; x < width; x++)
@@ -64,7 +76,7 @@ public class MapGenerator : MonoBehaviour
         GenerateMap();
     }
 
-    private void ShowActiveSprites()
+    public void ShowActiveSprites()
     {
         /*
         if(nodes == null)
@@ -90,8 +102,8 @@ public class MapGenerator : MonoBehaviour
         
     }
 
-    private void Start()
-    {
+    private void Start() { 
+
         GenerateMap();
     }
 
@@ -261,6 +273,7 @@ public class MapGenerator : MonoBehaviour
             switch (clickedNode.Type)
             {
                 case NodeType.Monster:
+                    Reset_Map();
                     HideAllSprites();
                     SceneManager.LoadScene("Temp1");
                     break;
