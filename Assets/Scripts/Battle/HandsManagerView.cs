@@ -18,6 +18,7 @@ public class HandsManagerView : MonoBehaviour
     [SerializeField] ECardState eCardState;
     [SerializeField] float cardScale = 1.0f;
 
+    GameObject enlargedInstance = null;
     CardTransform selectCard;
     bool isMyCardDrag = false;
     bool onCardArea;
@@ -122,16 +123,29 @@ public class HandsManagerView : MonoBehaviour
     #region MyCard
     public void CardMouseOver(object sender, CardEventArgs args)
     {
+        if (enlargedInstance != null)
+            return;
+
         var cardTransform = args.card.GetComponent<CardTransform>();
         if (eCardState == ECardState.Nothing || isMyCardDrag)
             return;
+
+        enlargedInstance = Instantiate(args.card.gameObject);
+        foreach (var component in enlargedInstance.GetComponents<Component>())
+            if (!(component is CardTransform || component is Transform || component is CardRenderingOrderer))
+                Destroy(component);
+        enlargedInstance.GetComponent<CardView>().show();
+
         selectCard = cardTransform;
-        EnlargeCard(true, cardTransform);
+        EnlargeCard(true, enlargedInstance.GetComponent<CardTransform>());
+        selectCard.GetComponent<CardView>().hide();
     }
 
     public void CardMouseExit(object sender, CardEventArgs args)
     {
-        EnlargeCard(false, args.card.GetComponent<CardTransform>());  
+        Destroy(enlargedInstance);
+        selectCard.GetComponent<CardView>().show();
+        // EnlargeCard(false, args.card.GetComponent<CardTransform>());  
     }
 
     public void CardMouseDown(object sender, CardEventArgs args)
