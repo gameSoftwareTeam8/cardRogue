@@ -171,6 +171,7 @@ public class HandsManagerView : MonoBehaviour
             Destroy(enlargedInstance);
         if (selectCard != null) {
             selectCard.GetComponent<CardView>().show();
+            EnlargeCard(false, selectCard);
             selectCard = null;
         }
         if (!isMyCardDrag)
