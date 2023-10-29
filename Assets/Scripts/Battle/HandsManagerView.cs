@@ -22,6 +22,7 @@ public class HandsManagerView : MonoBehaviour
     CardTransform selectCard;
     bool isMyCardDrag = false;
     bool onCardArea;
+    bool isCardUsed = false;
     enum ECardState { Nothing, CanMouseOver, CanMouseDrag};
 
     private void FixedUpdate()
@@ -123,6 +124,10 @@ public class HandsManagerView : MonoBehaviour
     #region MyCard
     public void CardMouseOver(object sender, CardEventArgs args)
     {
+        if (isCardUsed) {
+            isCardUsed = false;
+            return;
+        }
         if (enlargedInstance != null)
             return;
 
@@ -143,8 +148,12 @@ public class HandsManagerView : MonoBehaviour
 
     public void CardMouseExit(object sender, CardEventArgs args)
     {
-        Destroy(enlargedInstance);
-        selectCard.GetComponent<CardView>().show();
+        if (enlargedInstance != null)
+            Destroy(enlargedInstance);
+        if (selectCard != null)
+            selectCard.GetComponent<CardView>().show();
+        if (!isMyCardDrag)
+            selectCard = null;
         // EnlargeCard(false, args.card.GetComponent<CardTransform>());  
     }
 
@@ -157,6 +166,13 @@ public class HandsManagerView : MonoBehaviour
 
     public void CardMouseUp(object sender, CardEventArgs args)
     {
+        isCardUsed = true;
+        if (enlargedInstance != null)
+            Destroy(enlargedInstance);
+        if (selectCard != null) {
+            selectCard.GetComponent<CardView>().show();
+            selectCard = null;
+        }
         if (!isMyCardDrag)
             return;
         isMyCardDrag = false;
@@ -195,7 +211,7 @@ public class HandsManagerView : MonoBehaviour
 
     void CardDrag()
     {
-        if (!onCardArea)
+        if (!onCardArea && selectCard != null)
         {
             selectCard.MoveTransform(new PRS(Utils.MousePos, Utils.QI, selectCard.originPRS.scale), false);
         }

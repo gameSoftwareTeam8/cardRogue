@@ -14,9 +14,8 @@ public class VFXDestroyer : MonoBehaviour
 
     void FixedUpdate()
     {
-        // if (!visual_effect.HasAnySystemAwake()) {
-        //     Debug.Log(visual_effect);
-        //     Destroy(gameObject);
-        // }
+        if (!visual_effect.HasAnySystemAwake()) {
+            Destroy(gameObject);
+        }
     }
 }

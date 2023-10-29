@@ -16,7 +16,7 @@ public abstract class Card: MonoBehaviour
     {
         if (is_destroyed)
             return;
-
+        
         is_destroyed = true;
         SendMessage("on_destroyed", SendMessageOptions.DontRequireReceiver);
     }
