@@ -61,6 +61,7 @@ public class Board: MonoBehaviour, IBoard
         if (cards[(int)side, idx] == null) {
             cards[(int)side, idx] = card;
             SendMessage("on_card_added", card, SendMessageOptions.DontRequireReceiver);
+            card.GetComponent<CreatureEffect>().on_created();
         }
     }
 

@@ -8,6 +8,7 @@ public class BuffEffect: CreatureEffect
     public override void on_created()
     {
         IBoard board = Locator.board;
+        VFXFactory vfx_factory = Locator.vfx_factory;
         BoardSide target_side = board.get_side(creature);
         for (int i = 0; i < board.size; i++)
         {
@@ -17,6 +18,7 @@ public class BuffEffect: CreatureEffect
 
             target.creature_info.hp += 1;
             target.creature_info.power += 1;
+            vfx_factory.create("Buff").transform.position = target.transform.position;
         }
     }
 }
