@@ -23,7 +23,7 @@ public class BackendRank
         }
     }
 
-    public void RankInsert(int score , string nickname)
+    public void RankInsert(int score)
     {
         // [변경 필요] '복사한 UUID 값'을 '뒤끝 콘솔 > 랭킹 관리'에서 생성한 랭킹의 UUID값으로 변경해주세요.  
         string rankUUID = "827ff0f0-773c-11ee-9758-a7f008c5a6b3"; // 예시 : "4088f640-693e-11ed-ad29-ad8f0c3d4c70"

@@ -24,12 +24,11 @@ public class BackendManager : MonoBehaviour
     }
 
     // 동기 함수를 비동기에서 호출하게 해주는 함수(유니티 UI 접근 불가)
-    async void Test()
+    void Test()
     {
-        await Task.Run(() => {
+        Task.Run(() => {
             BackendLogin.Instance.CustomLogin("user1", "1234"); // 뒤끝 로그인 함수
-            BackendLogin.Instance.UpdateNickname("아따맘마");
-            BackendRank.Instance.RankInsert(100,"user1");
+            
             BackendRank.Instance.RankGet(); // [추가] 랭킹 불러오기 함수
 
             Debug.Log("테스트를 종료합니다.");
