@@ -197,7 +197,7 @@ public class HandsManagerView : MonoBehaviour
         IBoard board = Locator.board;
         CardEffect card_effect = card.GetComponent<CardEffect>();
         Card target = board.get_card(side, idx);
-        if (card is Creature) {
+        if (card is Creature && board.get_card(side, idx) == null) {
             var card_factory = Locator.card_factory;
             Creature creature = card_factory.create(card.info).GetComponent<Creature>();
             creature.transform.localScale = Vector2.one * 1.5f * cardScale;
