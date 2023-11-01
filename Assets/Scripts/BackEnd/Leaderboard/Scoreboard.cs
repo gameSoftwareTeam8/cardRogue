@@ -51,6 +51,7 @@ public class Scoreboard : MonoBehaviour
 
     void EnterMainMenu()
     {
+        // SceneManager.LoadScene("Map");
         SceneManager.LoadScene("StartMenu");
     }
 }
