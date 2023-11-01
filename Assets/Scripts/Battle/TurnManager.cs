@@ -17,7 +17,7 @@ public class TurnManager : MonoBehaviour
     [Header("Properties")]
     public bool isLoading;
     public bool myTurn;
-
+    public int turn { get; private set; } = 0;
 
     enum ETurnMode {My, Enemy}
     WaitForSeconds delay = new WaitForSeconds(0.1f);
@@ -61,8 +61,26 @@ public class TurnManager : MonoBehaviour
         HandsManager.Inst.AddCard(myTurn);
     }
 
+    public void battle()
+    {
+        IBoard board = Locator.board;
+
+        for (int i = 0; i < board.size; i++)
+        {
+            for (int side = 0; side < 2; side++)
+            {
+                Creature card = board.get_card((BoardSide)side, i);
+                Creature target = board.get_opposite_card(card);
+                if (card != null && target != null)
+                    card.attack(target);
+            }
+        }
+    }
+
     public void EndTurn()
     {
+        battle();
+        turn++;
         myTurn = !myTurn;
         StartCoroutine(StartTurnCo());
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CardRenderingOrderer : MonoBehaviour
 {
-    [SerializeField] string sortingLayerName = "CardArea";
+    [SerializeField] string sortingLayerName = "Card";
     int originOrder, lastOrder = 0;
 
     public void SetOriginOrder(int originOrder)

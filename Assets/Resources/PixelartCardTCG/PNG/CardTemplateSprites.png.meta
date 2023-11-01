@@ -1,0 +1,1908 @@
+fileFormatVersion: 2
+guid: 7925c5a97139a264499510ff29e4e028
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5393016544879943580
+    second: Title_substrate_red
+  - first:
+      213: 3953236122643654663
+    second: Title_substrate_brown
+  - first:
+      213: 1841460602357423257
+    second: Title_substrate_yellow
+  - first:
+      213: 3967919422284357019
+    second: Rank_0
+  - first:
+      213: -6015880558415363744
+    second: Rank_1
+  - first:
+      213: 3463983450324853707
+    second: Rank_2
+  - first:
+      213: -6767615801659882507
+    second: Rank_3
+  - first:
+      213: -5406059611814818240
+    second: Card_Border_rectangle
+  - first:
+      213: -7936006672088471792
+    second: Title_Vert_substrate_red
+  - first:
+      213: 4326577467171320460
+    second: Title_Vert_substrate_brown
+  - first:
+      213: 4012389110120411785
+    second: Title_Vert_substrate_yellow
+  - first:
+      213: -1500764781649687460
+    second: Title_substrate
+  - first:
+      213: -335823697494728013
+    second: Desc_Field_Icon_0
+  - first:
+      213: -1006485672511197102
+    second: Desc_Field_Icon_1
+  - first:
+      213: -4975688805787726872
+    second: Desc_Field_Icon_2
+  - first:
+      213: -1825586226780464008
+    second: Desc_Field_Icon_3
+  - first:
+      213: 9165958977708683563
+    second: ToolTip
+  - first:
+      213: 7916189562954084112
+    second: Desc_substrate
+  - first:
+      213: 6015058231967779278
+    second: Desc_Field_Icon_4
+  - first:
+      213: -3625136235312465947
+    second: Desc_Field_Icon_5
+  - first:
+      213: 1840505696428749925
+    second: Desc_Field_Icon_6
+  - first:
+      213: 1845323731060486153
+    second: Desc_Field_Icon_7
+  - first:
+      213: -6038600410531925023
+    second: Heart_red
+  - first:
+      213: -7019190273475812177
+    second: Heart_blue
+  - first:
+      213: 4654363263726247101
+    second: Heart_brown
+  - first:
+      213: -3023442651938832133
+    second: Heart_Empty
+  - first:
+      213: 6491750893080743512
+    second: Heart_shield
+  - first:
+      213: 4231833207840782478
+    second: Desc_Icon_0
+  - first:
+      213: -3808901583460807075
+    second: Desc_Icon_1
+  - first:
+      213: 4751518365507349294
+    second: Desc_Icon_2
+  - first:
+      213: 5317215229843656012
+    second: Desc_Icon_3
+  - first:
+      213: 898863049702895244
+    second: Desc_Icon_4
+  - first:
+      213: 8129774688571460947
+    second: Desc_Icon_5
+  - first:
+      213: 2880634002456290556
+    second: Desc_Icon_6
+  - first:
+      213: -8745766463601185182
+    second: Cost_Mana
+  - first:
+      213: -4001101304822521760
+    second: Cost_Coin
+  - first:
+      213: 909844263557509806
+    second: Cost_Blood
+  - first:
+      213: -1432121792826511484
+    second: Card_Back_0
+  - first:
+      213: 5203119476218637104
+    second: Card_Back_1
+  - first:
+      213: 6050865176156489209
+    second: Card_Back_2
+  - first:
+      213: -5613492605407741346
+    second: Card_Back_3
+  - first:
+      213: 9176621746589370685
+    second: Card_Back_4
+  - first:
+      213: 3630583566268488690
+    second: Desc_Field
+  - first:
+      213: 2975595449833020281
+    second: HealthBar_Back
+  - first:
+      213: -580221286459741871
+    second: HealthBar2_Border
+  - first:
+      213: -257746756776845691
+    second: HealthBar_Fill_Green
+  - first:
+      213: -5951292867045008062
+    second: HealthBar_Fill_Yellow
+  - first:
+      213: -2709579623771112450
+    second: HealthBar_Fill_Blue
+  - first:
+      213: -5601193659984617040
+    second: Card_Border_hexagon
+  - first:
+      213: -7165881727702934391
+    second: Mask_rectangle
+  - first:
+      213: 7875804557599293360
+    second: Mask_hexagon
+  - first:
+      213: 3979280662108003493
+    second: Card_Back_5
+  - first:
+      213: 4132073928841064229
+    second: Card_Border_rectangle_dark
+  - first:
+      213: -4083507453021018663
+    second: Card_Border_rectangle_gold
+  - first:
+      213: 2869102851392692707
+    second: Card_Border_rectangle_silver
+  - first:
+      213: 4686815256303124604
+    second: Card_Border_rectangle_bronze
+  - first:
+      213: 2264458523507642371
+    second: Card_Border_hexagon_dark
+  - first:
+      213: -5686647631975829124
+    second: Card_Border_hexagon_gold
+  - first:
+      213: 8681826196295349328
+    second: Card_Border_hexagon_silver
+  - first:
+      213: -1204665241221674782
+    second: Card_Border_hexagon_bronze
+  - first:
+      213: -9206838919312798506
+    second: gem_0
+  - first:
+      213: -8400670950057650449
+    second: gem_1
+  - first:
+      213: 6515629438324464247
+    second: gem_2
+  - first:
+      213: 896008859028648996
+    second: gem_3
+  - first:
+      213: 8802978331890681932
+    second: gem_4
+  - first:
+      213: 8479903185287042497
+    second: gem_5
+  - first:
+      213: 8274561110597006133
+    second: HealthBar2_Border
+  - first:
+      213: 1599505094621652985
+    second: Conteiner_
+  - first:
+      213: -2825973907438196786
+    second: Conteiner_silver
+  - first:
+      213: 4939695646471159523
+    second: Conteiner_gold
+  - first:
+      213: 6853125067223639812
+    second: Conteiner_light
+  - first:
+      213: -9196232339229951499
+    second: Conteiner_Dark
+  - first:
+      213: -5230688040620414778
+    second: Conteiner_bronze
+  - first:
+      213: 6928673055824294935
+    second: Rank_4
+  - first:
+      213: -9045301413570246603
+    second: Rank_5
+  - first:
+      213: 6397499919668576770
+    second: HealthBar2_Fill_Blue
+  - first:
+      213: -2854214489594741339
+    second: HealthBar2_Fill_Yellow
+  - first:
+      213: -604210462788397012
+    second: HealthBar2_Fill_Green
+  - first:
+      213: 3534000921709554944
+    second: HealthBar2_Fill_Red
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 20
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Title_substrate_red
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 210
+        width: 47
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46060ae96082825b0800000000000000
+      internalID: -5393016544879943580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_substrate_brown
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 194
+        width: 47
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 708ea63fe47bcd630800000000000000
+      internalID: 3953236122643654663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_substrate_yellow
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 178
+        width: 47
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99c146f49ae2e8910800000000000000
+      internalID: 1841460602357423257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rank_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 119
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9dd1ae01b1e01730800000000000000
+      internalID: 3967919422284357019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rank_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 112
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0614970718c438ca0800000000000000
+      internalID: -6015880558415363744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rank_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 105
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc3e178589a821030800000000000000
+      internalID: 3463983450324853707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rank_3
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 119
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f30eb5e8499412a0800000000000000
+      internalID: -6767615801659882507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Vert_substrate_red
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 80
+        width: 12
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 017690f7af3add190800000000000000
+      internalID: -7936006672088471792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Vert_substrate_brown
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 80
+        width: 12
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c82b4ff78471b0c30800000000000000
+      internalID: 4326577467171320460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_Vert_substrate_yellow
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 80
+        width: 12
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9827f5913aedea730800000000000000
+      internalID: 4012389110120411785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_substrate
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 167
+        width: 47
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5c8a5ae1663c2be0800000000000000
+      internalID: -1500764781649687460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desc_Field_Icon_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 108
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b22bab502ae65bf0800000000000000
+      internalID: -335823697494728013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desc_Field_Icon_1
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 108
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 250337a0d9e3802f0800000000000000
+      internalID: -1006485672511197102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desc_Field_Icon_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 108
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eb822ab46dc2fab0800000000000000
+      internalID: -4975688805787726872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desc_Field_Icon_3
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 108
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87c97e5cff63aa6e0800000000000000
+      internalID: -1825586226780464008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToolTip
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 102
+        width: 45
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 3, z: 3, w: 3}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b21f02c7027043f70800000000000000
+      internalID: 9165958977708683563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desc_substrate
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 85
+        width: 45
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01f688a3774fbdd60800000000000000
+      internalID: 7916189562954084112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desc_Field_Icon_4
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 98
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec98ab3c797c97350800000000000000
+      internalID: 6015058231967779278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desc_Field_Icon_5
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 98
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e7bdcffccde0bdc0800000000000000
+      internalID: -3625136235312465947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desc_Field_Icon_6
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 98
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 564f7b2fd2aca8910800000000000000
+      internalID: 1840505696428749925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desc_Field_Icon_7
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 97
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 900757d0828eb9910800000000000000
+      internalID: 1845323731060486153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desc_Icon_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 83
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e883d0e91ed7aba30800000000000000
+      internalID: 4231833207840782478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desc_Icon_1
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 83
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5e4565b030142bc0800000000000000
+      internalID: -3808901583460807075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desc_Icon_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 83
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2b6fcf57c8c0f140800000000000000
+      internalID: 4751518365507349294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desc_Icon_3
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 83
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4dc029641b8ac940800000000000000
+      internalID: 5317215229843656012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desc_Icon_4
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 83
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8ee34b6e27697c00800000000000000
+      internalID: 898863049702895244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desc_Icon_5
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 83
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35d83408103c2d070800000000000000
+      internalID: 8129774688571460947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desc_Icon_6
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 83
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf4a15cec511af720800000000000000
+      internalID: 2880634002456290556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cost_Mana
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 88
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ee6880dbbc0a680800000000000000
+      internalID: -8745766463601185182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cost_Coin
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 88
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 060a3bfdf8b3978c0800000000000000
+      internalID: -4001101304822521760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cost_Blood
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 86
+        width: 10
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea2b542898a60ac00800000000000000
+      internalID: 909844263557509806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Card_Back_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 9
+        width: 45
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48fea7f21d4102ce0800000000000000
+      internalID: -1432121792826511484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Card_Back_1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 9
+        width: 45
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03bade7a891353840800000000000000
+      internalID: 5203119476218637104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Card_Back_2
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 9
+        width: 45
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f5c690a1ddf8f350800000000000000
+      internalID: 6050865176156489209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desc_Field
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 148
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fbddc2948c626230800000000000000
+      internalID: 3630583566268488690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mask_rectangle
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 78
+        width: 47
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98cddcdf88cad8c90800000000000000
+      internalID: -7165881727702934391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mask_hexagon
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 76
+        width: 47
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bfbb10748a7c4d60800000000000000
+      internalID: 7875804557599293360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_plant
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 105
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84c0528697c1d02f0800000000000000
+      internalID: -2710627316883375812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_water
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 105
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5367f274599dc9500800000000000000
+      internalID: -7382951232287679616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_star
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 105
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5729c4b863fad9780800000000000000
+      internalID: 7614574872227714490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_sheld
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 115
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e667b6d06c4187b50800000000000000
+      internalID: -211255342891729768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_sword
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 115
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7b85c8413a766790800000000000000
+      internalID: 2691421800441167554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ison_bone
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 115
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b686296c29b20a80800000000000000
+      internalID: 8730681953988357209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_scull
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 125
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9a25b1a4256c44f0800000000000000
+      internalID: -7221823763007480939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_loot
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 125
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f726f566e783a120800000000000000
+      internalID: 7983885485109032538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 125
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48fe6b704ff8942c0800000000000000
+      internalID: -2066849461130780280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Card_Back_5
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 9
+        width: 45
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ac5786ddae393730800000000000000
+      internalID: 3979280662108003493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Card_Border_rectangle_dark
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 233
+        width: 53
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52f693a7853185930800000000000000
+      internalID: 4132073928841064229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Card_Border_rectangle_gold
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 231
+        width: 59
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d5a5095b977457c0800000000000000
+      internalID: -4083507453021018663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Card_Border_rectangle_silver
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 232
+        width: 57
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e1625997d911d720800000000000000
+      internalID: 2869102851392692707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Card_Border_rectangle_bronze
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 153
+        width: 53
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7044dfc4a9ea0140800000000000000
+      internalID: 4686815256303124604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Card_Border_hexagon_dark
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 229
+        width: 53
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 300574e8709fc6f10800000000000000
+      internalID: 2264458523507642371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Card_Border_hexagon_gold
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 229
+        width: 59
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c71b34d9b18f411b0800000000000000
+      internalID: -5686647631975829124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Card_Border_hexagon_silver
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 229
+        width: 57
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0547ddf5dea0c7870800000000000000
+      internalID: 8681826196295349328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Card_Border_hexagon_bronze
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 150
+        width: 53
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e8c8bf785b284fe0800000000000000
+      internalID: -1204665241221674782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gem_0
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 215
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dc8e1668ccba3080800000000000000
+      internalID: -9206838919312798506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gem_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 205
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe6ded29742da6b80800000000000000
+      internalID: -8400670950057650449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gem_2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 195
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77a586fe37a2c6a50800000000000000
+      internalID: 6515629438324464247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gem_3
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 185
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 424710e5f434f6c00800000000000000
+      internalID: 896008859028648996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gem_4
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 175
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c480ec517267a2a70800000000000000
+      internalID: 8802978331890681932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gem_5
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 165
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c5dcb0c40baea570800000000000000
+      internalID: 8479903185287042497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conteiner_
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 154
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 5, z: 3, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f7e955b865923610800000000000000
+      internalID: 1599505094621652985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conteiner_silver
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 154
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 3, z: 3, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec7af9e24bf18c8d0800000000000000
+      internalID: -2825973907438196786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conteiner_gold
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 145
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 3, z: 3, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eef472d4035d8440800000000000000
+      internalID: 4939695646471159523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conteiner_light
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 136
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 3, z: 3, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407a03170f03b1f50800000000000000
+      internalID: 6853125067223639812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conteiner_Dark
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 145
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 3, z: 3, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f93d34496b606080800000000000000
+      internalID: -9196232339229951499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conteiner_bronze
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 137
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 3, z: 3, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c8afefb0fcd867b0800000000000000
+      internalID: -5230688040620414778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rank_4
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 112
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7143a314f67972060800000000000000
+      internalID: 6928673055824294935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rank_5
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 105
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5388ec5d942a87280800000000000000
+      internalID: -9045301413570246603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Card_Back_0: -1432121792826511484
+      Card_Back_1: 5203119476218637104
+      Card_Back_2: 6050865176156489209
+      Card_Back_5: 3979280662108003493
+      Card_Border_hexagon_bronze: -1204665241221674782
+      Card_Border_hexagon_dark: 2264458523507642371
+      Card_Border_hexagon_gold: -5686647631975829124
+      Card_Border_hexagon_silver: 8681826196295349328
+      Card_Border_rectangle_bronze: 4686815256303124604
+      Card_Border_rectangle_dark: 4132073928841064229
+      Card_Border_rectangle_gold: -4083507453021018663
+      Card_Border_rectangle_silver: 2869102851392692707
+      Conteiner_: 1599505094621652985
+      Conteiner_Dark: -9196232339229951499
+      Conteiner_bronze: -5230688040620414778
+      Conteiner_gold: 4939695646471159523
+      Conteiner_light: 6853125067223639812
+      Conteiner_silver: -2825973907438196786
+      Cost_Blood: 909844263557509806
+      Cost_Coin: -4001101304822521760
+      Cost_Mana: -8745766463601185182
+      Desc_Field: 3630583566268488690
+      Desc_Field_Icon_0: -335823697494728013
+      Desc_Field_Icon_1: -1006485672511197102
+      Desc_Field_Icon_2: -4975688805787726872
+      Desc_Field_Icon_3: -1825586226780464008
+      Desc_Field_Icon_4: 6015058231967779278
+      Desc_Field_Icon_5: -3625136235312465947
+      Desc_Field_Icon_6: 1840505696428749925
+      Desc_Field_Icon_7: 1845323731060486153
+      Desc_Icon_0: 4231833207840782478
+      Desc_Icon_1: -3808901583460807075
+      Desc_Icon_2: 4751518365507349294
+      Desc_Icon_3: 5317215229843656012
+      Desc_Icon_4: 898863049702895244
+      Desc_Icon_5: 8129774688571460947
+      Desc_Icon_6: 2880634002456290556
+      Desc_substrate: 7916189562954084112
+      Icon_: -2066849461130780280
+      Icon_loot: 7983885485109032538
+      Icon_plant: -2710627316883375812
+      Icon_scull: -7221823763007480939
+      Icon_sheld: -211255342891729768
+      Icon_star: 7614574872227714490
+      Icon_sword: 2691421800441167554
+      Icon_water: -7382951232287679616
+      Ison_bone: 8730681953988357209
+      Mask_hexagon: 7875804557599293360
+      Mask_rectangle: -7165881727702934391
+      Rank_0: 3967919422284357019
+      Rank_1: -6015880558415363744
+      Rank_2: 3463983450324853707
+      Rank_3: -6767615801659882507
+      Rank_4: 6928673055824294935
+      Rank_5: -9045301413570246603
+      Title_Vert_substrate_brown: 4326577467171320460
+      Title_Vert_substrate_red: -7936006672088471792
+      Title_Vert_substrate_yellow: 4012389110120411785
+      Title_substrate: -1500764781649687460
+      Title_substrate_brown: 3953236122643654663
+      Title_substrate_red: -5393016544879943580
+      Title_substrate_yellow: 1841460602357423257
+      ToolTip: 9165958977708683563
+      gem_0: -9206838919312798506
+      gem_1: -8400670950057650449
+      gem_2: 6515629438324464247
+      gem_3: 896008859028648996
+      gem_4: 8802978331890681932
+      gem_5: 8479903185287042497
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

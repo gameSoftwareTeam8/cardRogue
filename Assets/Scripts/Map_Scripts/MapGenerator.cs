@@ -15,7 +15,6 @@ public class MapGenerator : MonoBehaviour
     private List<Node> wallList = new List<Node>();
 
     public static MapGenerator Instance { get; private set; }
-    bool a = false;
     private void Awake()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -55,23 +54,29 @@ public class MapGenerator : MonoBehaviour
             sprite.enabled = false;
         }
     }
+    void Reset_Map()
+    {
+        if (nodes != null && nodes.Length > 0)
+        {
+            foreach (Node node in nodes)
+            {
+                Destroy(node.gameObject);
+            }
+        }
+        nodes = null; 
 
+        GenerateMap();
+    }
     public void ReloadCurrentScene()
     {
-        DestroyPersistentObject();
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex);
+        for (int x = 0; x < width; x++)
+            for (int y = 0; y < height; y++)
+                if (nodes[x, y] != null)
+                    Destroy(nodes[x, y]);
+        GenerateMap();
     }
 
-    private void DestroyPersistentObject()
-    {
-        if (this.gameObject != null)
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
-    private void ShowActiveSprites()
+    public void ShowActiveSprites()
     {
         /*
         if(nodes == null)
@@ -97,7 +102,12 @@ public class MapGenerator : MonoBehaviour
         
     }
 
-    private void Start()
+    private void Start() { 
+
+        GenerateMap();
+    }
+
+    private void GenerateMap()
     {
         InitializeMap();
         GenerateMazeUsingPrim();
@@ -263,6 +273,7 @@ public class MapGenerator : MonoBehaviour
             switch (clickedNode.Type)
             {
                 case NodeType.Monster:
+                    Reset_Map();
                     HideAllSprites();
                     SceneManager.LoadScene("Temp1");
                     break;

@@ -1,0 +1,332 @@
+fileFormatVersion: 2
+guid: 2012f27324c335940b7e3f548d3221cc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 24793121545691373
+    second: CardContentSprites_4
+  - first:
+      213: 3868863275744189126
+    second: CardContentSprites_1
+  - first:
+      213: 667781776887067444
+    second: CardContentSprites_2
+  - first:
+      213: 1142390990476251804
+    second: CardContentSprites_3
+  - first:
+      213: -9036061856142932591
+    second: CardContentSprites_4
+  - first:
+      213: -464828322679761389
+    second: CardContentSprites_5
+  - first:
+      213: 2365282006399767174
+    second: CardContentSprites_6
+  - first:
+      213: -5433993476420152495
+    second: CardContentSprites_7
+  - first:
+      213: 8174173567689413719
+    second: CardContentSprites_8
+  - first:
+      213: -3270769264175370804
+    second: CardContentSprites_9
+  - first:
+      213: -5225253975879428014
+    second: CardContentSprites_10
+  - first:
+      213: -3836847451287543379
+    second: CardContentSprites_11
+  - first:
+      213: -7247369815530861193
+    second: CardContentSprites_12
+  - first:
+      213: -1239605205699220312
+    second: CardContentSprites_13
+  - first:
+      213: -8523280220668327731
+    second: CardContentSprites_14
+  - first:
+      213: 2340299236228836902
+    second: CardContentSprites_15
+  - first:
+      213: -5064785443624378816
+    second: CardContentSprites_16
+  - first:
+      213: -7509085600287591397
+    second: CardContentSprites_17
+  - first:
+      213: 7581327161636616699
+    second: CardContentSprites_18
+  - first:
+      213: 2980263758953433843
+    second: CardContentSprites_19
+  - first:
+      213: -1321233920672755402
+    second: CardContentSprites_20
+  - first:
+      213: -4379936641946071400
+    second: CardContentSprites_21
+  - first:
+      213: 7607775699515877013
+    second: CardContentSprites_22
+  - first:
+      213: 3492020900061060644
+    second: CardContentSprites_23
+  - first:
+      213: -3808668812151838731
+    second: CardContentSprites_24
+  - first:
+      213: -3802592287681746792
+    second: CardContentSprites_25
+  - first:
+      213: 5808044973788990311
+    second: CardContentSprites_26
+  - first:
+      213: 6905691348506349169
+    second: CardContentSprites_27
+  - first:
+      213: 5104702526097167320
+    second: CardContentSprites_28
+  - first:
+      213: -2324271445530039976
+    second: CardContentSprites_29
+  - first:
+      213: 8952010835659027762
+    second: CardContentSprites_30
+  - first:
+      213: -2577359573603853358
+    second: CardContentSprites_31
+  - first:
+      213: -7356369424198248218
+    second: CardContentSprites_32
+  - first:
+      213: 8029089361588728641
+    second: CardContentSprites_33
+  - first:
+      213: -7908418687679108488
+    second: CardContentSprites_34
+  - first:
+      213: 6077644987706007272
+    second: CardContentSprites_35
+  - first:
+      213: -813792769654102168
+    second: CardContentSprites_36
+  - first:
+      213: 8559584496819034287
+    second: CardContentSprites_37
+  - first:
+      213: 8355633702861628832
+    second: CardContentSprites_38
+  - first:
+      213: 454619863605164441
+    second: CardContentSprites_39
+  - first:
+      213: -1839073340949121056
+    second: CardContentSprites_40
+  - first:
+      213: 317688559053974467
+    second: CardContentSprites_41
+  - first:
+      213: -9199716948528246
+    second: CardContentSprites_42
+  - first:
+      213: -1381841492090559906
+    second: CardContentSprites_43
+  - first:
+      213: 7046806117134171897
+    second: CardContentSprites_44
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 20
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CardContentSprites_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f26e70b38229e84bbc6cc750a887951
+      internalID: 2145454042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CardContentSprites_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c27749bfafa9e40b02156829939748
+      internalID: -59648376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      CardContentSprites_0: 2145454042
+      CardContentSprites_1: -59648376
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

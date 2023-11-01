@@ -9,12 +9,12 @@ using UnityEngine;
 public class CardVfx: MonoBehaviour
 {
     [SerializeField]
-    private Material burning_material;
+    protected Material burning_material;
     [SerializeField]
-    private AnimationClip destroy_animation;
-    private float time_to_destroy = 2.0f;
+    protected AnimationClip destroy_animation;
+    private float time_to_destroy = 3.0f;
     private Card card;
-    private float age = 0.0f;
+    private float age = 0.001f;
 
     public void Awake()
     {
@@ -32,7 +32,7 @@ public class CardVfx: MonoBehaviour
         }
     }
 
-    public void on_destroyed()
+    public virtual void on_destroyed()
     {
         GameObject smoke_object = Locator.vfx_factory.create("Smoke");
         smoke_object.transform.parent = transform;

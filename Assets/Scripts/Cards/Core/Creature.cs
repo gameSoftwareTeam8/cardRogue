@@ -21,6 +21,8 @@ public class Creature: Card
     
     public override void destroy()
     {
+        if (is_destroyed)
+            return;
         base.destroy();
         Locator.board.remove_card(this);
     }

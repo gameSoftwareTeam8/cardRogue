@@ -22,6 +22,7 @@ public class VFXFactory
         vfx_object.AddComponent<VisualEffect>();
         VisualEffect vfx = vfx_object.GetComponent<VisualEffect>();
         vfx.visualEffectAsset = vfxes[vfx_name];
+        vfx.GetComponent<Renderer>().sortingLayerName = "VFX";
         vfx_object.AddComponent<VFXDestroyer>();
 
         return vfx_object;

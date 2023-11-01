@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TestMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: e758da80cc7a30d4697ac3c91d4989c2, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: d6abeb2e665d050458b8c1da82bb5ce8, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -36,36 +36,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f5855af7e8e6e4c90a7b2bd1846f84ae, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_21c56d22ceb846518d152d7e7748e6d0_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 3d62acaf8ed07fa4ab5f96328f7dc322, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_ad2bc586b8e54f069980f896180f99f8_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: f5855af7e8e6e4c90a7b2bd1846f84ae, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_f4513595cc3d46659149b01701af0ca7_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: befa84873aa06bf48b76334d77e85584, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2D:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -82,17 +54,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Age: 0
-    - _Colums: 1
-    - _EnableExternalAlpha: 0
     - _PixelsPerUnit: 32
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Rows: 1
-    - _Seed: 0
-    - _Tile: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    m_Colors: []
   m_BuildTextureStacks: []

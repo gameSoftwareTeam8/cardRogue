@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Merchant.unity
     guid: 3315ff6da89d3c24184a0faa09bf14eb
+  - enabled: 1
+    path: Assets/Scenes/SaveScore.unity
+    guid: 26a56a30dbb9dea44b173e56115864bd
   m_configObjects: {}

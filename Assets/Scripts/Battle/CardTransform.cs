@@ -10,7 +10,6 @@ public class CardTransform : MonoBehaviour
 
     public void MoveTransform(PRS prs, bool useDotween, float dotweenTime = 0)
     {
-        Debug.Log(prs);
         if (useDotween)
         {
             transform.DOMove(prs.pos, dotweenTime);

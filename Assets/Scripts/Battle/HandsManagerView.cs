@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using System.Linq;
+
 
 public class HandsManagerView : MonoBehaviour
 {
@@ -17,9 +18,11 @@ public class HandsManagerView : MonoBehaviour
     [SerializeField] ECardState eCardState;
     [SerializeField] float cardScale = 1.0f;
 
+    GameObject enlargedInstance = null;
     CardTransform selectCard;
-    bool isMyCardDrag;
+    bool isMyCardDrag = false;
     bool onCardArea;
+    bool isCardUsed = false;
     enum ECardState { Nothing, CanMouseOver, CanMouseDrag};
 
     private void FixedUpdate()
@@ -34,6 +37,7 @@ public class HandsManagerView : MonoBehaviour
     void OnCardAdded((bool myTurn, Card card) args)
     {
         var cardView = args.card.GetComponent<CardView>();
+        cardView.transform.position = cardSpawnPoint.position;
         cardView.on_mouse_up += CardMouseUp;
         cardView.on_mouse_down += CardMouseDown;
         cardView.on_mouse_over += CardMouseOver;
@@ -46,6 +50,14 @@ public class HandsManagerView : MonoBehaviour
         if(args.myTurn)
             myCards.Add(cardTransform);
 
+        SetOriginOrder();
+        CardAlignment();
+    }
+
+    void OnCardRemoved(Card card)
+    {
+        Destroy(card.gameObject);
+        myCards.Remove(card.GetComponent<CardTransform>());
         SetOriginOrder();
         CardAlignment();
     }
@@ -112,16 +124,37 @@ public class HandsManagerView : MonoBehaviour
     #region MyCard
     public void CardMouseOver(object sender, CardEventArgs args)
     {
-        var cardTransform = args.card.GetComponent<CardTransform>();
-        if (eCardState == ECardState.Nothing)
+        if (isCardUsed) {
+            isCardUsed = false;
             return;
+        }
+        if (enlargedInstance != null)
+            return;
+
+        var cardTransform = args.card.GetComponent<CardTransform>();
+        if (eCardState == ECardState.Nothing || isMyCardDrag)
+            return;
+
+        enlargedInstance = Instantiate(args.card.gameObject);
+        foreach (var component in enlargedInstance.GetComponents<Component>())
+            if (!(component is CardTransform || component is Transform || component is CardRenderingOrderer))
+                Destroy(component);
+        enlargedInstance.GetComponent<CardView>().show();
+
         selectCard = cardTransform;
-        EnlargeCard(true, cardTransform);
+        EnlargeCard(true, enlargedInstance.GetComponent<CardTransform>());
+        selectCard.GetComponent<CardView>().hide();
     }
 
     public void CardMouseExit(object sender, CardEventArgs args)
     {
-        EnlargeCard(false, args.card.GetComponent<CardTransform>());  
+        if (enlargedInstance != null)
+            Destroy(enlargedInstance);
+        if (selectCard != null)
+            selectCard.GetComponent<CardView>().show();
+        if (!isMyCardDrag)
+            selectCard = null;
+        // EnlargeCard(false, args.card.GetComponent<CardTransform>());  
     }
 
     public void CardMouseDown(object sender, CardEventArgs args)
@@ -133,16 +166,55 @@ public class HandsManagerView : MonoBehaviour
 
     public void CardMouseUp(object sender, CardEventArgs args)
     {
+        isCardUsed = true;
+        if (enlargedInstance != null)
+            Destroy(enlargedInstance);
+        if (selectCard != null) {
+            selectCard.GetComponent<CardView>().show();
+            EnlargeCard(false, selectCard);
+            selectCard = null;
+        }
+        if (!isMyCardDrag)
+            return;
         isMyCardDrag = false;
+
+        var layer = LayerMask.GetMask("CardZone");
+        RaycastHit2D hit = Physics2D.Raycast(Utils.MousePos, Vector2.zero, Mathf.Infinity, layer);
+        if (onCardArea || !hit)
+            return;
+                
+        string zone_name = hit.transform.name;
+        BoardSide side = zone_name[0] == 'H' ? BoardSide.HOME : BoardSide.AWAY;
+        int idx = zone_name[^1] - '0';
+        use_card(side, idx, args.card);
+
         if (eCardState != ECardState.CanMouseDrag)
             return;
     }
 
+    private void use_card(BoardSide side, int idx, Card card)
+    {
+        IBoard board = Locator.board;
+        CardEffect card_effect = card.GetComponent<CardEffect>();
+        Card target = board.get_card(side, idx);
+        if (card is Creature && board.get_card(side, idx) == null) {
+            var card_factory = Locator.card_factory;
+            Creature creature = card_factory.create(card.info).GetComponent<Creature>();
+            creature.transform.localScale = Vector2.one * 1.5f * cardScale;
+            board.add_card(side, idx, creature);
+            HandsManager.Inst.RemoveCard(card);
+        }
+        else if (card_effect is TargetingMagicEffect && target != null)
+            ((TargetingMagicEffect)card_effect).on_used_to_target((Creature)target);
+        else if (card_effect is MagicEffect)
+            ((MagicEffect)card_effect).on_used(side);
+    }
+
     void CardDrag()
     {
-        if (!onCardArea)
+        if (!onCardArea && selectCard != null)
         {
-            selectCard.MoveTransform(new PRS(Utils.MousePos, Utils.QI, selectCard.originPRS.scale * cardScale), false);
+            selectCard.MoveTransform(new PRS(Utils.MousePos, Utils.QI, selectCard.originPRS.scale), false);
         }
     }
 
@@ -160,8 +232,8 @@ public class HandsManagerView : MonoBehaviour
             Vector3 enlargePos = new Vector3(card.originPRS.pos.x, -6f, -10f);
             card.MoveTransform(new PRS(enlargePos, Utils.QI, Vector3.one * 2.8f * cardScale), false);
         }
-        else if (selectCard != null)
-            card.MoveTransform(new PRS(Utils.MousePos, Utils.QI, selectCard.originPRS.scale * cardScale), false);
+        else
+            card.MoveTransform(card.originPRS, false);
 
         card.GetComponent<CardRenderingOrderer>().SetMostFrontOrder(isEnlarge);
     }
