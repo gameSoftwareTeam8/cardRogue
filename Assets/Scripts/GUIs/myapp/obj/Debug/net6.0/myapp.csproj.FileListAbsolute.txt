@@ -1,0 +1,15 @@
+/Users/jasyjak/Documents/GitHub/cardRogue/Assets/Scripts/GUIs/myapp/bin/Debug/net6.0/myapp
+/Users/jasyjak/Documents/GitHub/cardRogue/Assets/Scripts/GUIs/myapp/bin/Debug/net6.0/myapp.deps.json
+/Users/jasyjak/Documents/GitHub/cardRogue/Assets/Scripts/GUIs/myapp/bin/Debug/net6.0/myapp.runtimeconfig.json
+/Users/jasyjak/Documents/GitHub/cardRogue/Assets/Scripts/GUIs/myapp/bin/Debug/net6.0/myapp.dll
+/Users/jasyjak/Documents/GitHub/cardRogue/Assets/Scripts/GUIs/myapp/bin/Debug/net6.0/myapp.pdb
+/Users/jasyjak/Documents/GitHub/cardRogue/Assets/Scripts/GUIs/myapp/obj/Debug/net6.0/myapp.csproj.AssemblyReference.cache
+/Users/jasyjak/Documents/GitHub/cardRogue/Assets/Scripts/GUIs/myapp/obj/Debug/net6.0/myapp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jasyjak/Documents/GitHub/cardRogue/Assets/Scripts/GUIs/myapp/obj/Debug/net6.0/myapp.AssemblyInfoInputs.cache
+/Users/jasyjak/Documents/GitHub/cardRogue/Assets/Scripts/GUIs/myapp/obj/Debug/net6.0/myapp.AssemblyInfo.cs
+/Users/jasyjak/Documents/GitHub/cardRogue/Assets/Scripts/GUIs/myapp/obj/Debug/net6.0/myapp.csproj.CoreCompileInputs.cache
+/Users/jasyjak/Documents/GitHub/cardRogue/Assets/Scripts/GUIs/myapp/obj/Debug/net6.0/myapp.dll
+/Users/jasyjak/Documents/GitHub/cardRogue/Assets/Scripts/GUIs/myapp/obj/Debug/net6.0/refint/myapp.dll
+/Users/jasyjak/Documents/GitHub/cardRogue/Assets/Scripts/GUIs/myapp/obj/Debug/net6.0/myapp.pdb
+/Users/jasyjak/Documents/GitHub/cardRogue/Assets/Scripts/GUIs/myapp/obj/Debug/net6.0/myapp.genruntimeconfig.cache
+/Users/jasyjak/Documents/GitHub/cardRogue/Assets/Scripts/GUIs/myapp/obj/Debug/net6.0/ref/myapp.dll
