@@ -8,6 +8,7 @@ public class CreatureView: CardView
 {
     Creature creature;
     TextMeshPro name_text, mana_text, power_text, hp_text;
+    SpriteRenderer character_sprite;
     public void init()
     {
         creature = GetComponent<Creature>();
@@ -16,11 +17,13 @@ public class CreatureView: CardView
         mana_text = front.Find("Mana").Find("Text").GetComponent<TextMeshPro>();
         power_text = front.Find("Power").Find("Text").GetComponent<TextMeshPro>();
         hp_text = front.Find("Hp").Find("Text").GetComponent<TextMeshPro>();
+        character_sprite = front.Find("Character").GetComponent<SpriteRenderer>();
 
         name_text.text = creature.creature_info.card_name;
         mana_text.text = creature.creature_info.cost.ToString();
         power_text.text = creature.creature_info.power.ToString();
         hp_text.text = creature.creature_info.hp.ToString();
+        character_sprite.sprite = creature.creature_info.sprite;
     }
 
     public void on_damaged((int amount, Card source) value)
