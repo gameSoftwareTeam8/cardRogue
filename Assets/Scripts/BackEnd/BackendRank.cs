@@ -107,6 +107,7 @@ public class BackendRank
             info.AppendLine("정렬번호 : " + jsonData["index"].ToString());
             info.AppendLine();
             Debug.Log(info);
+
         }
     }
 }
