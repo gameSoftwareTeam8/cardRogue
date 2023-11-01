@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CardGrid : MonoBehaviour
 {
-    public Player player;
-    public GameObject cardPrefab;
     public Transform gridTransform;
 
     void Start()
@@ -15,14 +13,12 @@ public class CardGrid : MonoBehaviour
 
     void DisplayCards()
     {
+        IPlayer player = Locator.player;
         for (int i = 0; i < player.cards_count; i++)
         {
-            Debug.Log(i);
-
             Card card = player.get_card(i);
-            GameObject cardObj = Instantiate(cardPrefab, gridTransform);
-            CardDisplay cardDisplay = cardObj.GetComponent<CardDisplay>();
-            cardDisplay.DisplayCard(card);
+            GameObject cardObj = Instantiate(card.gameObject, gridTransform);
+            cardObj.GetComponent<CardView>().show();
         }
     }
 }

@@ -271,17 +271,17 @@ namespace ReadmeSystem.Editor
             var ids = AssetDatabase.FindAssets("Readme t:Readme");
             List<Readme> results = new List<Readme>();
 
-            foreach (string guid in ids)
-            {
-                var readmeObject = AssetDatabase.LoadMainAssetAtPath(AssetDatabase.GUIDToAssetPath(guid));
+            // foreach (string guid in ids)
+            // {
+            //     var readmeObject = AssetDatabase.LoadMainAssetAtPath(AssetDatabase.GUIDToAssetPath(guid));
 
-                Readme readme = (Readme)readmeObject;
-                if (readme.isRoot)
-                {
-                    results.Add(readme);
+            //     Readme readme = (Readme)readmeObject;
+            //     if (readme.isRoot)
+            //     {
+            //         results.Add(readme);
 
-                }
-            }
+            //     }
+            // }
 
 
 
