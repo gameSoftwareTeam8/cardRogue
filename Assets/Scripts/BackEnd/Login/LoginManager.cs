@@ -34,7 +34,7 @@ public class LoginManager : MonoBehaviour
         BackendLogin.Instance.CustomSignUp(username, "1234");
         BackendLogin.Instance.CustomLogin(username, "1234");
         BackendLogin.Instance.UpdateNickname(username);
-        BackendRank.Instance.RankInsert(50);
+        BackendRank.Instance.RankInsert(PlayerPrefs.GetInt("Player Score", 0));
         SceneManager.LoadScene("StartMenu");
 
     }
