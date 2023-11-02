@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using BackEnd;
+using UnityEngine.SceneManagement;
 
 public class LoginManager : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class LoginManager : MonoBehaviour
         BackendLogin.Instance.CustomLogin(username, "1234");
         BackendLogin.Instance.UpdateNickname(username);
         BackendRank.Instance.RankInsert(50);
-        
+        SceneManager.LoadScene("StartMenu");
+
     }
 }

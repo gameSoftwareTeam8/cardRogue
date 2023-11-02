@@ -84,7 +84,7 @@ public class Node : MonoBehaviour
         spriteRenderer.enabled = true;  // 노드 스프라이트 활성화
     }
 
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
         if (SceneManager.GetActiveScene().name != "Map")
         {
