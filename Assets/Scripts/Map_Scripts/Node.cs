@@ -16,6 +16,7 @@ public class Node : MonoBehaviour
     public NodeType Type { get; private set; }
     public bool IsClicked { get; private set; } = false;
 
+    private bool isMouseDown = false;
     private SpriteRenderer spriteRenderer;
 
     // 각 노드 유형에 대한 스프라이트
@@ -84,8 +85,17 @@ public class Node : MonoBehaviour
         spriteRenderer.enabled = true;  // 노드 스프라이트 활성화
     }
 
+    private void OnMouseDown()
+    {
+        isMouseDown = true;
+    }
+
     private void OnMouseUp()
     {
+        if (!isMouseDown)
+            return;
+        isMouseDown = false;
+
         if (SceneManager.GetActiveScene().name != "Map")
         {
             return; 
