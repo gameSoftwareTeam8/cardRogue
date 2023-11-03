@@ -1,7 +1,8 @@
+using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -71,8 +72,9 @@ public class TurnManager : MonoBehaviour
             {
                 Creature card = board.get_card((BoardSide)side, i);
                 Creature target = board.get_opposite_card(card);
-                if (card != null && target != null)
+                if (card != null && target != null) {
                     card.attack(target);
+                }
             }
         }
     }
