@@ -18,7 +18,7 @@ public class MapGenerator : MonoBehaviour
     private void Awake()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        
+        PlayerPrefs.SetInt("Player Score", 0);
         if (Instance == null)
         {
             Instance = this;
@@ -54,7 +54,7 @@ public class MapGenerator : MonoBehaviour
             sprite.enabled = false;
         }
     }
-    void Reset_Map()
+    public void Reset_Map()
     {
         if (nodes != null && nodes.Length > 0)
         {
@@ -261,7 +261,13 @@ public class MapGenerator : MonoBehaviour
             }
         }
     }
-
+    void CountupScore(int score)
+    {
+        int currentScore = PlayerPrefs.GetInt("Player Score", 0);
+        currentScore += score;
+        PlayerPrefs.SetInt("Player Score", currentScore);
+        PlayerPrefs.Save();
+    }
     public void NodeClicked(Node clickedNode)
     {
         if (highlightedNodes.Contains(clickedNode))
@@ -274,18 +280,22 @@ public class MapGenerator : MonoBehaviour
             {
                 case NodeType.Monster:
                     Reset_Map();
+                    CountupScore(10);
                     HideAllSprites();
                     SceneManager.LoadScene("Temp1");
                     break;
                 case NodeType.Event:
+                    CountupScore(5);
                     HideAllSprites();
                     SceneManager.LoadScene("Temp1");
                     break;
                 case NodeType.Merchant:
+                    CountupScore(1);
                     HideAllSprites();
                     SceneManager.LoadScene("Merchant");
                     break;
                 case NodeType.Boss:
+                    CountupScore(50);
                     HideAllSprites();
                     SceneManager.LoadScene("Temp2");
                     break;
