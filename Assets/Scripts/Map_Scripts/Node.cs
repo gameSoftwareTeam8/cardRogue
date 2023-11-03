@@ -8,6 +8,7 @@ public enum NodeType
     Monster,
     Event,
     Merchant,
+    CampFire,
     Boss
 }
 

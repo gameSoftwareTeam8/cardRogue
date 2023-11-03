@@ -18,4 +18,5 @@ public static class Locator
     public static VFXFactory vfx_factory = new();
     public static IActionQueue action_queue = new ActionQueue();
     public static IPlayer player = new Player();
+    public static EnemyManager enemy_manager = null;
 }

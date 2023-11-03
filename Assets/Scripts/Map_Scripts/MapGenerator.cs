@@ -282,12 +282,12 @@ public class MapGenerator : MonoBehaviour
                     Reset_Map();
                     CountupScore(10);
                     HideAllSprites();
-                    SceneManager.LoadScene("Temp1");
+                    SceneManager.LoadScene("BattleScene");
                     break;
                 case NodeType.Event:
                     CountupScore(5);
                     HideAllSprites();
-                    SceneManager.LoadScene("Temp1");
+                    SceneManager.LoadScene("Shelter");
                     break;
                 case NodeType.Merchant:
                     CountupScore(1);

@@ -10,6 +10,7 @@ public class BattleManager : MonoBehaviour
  
     void Start()
     {
+        Locator.enemy_manager.create_enemy();
         StartGame();
     }
 

@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SaveScore.unity
     guid: 26a56a30dbb9dea44b173e56115864bd
+  - enabled: 1
+    path: Assets/Scenes/BattleScene.unity
+    guid: 3dfe78cf1c5165b478072a91f908369b
   m_configObjects: {}
