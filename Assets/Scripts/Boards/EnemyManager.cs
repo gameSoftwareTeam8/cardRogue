@@ -24,7 +24,6 @@ public class EnemyManager: MonoBehaviour
                 continue;
 
             Creature creature = card_factory.create(cards[i]).GetComponent<Creature>();
-            creature.transform.localScale = new Vector3(1.875f, 1.875f, 1.0f);
             board.add_card(BoardSide.AWAY, i, creature);
         }
     }

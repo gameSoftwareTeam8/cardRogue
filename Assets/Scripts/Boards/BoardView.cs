@@ -26,6 +26,7 @@ public class BoardView: MonoBehaviour
     {
         card.transform.parent = transform;
         card.transform.localPosition = positions[(int)board.get_side(card), board.get_idx(card)];
+        card.transform.localScale = new Vector3(1.875f, 1.875f, 1.0f);
         card.GetComponent<CardView>().show();
     }
 }

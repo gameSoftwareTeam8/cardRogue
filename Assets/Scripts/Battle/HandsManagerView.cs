@@ -180,7 +180,7 @@ public class HandsManagerView : MonoBehaviour
 
         var layer = LayerMask.GetMask("CardZone");
         RaycastHit2D hit = Physics2D.Raycast(Utils.MousePos, Vector2.zero, Mathf.Infinity, layer);
-        if (onCardArea || !hit)
+        if (use_nontarget(args.card) || onCardArea || !hit)
             return;
                 
         string zone_name = hit.transform.name;
@@ -190,6 +190,17 @@ public class HandsManagerView : MonoBehaviour
 
         if (eCardState != ECardState.CanMouseDrag)
             return;
+    }
+
+    private bool use_nontarget(Card card)
+    {
+        CardEffect card_effect = card.GetComponent<CardEffect>();
+        if (card_effect is not TargetingMagicEffect && card_effect is MagicEffect) {
+            ((MagicEffect)card_effect).on_used(BoardSide.HOME);
+            HandsManager.Inst.RemoveCard(card);
+            return true;
+        }
+        return false;
     }
 
     private void use_card(BoardSide side, int idx, Card card)
@@ -204,10 +215,10 @@ public class HandsManagerView : MonoBehaviour
             board.add_card(side, idx, creature);
             HandsManager.Inst.RemoveCard(card);
         }
-        else if (card_effect is TargetingMagicEffect && target != null)
+        else if (card_effect is TargetingMagicEffect && target != null) {
             ((TargetingMagicEffect)card_effect).on_used_to_target((Creature)target);
-        else if (card_effect is MagicEffect)
-            ((MagicEffect)card_effect).on_used(side);
+            HandsManager.Inst.RemoveCard(card);
+        }
     }
 
     void CardDrag()

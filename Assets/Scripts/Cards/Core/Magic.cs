@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Magic: Card
 {
-    public new MagicInfo info;
+    public MagicInfo magic_info;
     public void init(MagicInfo info)
     {
-        this.info = Instantiate(info);
+        magic_info = Instantiate(info);
+        this.info = magic_info;
     }
 }

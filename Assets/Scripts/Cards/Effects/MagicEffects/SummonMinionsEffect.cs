@@ -15,7 +15,7 @@ public class SummonMinionsEffect: MagicEffect
             if (board.get_card(user_side, i) != null)
                 continue;
             
-            Creature creature = factory.create("Minion").GetComponent<Creature>();
+            Creature creature = factory.create("Creatures/Minion").GetComponent<Creature>();
             board.add_card(user_side, i, creature);
         }
     }

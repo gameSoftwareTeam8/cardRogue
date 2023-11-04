@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleScene.unity
     guid: 3dfe78cf1c5165b478072a91f908369b
+  - enabled: 1
+    path: Assets/Scenes/Shelter.unity
+    guid: 9aca4725babcf41f9837882d2110707c
   m_configObjects: {}
