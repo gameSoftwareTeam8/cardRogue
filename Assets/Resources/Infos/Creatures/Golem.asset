@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f2a0a188372b946973345d90e30611, type: 3}
   m_Name: Golem
   m_EditorClassIdentifier: 
-  card_name: Wisp
-  description: Recover 1 Mana when created
-  effect_name: RecoverManaEffect
-  rarity: 2
+  card_name: Golem
+  description: 
+  effect_name: 
+  rarity: 0
   cost: 2
   price: 100
-  sprite: {fileID: 21300000, guid: 71288082129aa6c49b48b70f4358f205, type: 3}
-  power: 2
-  hp: 4
+  sprite: {fileID: 21300000, guid: 07dcac263b5d0dd4689b33ad67951782, type: 3}
+  power: 3
+  hp: 5
