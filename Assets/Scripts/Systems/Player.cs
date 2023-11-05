@@ -63,7 +63,8 @@ public class Player: IPlayer
 
     public void draw(int num=1)
     {
-
+        for (int i = 0; i < num; i++)
+            HandsManager.Inst.AddCard(TurnManager.Inst.myTurn);
     }
 
     public void add_card(Card card)

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Portal
   m_EditorClassIdentifier: 
   card_name: Portal
-  description: Summon minions in the user's empty zones.
-  effect_name: SummonMinionsEffect
+  description: Summon Scourges in the user's empty zones.
+  effect_name: PortalEffect
   rarity: 2
   cost: 2
   price: 100
