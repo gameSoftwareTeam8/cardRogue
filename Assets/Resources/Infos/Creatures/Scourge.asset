@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9f2a0a188372b946973345d90e30611, type: 3}
-  m_Name: Minion
+  m_Name: Scourge
   m_EditorClassIdentifier: 
-  card_name: Minion
+  card_name: Scourge
   description: 
   effect_name: 
   rarity: 0
   cost: 1
   price: 30
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: c29f0dcdaff2c4e47a51d01e38ac6cbf, type: 3}
   power: 1
   hp: 1
