@@ -19,10 +19,13 @@ public class TurnManager : MonoBehaviour
     public bool isLoading;
     public bool myTurn;
     public int turn { get; private set; } = 0;
+    int MaxMana = 0;
+    public static int CurMana;
 
     enum ETurnMode {My, Enemy}
     WaitForSeconds delay = new WaitForSeconds(0.1f);
     WaitForSeconds delay07 = new WaitForSeconds(0.7f);
+    public static event Action<bool> OnTurnStarted;
 
     void GameSetup()
     {
@@ -48,13 +51,19 @@ public class TurnManager : MonoBehaviour
     {
         isLoading = true;
         if (myTurn)
+        {
             BattleManager.Inst.Notification("나의 턴");
+            if (MaxMana < 10)
+                MaxMana++;
+            CurMana = MaxMana;
+        }
         else
             BattleManager.Inst.Notification("상대 턴");
         yield return delay07;
         ProcessDrawPhase();
         yield return delay07;
         isLoading = false;
+        OnTurnStarted?.Invoke(myTurn);
     }
 
     public void ProcessDrawPhase()
@@ -73,7 +82,14 @@ public class TurnManager : MonoBehaviour
                 Creature card = board.get_card((BoardSide)side, i);
                 Creature target = board.get_opposite_card(card);
                 if (card != null && target != null) {
-                    card.attack(target);
+                    Vector3 OriginAttackerPos = card.transform.position;
+                    DG.Tweening.Sequence sequence = DOTween.Sequence()
+                        .Append(card.transform.DOMove((card.transform.position + target.transform.position) / 2, 0.4f)).SetEase(Ease.InSine)
+                        .AppendCallback(() =>
+                        {
+                            card.attack(target);
+                        })
+                        .Append(card.transform.DOMove((OriginAttackerPos), 0.4f)).SetEase(Ease.OutSine);
                 }
             }
         }
