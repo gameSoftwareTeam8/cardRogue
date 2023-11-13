@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 240228199}
   - component: {fileID: 240228198}
   - component: {fileID: 240228197}
-  - component: {fileID: 240228201}
+  - component: {fileID: 240228204}
   - component: {fileID: 240228200}
   - component: {fileID: 240228203}
   - component: {fileID: 240228202}
@@ -552,8 +552,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 240228201}
-        m_TargetAssemblyTypeName: ToMap, Assembly-CSharp
+      - m_Target: {fileID: 240228204}
+        m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
         m_MethodName: SceneChange
         m_Mode: 1
         m_Arguments:
@@ -612,18 +612,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f33e4a7c83244e90b53d57496492f85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &240228201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 240228194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f07233c956e44b3a9cef9193c0e872a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &240228202
@@ -751,6 +739,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &240228204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240228194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9202c22da2a3fdd4c8db387b361ef17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &346655904
 GameObject:
   m_ObjectHideFlags: 0
@@ -5011,7 +5011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f0dfff7c94b45fba3ac3ddf1435330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PausePanel: {fileID: 0}
 --- !u!114 &1767560289
 MonoBehaviour:
   m_ObjectHideFlags: 0
