@@ -20,7 +20,6 @@ public class TurnManager : MonoBehaviour
     public bool myTurn;
     public int turn { get; private set; } = 0;
     int MaxMana = 0;
-    public static int CurMana;
 
     enum ETurnMode {My, Enemy}
     WaitForSeconds delay = new WaitForSeconds(0.1f);
@@ -49,13 +48,12 @@ public class TurnManager : MonoBehaviour
 
     public IEnumerator StartTurnCo()
     {
+        IPlayer player = Locator.player;
         isLoading = true;
         if (myTurn)
         {
             BattleManager.Inst.Notification("나의 턴");
-            if (MaxMana < 10)
-                MaxMana++;
-            CurMana = MaxMana;
+            player.recover_mana(player.max_mana);
         }
         else
             BattleManager.Inst.Notification("상대 턴");

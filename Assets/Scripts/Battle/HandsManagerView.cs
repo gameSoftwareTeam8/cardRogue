@@ -177,6 +177,10 @@ public class HandsManagerView : MonoBehaviour
         if (!isMyCardDrag)
             return;
         isMyCardDrag = false;
+        
+        IPlayer player = Locator.player;
+        if(args.card.info.cost > player.mana)
+            return;
 
         var layer = LayerMask.GetMask("CardZone");
         RaycastHit2D hit = Physics2D.Raycast(Utils.MousePos, Vector2.zero, Mathf.Infinity, layer);
@@ -186,8 +190,7 @@ public class HandsManagerView : MonoBehaviour
         string zone_name = hit.transform.name;
         BoardSide side = zone_name[0] == 'H' ? BoardSide.HOME : BoardSide.AWAY;
         int idx = zone_name[^1] - '0';
-        if(args.card.info.cost >= TurnManager.CurMana)
-            use_card(side, idx, args.card);
+        use_card(side, idx, args.card);
 
         if (eCardState != ECardState.CanMouseDrag)
             return;
@@ -195,10 +198,12 @@ public class HandsManagerView : MonoBehaviour
 
     private bool use_nontarget(Card card)
     {
+        IPlayer player = Locator.player;
         CardEffect card_effect = card.GetComponent<CardEffect>();
         if (card_effect is not TargetingMagicEffect && card_effect is MagicEffect) {
             ((MagicEffect)card_effect).on_used(BoardSide.HOME);
             HandsManager.Inst.RemoveCard(card);
+            player.pay_mana(card.info.cost);
             return true;
         }
         return false;
@@ -207,18 +212,21 @@ public class HandsManagerView : MonoBehaviour
     private void use_card(BoardSide side, int idx, Card card)
     {
         IBoard board = Locator.board;
+        IPlayer player = Locator.player;
         CardEffect card_effect = card.GetComponent<CardEffect>();
         Card target = board.get_card(side, idx);
-        if (card is Creature && board.get_card(side, idx) == null) {
+        if (card is Creature && board.get_card(side, idx) == null && side == BoardSide.HOME) {
             var card_factory = Locator.card_factory;
             Creature creature = card_factory.create(card.info).GetComponent<Creature>();
             creature.transform.localScale = Vector2.one * 1.5f * cardScale;
             board.add_card(side, idx, creature);
             HandsManager.Inst.RemoveCard(card);
+            player.pay_mana(card.info.cost);
         }
         else if (card_effect is TargetingMagicEffect && target != null) {
             ((TargetingMagicEffect)card_effect).on_used_to_target((Creature)target);
             HandsManager.Inst.RemoveCard(card);
+            player.pay_mana(card.info.cost);
         }
     }
 
