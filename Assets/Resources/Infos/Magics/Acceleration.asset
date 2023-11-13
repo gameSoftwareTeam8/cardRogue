@@ -18,4 +18,4 @@ MonoBehaviour:
   rarity: 0
   cost: 1
   price: 30
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: bde07537680efd342b3035a57a236d73, type: 3}

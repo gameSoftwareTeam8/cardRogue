@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class HeaderBar : MonoBehaviour
 {
-    void Awake()
+    void Start()
     {
         DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene("Map");

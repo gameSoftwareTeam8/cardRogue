@@ -31,7 +31,7 @@ public class PopupSystem : MonoBehaviour
 
         }
 
-        if (anima.GetCurrentAnimatorStateInfo(0).IsName("Close"))
+        if (anima.isInitialized && anima.GetCurrentAnimatorStateInfo(0).IsName("Close"))
         { 
             if(anima.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
             {

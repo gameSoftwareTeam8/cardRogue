@@ -8,6 +8,6 @@ public class SparkEffect: TargetingMagicEffect
 {
     public override void on_used_to_target(Creature target)
     {
-        target.take_damage(2, magic);
+        target.take_damage(3, magic);
     }
 }

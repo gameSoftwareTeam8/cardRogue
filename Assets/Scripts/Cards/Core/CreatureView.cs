@@ -8,7 +8,7 @@ public class CreatureView: CardView
 {
     Creature creature;
     TextMeshPro name_text, mana_text, power_text, hp_text;
-    SpriteRenderer character_sprite;
+    public SpriteRenderer character_sprite { get; private set; }
     public void init()
     {
         creature = GetComponent<Creature>();
