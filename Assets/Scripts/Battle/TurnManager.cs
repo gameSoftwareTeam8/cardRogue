@@ -81,8 +81,10 @@ public class TurnManager : MonoBehaviour
                 Creature target = board.get_opposite_card(card);
                 if (card != null && target != null) {
                     Vector3 OriginAttackerPos = card.transform.position;
+                    Vector3 CardSize = new Vector3(0, 2.5f, 0);
+                    Vector3 Middle = side==0 ?(card.transform.position + target.transform.position) / 2 - CardSize : (card.transform.position + target.transform.position) / 2 + CardSize;
                     DG.Tweening.Sequence sequence = DOTween.Sequence()
-                        .Append(card.transform.DOMove((card.transform.position + target.transform.position) / 2, 0.4f)).SetEase(Ease.InSine)
+                        .Append(card.transform.DOMove(Middle, 0.4f)).SetEase(Ease.InSine)
                         .AppendCallback(() =>
                         {
                             card.attack(target);
