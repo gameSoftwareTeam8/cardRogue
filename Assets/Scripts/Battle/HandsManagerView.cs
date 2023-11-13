@@ -186,7 +186,8 @@ public class HandsManagerView : MonoBehaviour
         string zone_name = hit.transform.name;
         BoardSide side = zone_name[0] == 'H' ? BoardSide.HOME : BoardSide.AWAY;
         int idx = zone_name[^1] - '0';
-        use_card(side, idx, args.card);
+        if(args.card.info.cost >= TurnManager.CurMana)
+            use_card(side, idx, args.card);
 
         if (eCardState != ECardState.CanMouseDrag)
             return;
