@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-// µÚ³¡ SDK namespace Ãß°¡
+// ï¿½Ú³ï¿½ SDK namespace ï¿½ß°ï¿½
 using BackEnd;
 
 public class BackendRank
@@ -25,24 +25,24 @@ public class BackendRank
 
     public void RankInsert(int score)
     {
-        // [º¯°æ ÇÊ¿ä] 'º¹»çÇÑ UUID °ª'À» 'µÚ³¡ ÄÜ¼Ö > ·©Å· °ü¸®'¿¡¼­ »ý¼ºÇÑ ·©Å·ÀÇ UUID°ªÀ¸·Î º¯°æÇØÁÖ¼¼¿ä.  
-        string rankUUID = "827ff0f0-773c-11ee-9758-a7f008c5a6b3"; // ¿¹½Ã : "4088f640-693e-11ed-ad29-ad8f0c3d4c70"
+        // [ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½] 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ UUID ï¿½ï¿½'ï¿½ï¿½ 'ï¿½Ú³ï¿½ ï¿½Ü¼ï¿½ > ï¿½ï¿½Å· ï¿½ï¿½ï¿½ï¿½'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å·ï¿½ï¿½ UUIDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.  
+        string rankUUID = "b2ebe6f0-82da-11ee-966f-814760310d2e"; // ï¿½ï¿½ï¿½ï¿½ : "4088f640-693e-11ed-ad29-ad8f0c3d4c70"
 
         string tableName = "USER_DATA";
         string rowInDate = string.Empty;
 
-        // ·©Å·À» »ðÀÔÇÏ±â À§ÇØ¼­´Â °ÔÀÓ µ¥ÀÌÅÍ¿¡¼­ »ç¿ëÇÏ´Â µ¥ÀÌÅÍÀÇ inDate°ªÀÌ ÇÊ¿äÇÕ´Ï´Ù.  
-        // µû¶ó¼­ µ¥ÀÌÅÍ¸¦ ºÒ·¯¿Â ÈÄ, ÇØ´ç µ¥ÀÌÅÍÀÇ inDate°ªÀ» ÃßÃâÇÏ´Â ÀÛ¾÷À» ÇØ¾ßÇÕ´Ï´Ù.  
-        Debug.Log("µ¥ÀÌÅÍ Á¶È¸¸¦ ½ÃµµÇÕ´Ï´Ù.");
+        // ï¿½ï¿½Å·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ inDateï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½Õ´Ï´ï¿½.  
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ inDateï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½Ø¾ï¿½ï¿½Õ´Ï´ï¿½.  
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½Ãµï¿½ï¿½Õ´Ï´ï¿½.");
         var bro = Backend.GameData.GetMyData(tableName, new Where());
 
         if (bro.IsSuccess() == false)
         {
-            Debug.LogError("µ¥ÀÌÅÍ Á¶È¸ Áß ¹®Á¦°¡ ¹ß»ýÇß½À´Ï´Ù : " + bro);
+            Debug.LogError("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½ : " + bro);
             return;
         }
 
-        Debug.Log("µ¥ÀÌÅÍ Á¶È¸¿¡ ¼º°øÇß½À´Ï´Ù : " + bro);
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½ : " + bro);
 
         if (bro.FlattenRows().Count > 0)
         {
@@ -50,61 +50,61 @@ public class BackendRank
         }
         else
         {
-            Debug.Log("µ¥ÀÌÅÍ°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. µ¥ÀÌÅÍ »ðÀÔÀ» ½ÃµµÇÕ´Ï´Ù.");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ãµï¿½ï¿½Õ´Ï´ï¿½.");
             var bro2 = Backend.GameData.Insert(tableName);
 
             if (bro2.IsSuccess() == false)
             {
-                Debug.LogError("µ¥ÀÌÅÍ »ðÀÔ Áß ¹®Á¦°¡ ¹ß»ýÇß½À´Ï´Ù : " + bro2);
+                Debug.LogError("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½ : " + bro2);
                 return;
             }
 
-            Debug.Log("µ¥ÀÌÅÍ »ðÀÔ¿¡ ¼º°øÇß½À´Ï´Ù : " + bro2);
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½ : " + bro2);
 
             rowInDate = bro2.GetInDate();
         }
 
-        Debug.Log("³» °ÔÀÓ Á¤º¸ÀÇ rowInDate : " + rowInDate); // ÃßÃâµÈ rowIndateÀÇ °ªÀº ´ÙÀ½°ú °°½À´Ï´Ù.  
+        Debug.Log("ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ rowInDate : " + rowInDate); // ï¿½ï¿½ï¿½ï¿½ï¿½ rowIndateï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.  
 
         Param param = new Param();
         param.Add("level", score);
 
-        // ÃßÃâµÈ rowIndate¸¦ °¡Áø µ¥ÀÌÅÍ¿¡ param°ªÀ¸·Î ¼öÁ¤À» ÁøÇàÇÏ°í ·©Å·¿¡ µ¥ÀÌÅÍ¸¦ ¾÷µ¥ÀÌÆ®ÇÕ´Ï´Ù.  
-        Debug.Log("·©Å· »ðÀÔÀ» ½ÃµµÇÕ´Ï´Ù.");
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ rowIndateï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ paramï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½Å·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Õ´Ï´ï¿½.  
+        Debug.Log("ï¿½ï¿½Å· ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ãµï¿½ï¿½Õ´Ï´ï¿½.");
         var rankBro = Backend.URank.User.UpdateUserScore(rankUUID, tableName, rowInDate, param);
 
         if (rankBro.IsSuccess() == false)
         {
-            Debug.LogError("·©Å· µî·Ï Áß ¿À·ù°¡ ¹ß»ýÇß½À´Ï´Ù. : " + rankBro);
+            Debug.LogError("ï¿½ï¿½Å· ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½. : " + rankBro);
             return;
         }
 
-        Debug.Log("·©Å· »ðÀÔ¿¡ ¼º°øÇß½À´Ï´Ù. : " + rankBro);
+        Debug.Log("ï¿½ï¿½Å· ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½. : " + rankBro);
     }
 
     public void RankGet()
     {
-        string rankUUID = "827ff0f0-773c-11ee-9758-a7f008c5a6b3"; // ¿¹½Ã : "4088f640-693e-11ed-ad29-ad8f0c3d4c70"
+        string rankUUID = "b2ebe6f0-82da-11ee-966f-814760310d2e"; // ï¿½ï¿½ï¿½ï¿½ : "4088f640-693e-11ed-ad29-ad8f0c3d4c70"
         var bro = Backend.URank.User.GetRankList(rankUUID);
 
         if (bro.IsSuccess() == false)
         {
-            Debug.LogError("·©Å· Á¶È¸Áß ¿À·ù°¡ ¹ß»ýÇß½À´Ï´Ù. : " + bro);
+            Debug.LogError("ï¿½ï¿½Å· ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½. : " + bro);
             return;
         }
-        Debug.Log("·©Å· Á¶È¸¿¡ ¼º°øÇß½À´Ï´Ù. : " + bro);
+        Debug.Log("ï¿½ï¿½Å· ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½. : " + bro);
 
-        Debug.Log("ÃÑ ·©Å· µî·Ï À¯Àú ¼ö : " + bro.GetFlattenJSON()["totalCount"].ToString());
+        Debug.Log("ï¿½ï¿½ ï¿½ï¿½Å· ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ : " + bro.GetFlattenJSON()["totalCount"].ToString());
 
         foreach (LitJson.JsonData jsonData in bro.FlattenRows())
         {
             StringBuilder info = new StringBuilder();
 
-            info.AppendLine("¼øÀ§ : " + jsonData["rank"].ToString());
-            info.AppendLine("´Ð³×ÀÓ : " + jsonData["nickname"].ToString());
-            info.AppendLine("Á¡¼ö : " + jsonData["score"].ToString());
+            info.AppendLine("ï¿½ï¿½ï¿½ï¿½ : " + jsonData["rank"].ToString());
+            info.AppendLine("ï¿½Ð³ï¿½ï¿½ï¿½ : " + jsonData["nickname"].ToString());
+            info.AppendLine("ï¿½ï¿½ï¿½ï¿½ : " + jsonData["score"].ToString());
             info.AppendLine("gamerInDate : " + jsonData["gamerInDate"].ToString());
-            info.AppendLine("Á¤·Ä¹øÈ£ : " + jsonData["index"].ToString());
+            info.AppendLine("ï¿½ï¿½ï¿½Ä¹ï¿½È£ : " + jsonData["index"].ToString());
             info.AppendLine();
             Debug.Log(info);
 
