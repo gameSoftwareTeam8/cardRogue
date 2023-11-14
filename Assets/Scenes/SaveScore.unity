@@ -1029,7 +1029,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uCD5C\uC885 \uC2A4\uCF54\uC5B4 "
+  m_text: 'Score :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 18fe47009096c064a9bda1929123f1df, type: 2}
   m_sharedMaterial: {fileID: 8488156386447737339, guid: 18fe47009096c064a9bda1929123f1df, type: 2}
