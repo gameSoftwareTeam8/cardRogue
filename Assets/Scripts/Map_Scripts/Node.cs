@@ -18,7 +18,7 @@ public class Node : MonoBehaviour
     public bool IsClicked { get; private set; } = false;
 
     private bool isMouseDown = false;
-    private SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer, background_renderer;
 
     // 각 노드 유형에 대한 스프라이트
     public Sprite noneSprite;
@@ -31,7 +31,10 @@ public class Node : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        background_renderer = transform.Find("Background").GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false; // 스프라이트를 기본적으로 숨김
+        background_renderer.color = Color.gray;
+
         SetNodeType(Type);  // 현재 노드의 유형에 따라 스프라이트 설정
     }
 
@@ -64,6 +67,7 @@ public class Node : MonoBehaviour
                 spriteRenderer.sprite = noneSprite;
                 break;
             case NodeType.Wall:
+                background_renderer.enabled = false;
                 spriteRenderer.sprite = wallSprite;
                 break;
             case NodeType.Monster:
@@ -83,7 +87,8 @@ public class Node : MonoBehaviour
 
     public void HighlightNode()
     {
-        spriteRenderer.enabled = true;  // 노드 스프라이트 활성화
+        IsSpriteEnabled = true;
+        background_renderer.color = Color.white;
     }
 
     private void OnMouseDown()
@@ -112,6 +117,9 @@ public class Node : MonoBehaviour
     public bool IsSpriteEnabled
     {
         get { return spriteRenderer.enabled; }
-        set { spriteRenderer.enabled = value; }
+        set {
+            spriteRenderer.enabled = value;
+            background_renderer.enabled = value;
+        }
     }
 }
