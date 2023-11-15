@@ -14,7 +14,8 @@ public interface IActionQueue
 public class ActionQueue: IActionQueue
 {
     private Queue<Action> action_queue = new();
-
+    public bool is_empty { get { return action_queue.Count == 0; } }
+    
     public void enqueue(Action action)
     {
         action_queue.Enqueue(action);

@@ -8,6 +8,6 @@ public class ToMap : MonoBehaviour
 
     public void SceneChange()
     {
-        SceneManager.LoadScene("HeaderBar");
+        SceneManager.LoadScene("Map");
     }
 }

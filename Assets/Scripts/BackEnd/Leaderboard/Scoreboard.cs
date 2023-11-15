@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using BackEnd; // Backend ¶óÀÌºê·¯¸®¸¦ »ç¿ëÇÏ±â À§ÇØ Ãß°¡
+using BackEnd; // Backend ï¿½ï¿½ï¿½Ìºê·¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 using LitJson;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -10,31 +10,31 @@ public class Scoreboard : MonoBehaviour
     public Button But;
 
     [Header("UI References")]
-    public TMP_Text[] rankTexts;      // 10°³ÀÇ ¼øÀ§ ÅØ½ºÆ® UI
-    public TMP_Text[] nicknameTexts;  // 10°³ÀÇ ´Ð³×ÀÓ ÅØ½ºÆ® UI
-    public TMP_Text[] scoreTexts;     // 10°³ÀÇ Á¡¼ö ÅØ½ºÆ® UI
+    public TMP_Text[] rankTexts;      // 10ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ® UI
+    public TMP_Text[] nicknameTexts;  // 10ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ® UI
+    public TMP_Text[] scoreTexts;     // 10ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ® UI
     
     public void RankGet()
     {
         var bro1 = Backend.Initialize(true);
         BackendLogin.Instance.CustomLogin("user1", "1234");
         //var bro1 = Backend.Initialize(true);
-        string rankUUID = "827ff0f0-773c-11ee-9758-a7f008c5a6b3"; // ÇØ´ç UUID °ªÀ¸·Î º¯°æÇØÁÖ¼¼¿ä.
+        string rankUUID = "b2ebe6f0-82da-11ee-966f-814760310d2e"; // ï¿½Ø´ï¿½ UUID ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.
         var bro = Backend.URank.User.GetRankList(rankUUID);
 
         if (bro.IsSuccess() == false)
         {
-            Debug.LogError("·©Å· Á¶È¸ Áß ¿À·ù°¡ ¹ß»ýÇß½À´Ï´Ù. : " + bro);
+            Debug.LogError("ï¿½ï¿½Å· ï¿½ï¿½È¸ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½. : " + bro);
             return;
         }
-        Debug.Log("·©Å· Á¶È¸¿¡ ¼º°øÇß½À´Ï´Ù. : " + bro);
+        Debug.Log("ï¿½ï¿½Å· ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½. : " + bro);
 
         int count = 0;
         foreach (JsonData jsonData in bro.FlattenRows())
         {
             if (count >= 10) break;
             Debug.Log(jsonData["nickname"].ToString());
-            //rankTexts[count].text = "¼øÀ§ : " + jsonData["rank"].ToString();
+            //rankTexts[count].text = "ï¿½ï¿½ï¿½ï¿½ : " + jsonData["rank"].ToString();
             nicknameTexts[count].text = jsonData["nickname"].ToString();
             scoreTexts[count].text = jsonData["score"].ToString();
 

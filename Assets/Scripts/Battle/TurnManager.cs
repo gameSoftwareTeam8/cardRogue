@@ -19,10 +19,12 @@ public class TurnManager : MonoBehaviour
     public bool isLoading;
     public bool myTurn;
     public int turn { get; private set; } = 0;
+    int MaxMana = 0;
 
     enum ETurnMode {My, Enemy}
     WaitForSeconds delay = new WaitForSeconds(0.1f);
     WaitForSeconds delay07 = new WaitForSeconds(0.7f);
+    public static event Action<bool> OnTurnStarted;
 
     void GameSetup()
     {
@@ -46,15 +48,20 @@ public class TurnManager : MonoBehaviour
 
     public IEnumerator StartTurnCo()
     {
+        IPlayer player = Locator.player;
         isLoading = true;
         if (myTurn)
+        {
             BattleManager.Inst.Notification("나의 턴");
+            player.recover_mana(player.max_mana);
+        }
         else
             BattleManager.Inst.Notification("상대 턴");
         yield return delay07;
         ProcessDrawPhase();
         yield return delay07;
         isLoading = false;
+        OnTurnStarted?.Invoke(myTurn);
     }
 
     public void ProcessDrawPhase()
@@ -73,7 +80,16 @@ public class TurnManager : MonoBehaviour
                 Creature card = board.get_card((BoardSide)side, i);
                 Creature target = board.get_opposite_card(card);
                 if (card != null && target != null) {
-                    card.attack(target);
+                    Vector3 OriginAttackerPos = card.transform.position;
+                    Vector3 CardSize = new Vector3(0, 2.5f, 0);
+                    Vector3 Middle = side==0 ?(card.transform.position + target.transform.position) / 2 - CardSize : (card.transform.position + target.transform.position) / 2 + CardSize;
+                    DG.Tweening.Sequence sequence = DOTween.Sequence()
+                        .Append(card.transform.DOMove(Middle, 0.4f)).SetEase(Ease.InSine)
+                        .AppendCallback(() =>
+                        {
+                            card.attack(target);
+                        })
+                        .Append(card.transform.DOMove((OriginAttackerPos), 0.4f)).SetEase(Ease.OutSine);
                 }
             }
         }

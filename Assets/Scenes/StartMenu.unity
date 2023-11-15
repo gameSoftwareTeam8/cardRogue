@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 240228199}
   - component: {fileID: 240228198}
   - component: {fileID: 240228197}
-  - component: {fileID: 240228201}
+  - component: {fileID: 240228204}
   - component: {fileID: 240228200}
   - component: {fileID: 240228203}
   - component: {fileID: 240228204}
@@ -553,8 +553,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 240228201}
-        m_TargetAssemblyTypeName: ToMap, Assembly-CSharp
+      - m_Target: {fileID: 240228204}
+        m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
         m_MethodName: SceneChange
         m_Mode: 1
         m_Arguments:
@@ -613,18 +613,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f33e4a7c83244e90b53d57496492f85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &240228201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 240228194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f07233c956e44b3a9cef9193c0e872a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &240228202
@@ -761,11 +749,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 240228194}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: a5405d794231d46b4b1376293661a017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   normalScale: {x: 1, y: 1, z: 1}
   enlargedScale: {x: 1.1, y: 1.1, z: 1.1}
+=======
+  m_Script: {fileID: 11500000, guid: 9202c22da2a3fdd4c8db387b361ef17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> 24fdaa9d5d047913ebcb15ed820e42dfa9ec657a
 --- !u!1 &346655904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,8 +1254,8 @@ Canvas:
   m_GameObject: {fileID: 525083368}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 592357495}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1555,6 +1549,7 @@ GameObject:
   - component: {fileID: 592357495}
   - component: {fileID: 592357494}
   - component: {fileID: 592357497}
+  - component: {fileID: 592357498}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1659,7 +1654,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1680,6 +1675,23 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &592357498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592357493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 150197c601b0362488bcb4eefbfba681, type: 2}
 --- !u!1 &641363613
 GameObject:
   m_ObjectHideFlags: 0
@@ -4851,7 +4863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f0dfff7c94b45fba3ac3ddf1435330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PausePanel: {fileID: 0}
 --- !u!114 &1767560289
 MonoBehaviour:
   m_ObjectHideFlags: 0

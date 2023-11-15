@@ -54,4 +54,14 @@ public class Creature: Card
         current_hp = Mathf.Min(creature_info.hp, current_hp + amount);       
         SendMessage("on_healed", (amount, source), SendMessageOptions.DontRequireReceiver);
     }
+
+    public void set_max_hp(int value, Card source)
+    {
+        if (is_destroyed)
+            return;
+
+        creature_info.hp = value;
+        current_hp += value;
+        current_hp = Mathf.Min(current_hp, creature_info.hp);
+    }
 }

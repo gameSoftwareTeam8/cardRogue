@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -38,7 +39,9 @@ public class Player: IPlayer
 
     public Card get_card(int idx)
     {
-        return cards[idx];
+        GameObject card = GameObject.Instantiate(cards[idx].gameObject);
+        GameObject.Destroy(card.GetComponent<DontDestroyer>());
+        return card.GetComponent<Card>();
     }
 
     public void take_damage(int amount)
@@ -69,6 +72,7 @@ public class Player: IPlayer
 
     public void add_card(Card card)
     {
+        card.AddComponent<DontDestroyer>();
         cards.Add(card);
     }
 

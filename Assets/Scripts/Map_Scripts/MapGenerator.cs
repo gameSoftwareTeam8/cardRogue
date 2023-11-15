@@ -287,7 +287,8 @@ public class MapGenerator : MonoBehaviour
                 case NodeType.Event:
                     CountupScore(5);
                     HideAllSprites();
-                    SceneManager.LoadScene("Shelter");
+                    SceneManager.LoadScene("Temp1");
+                    //SceneManager.LoadScene("Shelter");
                     break;
                 case NodeType.Merchant:
                     CountupScore(1);
