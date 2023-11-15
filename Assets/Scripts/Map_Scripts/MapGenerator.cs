@@ -9,10 +9,16 @@ public class MapGenerator : MonoBehaviour
     public int height = 8;
     public GameObject nodePrefab;
 
+
+    public int MonsterNodeCount = 6;
+    public int MerchantNodeCount = 3;
+
     private Node[,] nodes;
     private Node currentNode;
     private List<Node> highlightedNodes = new List<Node>();
     private List<Node> wallList = new List<Node>();
+    private List<Node> nodeList = new List<Node>();
+
 
     public static MapGenerator Instance { get; private set; }
     private void Awake()
@@ -111,8 +117,11 @@ public class MapGenerator : MonoBehaviour
     {
         InitializeMap();
         GenerateMazeUsingPrim();
-        ConversionNode();
+        //ConversionNode();
         PlaceBossNode();
+        AddNodetoList();
+        ConverseNode();
+
         currentNode = nodes[width / 2, height / 2]; 
                  
         HighlightAdjacentNodes(currentNode);
@@ -160,6 +169,28 @@ public class MapGenerator : MonoBehaviour
 
             wallList.Remove(currentWall);
         }
+        wallList.Clear();
+    }
+
+    private void ConverseNode()
+    {
+        while(MonsterNodeCount > 0)
+        {
+            Node NoneNode = nodeList[Random.Range(0, nodeList.Count)];
+            NoneNode.SetNodeType(NodeType.Monster);
+            NoneNode.name = "Node_Moster";
+            nodeList.Remove(NoneNode);
+            MonsterNodeCount--;
+        }
+        while (MerchantNodeCount > 0)
+        {
+            Node NoneNode = nodeList[Random.Range(0, nodeList.Count)];
+            NoneNode.SetNodeType(NodeType.Merchant);
+            NoneNode.name = "Node_Merchant";
+            nodeList.Remove(NoneNode);
+            MerchantNodeCount--;
+        }
+        nodeList.Clear();
     }
 
     private void ConversionNode()
@@ -232,6 +263,20 @@ public class MapGenerator : MonoBehaviour
                             wallList.Add(adjacentNode);
                         }
                     }
+                }
+            }
+        }
+    }
+    private void AddNodetoList()
+    {
+        for(int i = 0; i < width; i++)
+        {
+            for(int j=0;j< height; j++)
+            {
+                Node adjacentNode = nodes[i,j];
+                if(adjacentNode.Type == NodeType.None)
+                {
+                    nodeList.Add(adjacentNode);
                 }
             }
         }

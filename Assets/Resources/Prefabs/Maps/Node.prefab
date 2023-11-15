@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82268992445ba584f96653604202b24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noneSprite: {fileID: 21300000, guid: bd1d3f20873964acf9209017b108e6c6, type: 3}
+  noneSprite: {fileID: 0}
   wallSprite: {fileID: 0}
   monsterSprite: {fileID: 21300000, guid: 5999b3abb691aa341bc2704fe61efdf2, type: 3}
   eventSprite: {fileID: 21300000, guid: cd968fe28a1454ed98525b0d1156685f, type: 3}
