@@ -20,6 +20,9 @@ public class Node : MonoBehaviour
     private bool isMouseDown = false;
     private SpriteRenderer spriteRenderer, background_renderer;
 
+    // effect sound 
+    private AudioSource audioSource;
+
     // 각 노드 유형에 대한 스프라이트
     public Sprite noneSprite;
     public Sprite wallSprite;
@@ -36,6 +39,7 @@ public class Node : MonoBehaviour
         background_renderer.color = Color.gray;
 
         SetNodeType(Type);  // 현재 노드의 유형에 따라 스프라이트 설정
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void SetNodeType(NodeType type)
@@ -120,6 +124,14 @@ public class Node : MonoBehaviour
         set {
             spriteRenderer.enabled = value;
             background_renderer.enabled = value;
+        }
+    }
+
+    private void OnMouseEnter()
+    {
+        if (audioSource != null && spriteRenderer.enabled == true)
+        {
+            audioSource.Play();
         }
     }
 }

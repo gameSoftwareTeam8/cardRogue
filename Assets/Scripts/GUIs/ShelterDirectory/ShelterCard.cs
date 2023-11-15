@@ -7,12 +7,18 @@ public class ShelterCard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ShowCard();
     }
 
-    // Update is called once per frame
-    void Update()
+    void ShowCard()
+    {
+        IPlayer player = Locator.player;
+
+    }
+
+    void OnCardClicked()
     {
         
     }
+
 }

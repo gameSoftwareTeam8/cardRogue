@@ -1,17 +1,17 @@
 using UnityEngine;
-using UnityEngine.UI; // UI ÄÄÆ÷³ÍÆ®¸¦ »ç¿ëÇÏ±â À§ÇØ ÇÊ¿äÇÕ´Ï´Ù.
+using UnityEngine.UI;
 using TMPro;
 public class PrintScore : MonoBehaviour
 {
-    public TMP_Text textUI; // Inspector¿¡¼­ ÇÒ´çÇÒ Text UI ÄÄÆ÷³ÍÆ®
+    public TMP_Text textUI; // Inspectorï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ Text UI ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 
     void Start()
     {
-        // PlayerPrefs¿¡¼­ "score"¶ó´Â Å°·Î ÀúÀåµÈ °ªÀ» °¡Á®¿É´Ï´Ù.
-        // ¸¸¾à "score"¶ó´Â Å°°¡ ¾ø´Ù¸é, ±âº»°ªÀ¸·Î 0À» ¹ÝÈ¯ÇÕ´Ï´Ù.
+        // PlayerPrefsï¿½ï¿½ï¿½ï¿½ "score"ï¿½ï¿½ï¿½ Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½É´Ï´ï¿½.
+        // ï¿½ï¿½ï¿½ï¿½ "score"ï¿½ï¿½ï¿½ Å°ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½, ï¿½âº»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Õ´Ï´ï¿½.
         int score = PlayerPrefs.GetInt("score", 0);
 
-        // Text UI ÄÄÆ÷³ÍÆ®ÀÇ text ¼Ó¼ºÀ» ¾÷µ¥ÀÌÆ®ÇÕ´Ï´Ù.
-        textUI.text = "ÃÖÁ¾ ½ºÄÚ¾î: " + score.ToString();
+        // Text UI ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ text ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Õ´Ï´ï¿½.
+        textUI.text = "Score: " + score.ToString();
     }
 }

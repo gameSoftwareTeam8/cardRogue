@@ -4,19 +4,31 @@ using UnityEngine.UI;
 using UnityEngine;
 using Unity.Mathematics;
 using System;
+using UnityEngine.SceneManagement; 
 
 public class CardGrid : MonoBehaviour
 {
     public Transform gridTransform;
 
+    string currentSceneName;
+
+    //눌리면 실행되게 바꾸면 되려나
+    //카드 설명부 추가
 
     void Start()
     {
         DisplayCards();
     }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("OnSceneLoaded");
+
+    }
+
 
     void DisplayCards()
     {
+        Debug.Log("DisplayCards");
         IPlayer player = Locator.player;
         
         GameObject content = GameObject.Find("Content");
@@ -33,7 +45,7 @@ public class CardGrid : MonoBehaviour
         
         if (cardCount > 2) 
         {
-            contentHeight = contentHeight + (float)((cardCount - 2) * 400);
+            contentHeight += + (float)((cardCount - 2) * 400);
         }
         
         contentRect.sizeDelta = new Vector2(1450, contentHeight);
@@ -41,9 +53,12 @@ public class CardGrid : MonoBehaviour
 
         for (int i = 0; i < player.cards_count; i++)
         {
+            Debug.Log("for context 61");
             // card
 
             Card card = player.get_card(i);
+
+            Debug.Log(card.name);
 
             card.transform.localScale = new Vector3(75, 75, 1);
 
