@@ -12,6 +12,7 @@ public class MapGenerator : MonoBehaviour
 
     public int MonsterNodeCount = 6;
     public int MerchantNodeCount = 3;
+    public int EventNodeCount = 3;
 
     private Node[,] nodes;
     private Node currentNode;
@@ -189,6 +190,14 @@ public class MapGenerator : MonoBehaviour
             NoneNode.name = "Node_Merchant";
             nodeList.Remove(NoneNode);
             MerchantNodeCount--;
+        }
+        while (EventNodeCount > 0)
+        {
+            Node NoneNode = nodeList[Random.Range(0, nodeList.Count)];
+            NoneNode.SetNodeType(NodeType.Event);
+            NoneNode.name = "Node_Event";
+            nodeList.Remove(NoneNode);
+            EventNodeCount--;
         }
         nodeList.Clear();
     }
