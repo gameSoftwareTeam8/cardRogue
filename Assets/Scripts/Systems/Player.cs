@@ -25,18 +25,13 @@ public interface IPlayer
 public class Player: IPlayer
 {
     public int max_hp { get; private set; } = 50;
-    public int hp { get; private set; }
+    public int hp { get; private set; } = 50;
     public int max_mana { get; private set; } = 3;
     public int mana { get; private set; }
     public int balance { get; set; }
     public int cards_count { get { return cards.Count; }}
 
     private List<Card> cards = new();
-    void Awake()
-    {
-        hp = max_hp;
-    }
-
     public Card get_card(int idx)
     {
         GameObject card = GameObject.Instantiate(cards[idx].gameObject);
