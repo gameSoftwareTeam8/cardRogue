@@ -442,7 +442,7 @@ public class MapGenerator : MonoBehaviour
         currentColor = Color.black;
         fadeImage.color = currentColor;
     }
-    private IEnumerator LoadDiffScene(string SceneName)
+    public IEnumerator LoadDiffScene(string SceneName)
     {
         float elapsedTime = 0;
         while(elapsedTime < fadeDuration)
