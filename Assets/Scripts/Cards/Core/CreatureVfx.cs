@@ -91,5 +91,6 @@ public class CreatureVfx: CardVfx
             animation.AddClip(destroy_animation, "DestroyAnimation");
             animation.Play("DestroyAnimation");
         }
+        is_running_destroyed = true;
     }
 }

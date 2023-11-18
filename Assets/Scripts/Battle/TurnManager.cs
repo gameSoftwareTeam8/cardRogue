@@ -2,6 +2,8 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -77,12 +79,14 @@ public class TurnManager : MonoBehaviour
         damageComponent.Damaged(damage);
     }
 
-    public void battle()
+    public async Task battle()
     {
         IBoard board = Locator.board;
+        IActionQueue action_queue = Locator.action_queue;
 
         for (int i = 0; i < board.size; i++)
         {
+            List<Action> actions = new();
             for (int side = 0; side < 2; side++)
             {
                 Creature card = board.get_card((BoardSide)side, i);
@@ -91,22 +95,47 @@ public class TurnManager : MonoBehaviour
                     Vector3 OriginAttackerPos = card.transform.position;
                     Vector3 CardSize = new Vector3(0, 2.5f, 0);
                     Vector3 Middle = side==0 ?(card.transform.position + target.transform.position) / 2 - CardSize : (card.transform.position + target.transform.position) / 2 + CardSize;
-                    DG.Tweening.Sequence sequence = DOTween.Sequence()
-                        .Append(card.transform.DOMove(Middle, 0.4f)).SetEase(Ease.InSine)
-                        .AppendCallback(() =>
-                        {
-                            card.attack(target);
-                            SpawnDamage(card.creature_info.power, target.transform);
-                        })
-                        .Append(card.transform.DOMove((OriginAttackerPos), 0.4f)).SetEase(Ease.OutSine);
+                    Vector3 reverseDir = card.transform.position - (target.transform.position - card.transform.position) * 0.2f;
+
+                    actions.Add(() => {
+                        DOTween.Sequence()
+                            .Append(card.transform.DOMove(reverseDir, 0.3f).SetEase(Ease.InExpo))
+                            .AppendInterval(0.2f)
+                            .Append(card.transform.DOMove(Middle, 0.01f).SetEase(Ease.Linear))
+                            .AppendCallback(() =>
+                            {
+                                target.attack(card);
+                                SpawnDamage(card.creature_info.power, target.transform);
+                            }).Append(card.transform.DOMove((OriginAttackerPos), 0.3f).SetEase(Ease.OutCubic));
+                    });
                 }
             }
+            if (actions.Count > 0) {
+                action_queue.enqueue(() => {
+                    actions[0]();
+                    actions[1]();
+                }, 350);
+            }
         }
+        action_queue.enqueue(()=>{}, 500);
+        await action_queue.run();
+        
+        // for (int i = 0; i < board.size; i++)
+        // {
+        //     for (int side = 0; side < 2; side++)
+        //     {
+        //         Creature card = board.get_card((BoardSide)side, i);
+        //         if (card != null && card.is_destroyed) {
+        //             card.gameObject.SendMessage("on_destroyed", SendMessageOptions.DontRequireReceiver);
+        //             board.remove_card(card);
+        //         }
+        //     }
+        // }
     }
 
-    public void EndTurn()
+    public async Task EndTurn()
     {
-        battle();
+        await battle();
         turn++;
         myTurn = !myTurn;
         StartCoroutine(StartTurnCo());
