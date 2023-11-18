@@ -14,7 +14,11 @@ public class RemoveCard : MonoBehaviour
             foreach (Transform child in parentObj.transform)
             {
                 if (child.name != "GameTitle")
+                {
+                    Debug.Log("destroy deck card");
                     Destroy(child.gameObject);
+                }
+                    
 
             }
         }
@@ -26,6 +30,7 @@ public class RemoveCard : MonoBehaviour
        
         if(parentObj != null)
         {
+            Debug.Log("Exit Card Information");
             foreach (Transform child in parentObj.transform)
                 Destroy(child.gameObject);
         }

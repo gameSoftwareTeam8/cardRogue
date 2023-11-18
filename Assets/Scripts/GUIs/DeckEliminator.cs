@@ -2,48 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
-using Unity.Mathematics;
 using System;
-using UnityEngine.SceneManagement; 
 
-public class CardGrid : MonoBehaviour
+
+public class DeckEliminator : MonoBehaviour
 {
     public Transform gridTransform;
 
+    public GameObject deckScrollViewObject; ///
+
+    public GameObject contentObject;
 
     public void DisplayCards()
     {
-        Debug.Log("DisplayCards");
         IPlayer player = Locator.player;
         
-        GameObject content = GameObject.Find("Content");
-
-        GameObject contentBackground = GameObject.Find("ContentBackground");
+        GameObject content = contentObject;
 
         RectTransform contentRect = content.GetComponent<RectTransform>();
 
-        RectTransform contentBackgroundRect = contentBackground.GetComponent<RectTransform>();
-
-        float contentHeight = 1080f;
-
-        double cardCount = Math.Ceiling(player.cards_count / 4.0); 
-        
-        if (cardCount > 2) 
-        {
-            contentHeight += + (float)((cardCount - 2) * 400);
-        }
-        
-        contentRect.sizeDelta = new Vector2(1450, contentHeight);
-        contentBackgroundRect.sizeDelta = new Vector2(1450, contentHeight);
+        float y = -300;
 
         for (int i = 0; i < player.cards_count; i++)
         {
-            Debug.Log("for context 61");
-            // card
-
             Card card = player.get_card(i);
-
-            Debug.Log(card.name);
 
             card.transform.localScale = new Vector3(75, 75, 1);
 
@@ -72,33 +54,33 @@ public class CardGrid : MonoBehaviour
                 rectTransform = cardButton.AddComponent<RectTransform>();
             }
 
-            int row = (i / 4) + 1;
-            int column = i % 4;
-            float cardWidth = 265*0.75f;
-            float cardHeight = 370*0.75f;
-            float spacing = 120f;
 
-            float x;
-            float y = -440;
+
+            int row = (i / 2) + 1;
+            int column = i % 4;
+            float cardWidth = 265;
+            float cardHeight = 370;
             
+            float x = i % 2 == 0 ? 280 : 580;
+            
+
+            if(i!=0 && i%2==0)
+            {
+                y -= 370;
+            }
 
             rectTransform.sizeDelta = new Vector2(cardWidth, cardHeight);
-
-            x = (column * (cardWidth + spacing)) - (1920f / 2) + (cardWidth / 2) + spacing + 260 ;
-            
-            if(i/4==1) y -= 400;
-
-
-  
             rectTransform.anchoredPosition = new Vector2(x, y);
-            rectTransform.anchorMin = new Vector2(0.5f, 1);
-            rectTransform.anchorMax = new Vector2(0.5f, 1);
+            rectTransform.anchorMin = new Vector2(0, 1);
+            rectTransform.anchorMax = new Vector2(0, 1);
 
    
             card.GetComponent<CardView>().show();
 
 
-            button.onClick.AddListener(() => OnCardClicked(card.transform.parent.gameObject));
+            Debug.Log("checking");
+            Debug.Log(card.transform.parent.gameObject);
+            //button.onClick.AddListener(() => OnCardClicked(card.transform.parent.gameObject));
 
             
         }
@@ -109,9 +91,7 @@ public class CardGrid : MonoBehaviour
     public void OnCardClicked(GameObject cardButton)
     {
 
-        GameObject scrollView = GameObject.Find("Deck");
-
-        Debug.Log(scrollView + "here");
+        GameObject scrollView = GameObject.Find("Deck Scroll View");
 
         if (scrollView != null)
         { 
