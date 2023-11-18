@@ -14,6 +14,7 @@ public class TurnManager : MonoBehaviour
     [Header("Develop")]
     [SerializeField][Tooltip("�� ���")] ETurnMode eTurnMode;
     [SerializeField][Tooltip("���� ī�� ����")] int startCardCount;
+    [SerializeField] GameObject damagePrefab;
 
     [Header("Properties")]
     public bool isLoading;
@@ -69,6 +70,13 @@ public class TurnManager : MonoBehaviour
         HandsManager.Inst.AddCard(myTurn);
     }
 
+    void SpawnDamage(int damage, Transform tr)
+    {
+        var damageComponent = Instantiate(damagePrefab).GetComponent<Damage>();
+        damageComponent.SetUpTransform(tr);
+        damageComponent.Damaged(damage);
+    }
+
     public void battle()
     {
         IBoard board = Locator.board;
@@ -88,6 +96,7 @@ public class TurnManager : MonoBehaviour
                         .AppendCallback(() =>
                         {
                             card.attack(target);
+                            SpawnDamage(card.creature_info.power, target.transform);
                         })
                         .Append(card.transform.DOMove((OriginAttackerPos), 0.4f)).SetEase(Ease.OutSine);
                 }
