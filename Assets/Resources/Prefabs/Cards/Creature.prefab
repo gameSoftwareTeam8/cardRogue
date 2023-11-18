@@ -718,7 +718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burning_material: {fileID: 2100000, guid: ed0a8b7efc5c36c4db795efdf79f8d6b, type: 2}
   destroy_animation: {fileID: 7400000, guid: f6d516be9a42d0d45b5dd2266a22c459, type: 2}
-  damage_animation: {fileID: 7400000, guid: 5be3590ce22235049adef2d9ddd4666e, type: 2}
+  damage_animation: {fileID: 7400000, guid: 612fceac13e48e545ada1fa7b59ee552, type: 2}
   shattering_material: {fileID: 2100000, guid: c96f562331c6111438f323986dd2e19e, type: 2}
 --- !u!61 &5032629524443811725
 BoxCollider2D:
@@ -1167,7 +1167,7 @@ RectTransform:
   m_GameObject: {fileID: 5246486506603573414}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.7121398, y: 3.05188, z: 1}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2859236565107672654}
@@ -1422,7 +1422,7 @@ RectTransform:
   m_GameObject: {fileID: 6558349784280968424}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.7121398, y: 3.05188, z: 1}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1785173038131017548}
@@ -1430,7 +1430,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -0.18}
-  m_SizeDelta: {x: 0.5, y: 0.35}
+  m_SizeDelta: {x: 0.5, y: 0.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6684965578017904474
 MeshRenderer:
