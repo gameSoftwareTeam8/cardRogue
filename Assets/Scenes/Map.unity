@@ -453,7 +453,7 @@ MonoBehaviour:
   width: 8
   height: 8
   nodePrefab: {fileID: 5567884164553593835, guid: 5429371967089ce459ec384b752d5e00, type: 3}
-  fadeImage: {fileID: 0}
+  fadeImage: {fileID: 727572139}
   fadeDuration: 2
   MonsterNodeCount: 6
   MerchantNodeCount: 3

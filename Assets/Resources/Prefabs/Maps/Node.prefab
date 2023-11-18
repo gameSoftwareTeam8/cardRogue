@@ -185,12 +185,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82268992445ba584f96653604202b24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noneSprite: {fileID: 21300000, guid: bd1d3f20873964acf9209017b108e6c6, type: 3}
+  noneSprite: {fileID: 21300000, guid: 687b47112344856438d597e639a6006f, type: 3}
   wallSprite: {fileID: 0}
-  monsterSprite: {fileID: 21300000, guid: 5999b3abb691aa341bc2704fe61efdf2, type: 3}
-  eventSprite: {fileID: 21300000, guid: cd968fe28a1454ed98525b0d1156685f, type: 3}
-  bossSprite: {fileID: 21300000, guid: ffa80a5081ce64b3fa134439d447fdc6, type: 3}
-  MerchantSprite: {fileID: 21300000, guid: b0f092eeff8b44d66a1e9ba7f0ac3e37, type: 3}
+  monsterSprite: {fileID: 21300000, guid: 3c5d9741ac7da5a499db90d9d87b0ae8, type: 3}
+  eventSprite: {fileID: 21300000, guid: 7b62e4a8e267e6647a84c7e9fc793ba6, type: 3}
+  bossSprite: {fileID: 21300000, guid: c0b9ef10637d878468dcea109f7792bb, type: 3}
+  MerchantSprite: {fileID: 21300000, guid: a36b2e5629db3cd4884c02ea33c3cc8f, type: 3}
 --- !u!61 &8931729194780562698
 BoxCollider2D:
   m_ObjectHideFlags: 0

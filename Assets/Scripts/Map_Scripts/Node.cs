@@ -35,7 +35,7 @@ public class Node : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         background_renderer = transform.Find("Background").GetComponent<SpriteRenderer>();
-        spriteRenderer.enabled = false; // 스프라이트를 기본적으로 숨김
+        spriteRenderer.enabled = true; // 스프라이트를 기본적으로 숨김
         background_renderer.color = Color.gray;
 
         SetNodeType(Type);  // 현재 노드의 유형에 따라 스프라이트 설정
