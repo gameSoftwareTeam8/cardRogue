@@ -720,6 +720,7 @@ MonoBehaviour:
   destroy_animation: {fileID: 7400000, guid: f6d516be9a42d0d45b5dd2266a22c459, type: 2}
   damage_animation: {fileID: 7400000, guid: 612fceac13e48e545ada1fa7b59ee552, type: 2}
   shattering_material: {fileID: 2100000, guid: c96f562331c6111438f323986dd2e19e, type: 2}
+  empty_object: {fileID: 4191142969035346936, guid: 14a8b01e6778a184485abfc89718ee8c, type: 3}
 --- !u!61 &5032629524443811725
 BoxCollider2D:
   m_ObjectHideFlags: 0

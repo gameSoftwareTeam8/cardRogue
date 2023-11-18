@@ -12,3 +12,12 @@ public class Destroyer: MonoBehaviour
         Destroy(gameObject);
     }
 }
+
+public class DestroyerWithParent: Destroyer
+{
+    public new void destroy()
+    {
+        base.destroy();
+        Destroy(transform.parent.gameObject);
+    }
+}

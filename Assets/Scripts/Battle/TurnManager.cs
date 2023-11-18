@@ -105,7 +105,7 @@ public class TurnManager : MonoBehaviour
                             .AppendCallback(() =>
                             {
                                 target.attack(card);
-                                SpawnDamage(card.creature_info.power, target.transform);
+                                // SpawnDamage(card.creature_info.power, target.transform);
                             }).Append(card.transform.DOMove((OriginAttackerPos), 0.3f).SetEase(Ease.OutCubic));
                     });
                 }

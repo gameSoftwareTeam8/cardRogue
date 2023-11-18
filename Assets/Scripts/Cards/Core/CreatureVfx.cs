@@ -15,6 +15,8 @@ public class CreatureVfx: CardVfx
     private AnimationClip damage_animation = null;
     [SerializeField]
     private Material shattering_material = null;
+    [SerializeField]
+    private GameObject empty_object = null;
     private GameObject hp_object;
     new void Awake()
     {
@@ -25,8 +27,12 @@ public class CreatureVfx: CardVfx
 
     public void on_damaged((int amount, Card source) info)
     {
-        GameObject vfx_object = Instantiate(hp_object, hp_object.transform.parent);
-        vfx_object.transform.SetParent(hp_object.transform, true);
+        GameObject parent_object = Instantiate(empty_object, hp_object.transform.parent);
+        parent_object.transform.localScale = new Vector3(1.875f, 1.875f, 1.0f);
+        
+        GameObject vfx_object = Instantiate(hp_object, parent_object.transform);
+        vfx_object.transform.SetParent(parent_object.transform, true);
+        vfx_object.name = "VFXText";
         vfx_object.GetComponent<TextMeshPro>().text = info.amount.ToString();
         vfx_object.AddComponent<Animation>();
         vfx_object.AddComponent<Destroyer>();
@@ -82,6 +88,8 @@ public class CreatureVfx: CardVfx
 
         foreach (var text in GetComponentsInChildren<TextMeshPro>())
         {
+            if (text.name == "VFXText")
+                text.transform.parent.localScale *= 0.5f;
             if (text.name != "Text")
                 continue;
 
