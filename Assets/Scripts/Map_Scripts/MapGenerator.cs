@@ -36,7 +36,7 @@ public class MapGenerator : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
-            DontDestroyOnLoad(fadeImage.gameObject);
+            
         }
         else
         {

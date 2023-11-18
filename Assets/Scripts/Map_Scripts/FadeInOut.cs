@@ -31,7 +31,7 @@ public class FadeInOut : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(MapGenerator.Instance.LoadDiffScene("Map"));
+        //StartCoroutine(MapGenerator.Instance.LoadDiffScene("Map"));
     }
 
     public IEnumerator FadeIn()
