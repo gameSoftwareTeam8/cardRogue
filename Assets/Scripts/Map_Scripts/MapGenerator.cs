@@ -54,7 +54,7 @@ public class MapGenerator : MonoBehaviour
         if (scene.name == "Map" && nodes != null)
         {
             ShowActiveSprites();
-            FadeIn();
+            StartCoroutine(FadeIn());
         }
         else
         {
@@ -351,6 +351,7 @@ public class MapGenerator : MonoBehaviour
                     CountupScore(10);
                     HideAllSprites();
                     StartCoroutine(LoadDiffScene("BattleScene"));
+                    //FadeInOut.Instance.FadeOut();
                     //LoadDiffScene("BattleScene");
                     //SceneManager.LoadScene("BattleScene");
                     break;
@@ -428,7 +429,20 @@ public class MapGenerator : MonoBehaviour
         currentColor = Color.clear;
         fadeImage.color = currentColor;
     }
-    private IEnumerator LoadDiffScene(string SceneName)
+    public IEnumerator FadeOut()
+    {
+        float elapsedTime = 0;
+        while (elapsedTime < fadeDuration)
+        {
+            currentColor = Color.Lerp(Color.clear, Color.black, elapsedTime / fadeDuration);
+            fadeImage.color = currentColor;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        currentColor = Color.black;
+        fadeImage.color = currentColor;
+    }
+    public IEnumerator LoadDiffScene(string SceneName)
     {
         float elapsedTime = 0;
         while(elapsedTime < fadeDuration)
@@ -441,6 +455,7 @@ public class MapGenerator : MonoBehaviour
         currentColor = Color.black;
         fadeImage.color = currentColor;
         SceneManager.LoadScene(SceneName);
+        StartCoroutine(FadeIn());
     }
     
 }
