@@ -46,7 +46,7 @@ public class GetAge : MonoBehaviour
        
         material.SetFloat("OnOff", 1);
         Color color = material.color;
-        color.a = 1f; // 알파값을 1로 설정하여 원래 상태로 복원합니다.
+        color.a = 1f; 
         material.color = color;
         while(ageValue < maxAge)
         {
@@ -58,14 +58,14 @@ public class GetAge : MonoBehaviour
 
         if (destoryTarget.name != "DeckRemoveCard")
         {
-            Destroy(destoryTarget);
+            StartCoroutine(WaitTime());
             material.SetFloat("_Age", 7);
         }
-
-
-
-        
-
             
+    }
+    IEnumerator WaitTime()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(destoryTarget);
     }
 }

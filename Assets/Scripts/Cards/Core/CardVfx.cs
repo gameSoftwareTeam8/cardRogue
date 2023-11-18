@@ -12,6 +12,7 @@ public class CardVfx: MonoBehaviour
     protected Material burning_material;
     [SerializeField]
     protected AnimationClip destroy_animation;
+    protected bool is_running_destroyed = false;
     private float time_to_destroy = 3.0f;
     private Card card;
     private float age = 0.001f;
@@ -23,7 +24,7 @@ public class CardVfx: MonoBehaviour
 
     void FixedUpdate()
     {
-        if (card.is_destroyed) {
+        if (is_running_destroyed) {
             age += Time.deltaTime;
             foreach (var renderer in GetComponentsInChildren<SpriteRenderer>())
                 renderer.material.SetFloat("_Age", age);
@@ -56,5 +57,6 @@ public class CardVfx: MonoBehaviour
             animation.AddClip(destroy_animation, "DamageAnimation");
             animation.Play("DamageAnimation");
         }
+        is_running_destroyed = true;
     }
 }

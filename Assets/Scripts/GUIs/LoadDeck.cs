@@ -6,24 +6,25 @@ using Unity.Mathematics;
 using System;
 using UnityEngine.SceneManagement; 
 
-public class CardGrid : MonoBehaviour
+public class LoadDeck : MonoBehaviour
 {
+    public GameObject content;
+    public GameObject contentBackground;
+
+    public GameObject scrollView;
+
     public Transform gridTransform;
 
+    float contentHeight = 1080f;
 
     public void DisplayCards()
     {
-        IPlayer player = Locator.player;
-        
-        GameObject content = GameObject.Find("Content");
 
-        GameObject contentBackground = GameObject.Find("ContentBackground");
+        IPlayer player = Locator.player;
 
         RectTransform contentRect = content.GetComponent<RectTransform>();
 
         RectTransform contentBackgroundRect = contentBackground.GetComponent<RectTransform>();
-
-        float contentHeight = 1080f;
 
         double cardCount = Math.Ceiling(player.cards_count / 4.0); 
         
@@ -39,11 +40,7 @@ public class CardGrid : MonoBehaviour
         {
             Card card = player.get_card(i);
 
-            Debug.Log(card.name);
-
             card.transform.localScale = new Vector3(75, 75, 1);
-
-            // card button
 
             GameObject cardButton = new GameObject(card.name + "Button");
 
@@ -55,7 +52,7 @@ public class CardGrid : MonoBehaviour
 
             button.onClick.AddListener(() => OnClickMyButton());
 
-    
+
             //
 
             cardButton.transform.SetParent(content.transform, false);
@@ -98,9 +95,9 @@ public class CardGrid : MonoBehaviour
 
             
         }
+        
 
     }
-
 
     public void OnCardClicked(GameObject cardButton)
     {
@@ -146,10 +143,7 @@ public class CardGrid : MonoBehaviour
 
             firstChildTransform.GetComponent<CardView>().show();
 
-            Debug.Log("FirstChild: " + firstChildTransform);
         }
-
-        Debug.Log("working");
     }
 
 
@@ -163,4 +157,3 @@ public class CardGrid : MonoBehaviour
     }
 
 }
-
