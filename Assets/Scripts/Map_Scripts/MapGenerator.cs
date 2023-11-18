@@ -53,6 +53,7 @@ public class MapGenerator : MonoBehaviour
         if (scene.name == "Map" && nodes != null)
         {
             ShowActiveSprites();
+            FadeIn();
         }
         else
         {
@@ -60,7 +61,7 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    private void HideAllSprites()
+    public void HideAllSprites()
     {
         foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
         {
