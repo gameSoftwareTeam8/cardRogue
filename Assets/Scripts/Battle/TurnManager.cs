@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.U2D.IK;
 using Random = UnityEngine.Random;
 
 public class TurnManager : MonoBehaviour
@@ -17,18 +18,19 @@ public class TurnManager : MonoBehaviour
     [SerializeField][Tooltip("�� ���")] ETurnMode eTurnMode;
     [SerializeField][Tooltip("���� ī�� ����")] int startCardCount;
     [SerializeField] GameObject damagePrefab;
+    [SerializeField] GameObject manaPrefab;
 
     [Header("Properties")]
     public bool isLoading;
     public bool myTurn;
     public int turn { get; private set; } = 0;
-    int MaxMana = 0;
 
     enum ETurnMode {My, Enemy}
     WaitForSeconds delay = new WaitForSeconds(0.1f);
     WaitForSeconds delay07 = new WaitForSeconds(0.7f);
     public static event Action<bool> OnTurnStarted;
-
+    public SpriteRenderer mana_Renderer;
+    [SerializeField] public static Sprite[] manas = new Sprite[4];
     void GameSetup()
     {
         if(eTurnMode == ETurnMode.My)
@@ -49,6 +51,15 @@ public class TurnManager : MonoBehaviour
         StartCoroutine(StartTurnCo());
     }
 
+    public void mana_create(int mana)
+    {
+       for(int i=0;i< mana; i++)
+        {
+            mana_Renderer.sprite = manas[i];
+            mana_Renderer.transform.localScale = Vector3.one * 5;
+        }
+    }
+
     public IEnumerator StartTurnCo()
     {
         IPlayer player = Locator.player;
@@ -57,6 +68,7 @@ public class TurnManager : MonoBehaviour
         {
             BattleManager.Inst.Notification("나의 턴");
             player.recover_mana(player.max_mana);
+            mana_create(player.max_mana);
         }
         else
             BattleManager.Inst.Notification("상대 턴");
