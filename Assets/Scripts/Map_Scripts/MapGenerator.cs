@@ -1,7 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MapGenerator : MonoBehaviour
 {
@@ -9,6 +11,10 @@ public class MapGenerator : MonoBehaviour
     public int height = 8;
     public GameObject nodePrefab;
 
+    public RawImage fadeImage;
+    public float fadeDuration = 3.0f;
+    private Color currentColor = Color.black;
+    private Color targetColor = new Color(0, 0, 0, 0);
 
     public int MonsterNodeCount = 6;
     public int MerchantNodeCount = 3;
@@ -47,6 +53,7 @@ public class MapGenerator : MonoBehaviour
         if (scene.name == "Map" && nodes != null)
         {
             ShowActiveSprites();
+            FadeIn();
         }
         else
         {
@@ -54,7 +61,7 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    private void HideAllSprites()
+    public void HideAllSprites()
     {
         foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
         {
@@ -112,6 +119,8 @@ public class MapGenerator : MonoBehaviour
     private void Start() { 
 
         GenerateMap();
+        StartCoroutine(FadeIn());
+        //FadeIn();
     }
 
     private void GenerateMap()
@@ -282,6 +291,10 @@ public class MapGenerator : MonoBehaviour
         {
             for(int j=0;j< height; j++)
             {
+                if(i == width/2 && j == height/2)
+                {
+                    continue;
+                }
                 Node adjacentNode = nodes[i,j];
                 if(adjacentNode.Type == NodeType.None)
                 {
@@ -333,26 +346,31 @@ public class MapGenerator : MonoBehaviour
             switch (clickedNode.Type)
             {
                 case NodeType.Monster:
-                    Reset_Map();
+                    //Reset_Map();
                     CountupScore(10);
                     HideAllSprites();
-                    SceneManager.LoadScene("BattleScene");
+                    StartCoroutine(LoadDiffScene("BattleScene"));
+                    //LoadDiffScene("BattleScene");
+                    //SceneManager.LoadScene("BattleScene");
                     break;
                 case NodeType.Event:
                     CountupScore(5);
                     HideAllSprites();
-                    SceneManager.LoadScene("Temp1");
+                    StartCoroutine(LoadDiffScene("Temp1"));
                     //SceneManager.LoadScene("Shelter");
+                    //SceneManager.LoadScene("Temp1");
                     break;
                 case NodeType.Merchant:
                     CountupScore(1);
                     HideAllSprites();
-                    SceneManager.LoadScene("Merchant");
+                    StartCoroutine(LoadDiffScene("Merchant"));
+                    //SceneManager.LoadScene("Merchant");
                     break;
                 case NodeType.Boss:
                     CountupScore(50);
                     HideAllSprites();
-                    SceneManager.LoadScene("Temp2");
+                    StartCoroutine(LoadDiffScene("Temp2"));
+                    //SceneManager.LoadScene("Temp2");
                     break;
             }
         }
@@ -395,4 +413,33 @@ public class MapGenerator : MonoBehaviour
 
         return rooms;
     }
+    
+    private IEnumerator FadeIn()
+    {
+        float elapsedTime = 0;
+        while (elapsedTime < fadeDuration)
+        {
+            currentColor = Color.Lerp(Color.black, Color.clear, elapsedTime / fadeDuration);
+            fadeImage.color = currentColor;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        currentColor = Color.clear;
+        fadeImage.color = currentColor;
+    }
+    private IEnumerator LoadDiffScene(string SceneName)
+    {
+        float elapsedTime = 0;
+        while(elapsedTime < fadeDuration)
+        {
+            currentColor = Color.Lerp(Color.clear, Color.black, elapsedTime / fadeDuration);
+            fadeImage.color = currentColor;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        currentColor = Color.black;
+        fadeImage.color = currentColor;
+        SceneManager.LoadScene(SceneName);
+    }
+    
 }

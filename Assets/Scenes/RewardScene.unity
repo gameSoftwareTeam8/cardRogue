@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 41927119}
   - component: {fileID: 41927118}
   - component: {fileID: 41927117}
+  - component: {fileID: 41927121}
   - component: {fileID: 41927116}
   - component: {fileID: 41927120}
   m_Layer: 5
@@ -237,6 +238,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 41927121}
+        m_TargetAssemblyTypeName: RewardSelect, Assembly-CSharp
+        m_MethodName: SelectThirdCard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &41927118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +309,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &41927121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41927113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a04757736384432382897e0762d8972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewardCardObj: {fileID: 458888485}
 --- !u!1 &116356201
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +422,9 @@ MonoBehaviour:
   firstCard: {fileID: 1201209116}
   secondCard: {fileID: 582700312}
   thirdCard: {fileID: 41927113}
+  card1: {fileID: 0}
+  card2: {fileID: 0}
+  card3: {fileID: 0}
 --- !u!4 &458888487
 Transform:
   m_ObjectHideFlags: 0
@@ -423,6 +452,7 @@ GameObject:
   - component: {fileID: 582700318}
   - component: {fileID: 582700317}
   - component: {fileID: 582700316}
+  - component: {fileID: 582700320}
   - component: {fileID: 582700315}
   - component: {fileID: 582700319}
   m_Layer: 5
@@ -525,6 +555,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 582700320}
+        m_TargetAssemblyTypeName: RewardSelect, Assembly-CSharp
+        m_MethodName: SelectSecondCard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &582700317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -584,6 +626,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &582700320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582700312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a04757736384432382897e0762d8972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewardCardObj: {fileID: 458888485}
 --- !u!1 &605170255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,6 +1141,7 @@ GameObject:
   - component: {fileID: 1201209121}
   - component: {fileID: 1201209120}
   - component: {fileID: 1201209119}
+  - component: {fileID: 1201209124}
   - component: {fileID: 1201209122}
   - component: {fileID: 1201209123}
   m_Layer: 5
@@ -1161,6 +1217,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1201209122}
         m_TargetAssemblyTypeName: GetAge, Assembly-CSharp
         m_MethodName: StartFlipbook
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1201209124}
+        m_TargetAssemblyTypeName: RewardSelect, Assembly-CSharp
+        m_MethodName: SelectFirstCard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1247,6 +1315,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1201209124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201209116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a04757736384432382897e0762d8972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewardCardObj: {fileID: 458888485}
 --- !u!1 &1474596676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,6 +1340,7 @@ GameObject:
   - component: {fileID: 1474596680}
   - component: {fileID: 1474596679}
   - component: {fileID: 1474596678}
+  - component: {fileID: 1474596681}
   m_Layer: 5
   m_Name: SkipButton
   m_TagString: Untagged
@@ -1329,7 +1411,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1474596679}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1474596681}
+        m_TargetAssemblyTypeName: ToHeaderBar, Assembly-CSharp
+        m_MethodName: ToHeader
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1474596679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1368,6 +1462,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474596676}
   m_CullTransparentMesh: 1
+--- !u!114 &1474596681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474596676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59f0eea3c1d64d3c85badfd2b822ffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1484379611
 GameObject:
   m_ObjectHideFlags: 0
