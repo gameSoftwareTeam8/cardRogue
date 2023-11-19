@@ -222,6 +222,7 @@ public class HandsManagerView : MonoBehaviour
             board.add_card(side, idx, creature);
             HandsManager.Inst.RemoveCard(card);
             player.pay_mana(card.info.cost);
+            TurnManager.Inst.remove_mana(player.mana);
         }
         else if (card_effect is TargetingMagicEffect && target != null) {
             ((TargetingMagicEffect)card_effect).on_used_to_target((Creature)target);

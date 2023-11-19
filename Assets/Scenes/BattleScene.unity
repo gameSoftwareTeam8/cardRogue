@@ -1695,7 +1695,11 @@ MonoBehaviour:
   eTurnMode: 0
   startCardCount: 4
   damagePrefab: {fileID: 745332447}
-  manaPrefab: {fileID: 0}
+  manaPrefab:
+  - {fileID: 126916321}
+  - {fileID: 1655486669}
+  - {fileID: 1079601813}
+  - {fileID: 23157887}
   isLoading: 0
   myTurn: 1
   mana_Renderer: {fileID: 0}
