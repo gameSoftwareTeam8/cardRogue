@@ -27,7 +27,7 @@ public class BattleManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Keypad1))
             TurnManager.Inst.ProcessDrawPhase();
         if(Input.GetKeyDown(KeyCode.Keypad2))
-            TurnManager.Inst.EndTurn();
+            TurnManager.Inst.try_turn_end();
     }
 
     public void StartGame()

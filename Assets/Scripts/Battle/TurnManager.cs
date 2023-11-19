@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -31,6 +32,8 @@ public class TurnManager : MonoBehaviour
     public static event Action<bool> OnTurnStarted;
     public SpriteRenderer mana_Renderer;
     [SerializeField] public static Sprite[] manas = new Sprite[4];
+    private object end_turn_lock = new object();
+    private bool is_running = false;
     void GameSetup()
     {
         if(eTurnMode == ETurnMode.My)
@@ -53,11 +56,11 @@ public class TurnManager : MonoBehaviour
 
     public void mana_create(int mana)
     {
-       for(int i=0;i< mana; i++)
-        {
-            mana_Renderer.sprite = manas[i];
-            mana_Renderer.transform.localScale = Vector3.one * 5;
-        }
+    //    for(int i=0;i< mana; i++)
+    //     {
+    //         mana_Renderer.sprite = manas[i];
+    //         mana_Renderer.transform.localScale = Vector3.one * 5;
+    //     }
     }
 
     public IEnumerator StartTurnCo()
@@ -147,9 +150,23 @@ public class TurnManager : MonoBehaviour
 
     public async Task EndTurn()
     {
+        lock (end_turn_lock) {
+            if (is_running)
+                return;
+            is_running = true;
+        }
+
         await battle();
         turn++;
         myTurn = !myTurn;
         StartCoroutine(StartTurnCo());
+
+        is_running = false;
+        lock (end_turn_lock) { is_running = false; }
+    }
+
+    public void try_turn_end()
+    {
+        EndTurn();
     }
 }
