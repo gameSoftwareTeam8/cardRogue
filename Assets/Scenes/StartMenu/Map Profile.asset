@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Main Camera Profile
+  m_Name: Map Profile
   m_EditorClassIdentifier: 
   components:
   - {fileID: 2389422263324826907}
@@ -257,13 +257,13 @@ MonoBehaviour:
   active: 1
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.3994749, g: 0.41411534, b: 0.4433962, a: 1}
+    m_Value: {r: 0.2264151, g: 0.18382092, b: 0.1781417, a: 1}
   center:
     m_OverrideState: 1
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.45
+    m_Value: 0.5
   smoothness:
     m_OverrideState: 1
     m_Value: 0.4
