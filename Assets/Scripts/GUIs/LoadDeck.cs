@@ -4,7 +4,10 @@ using UnityEngine.UI;
 using UnityEngine;
 using Unity.Mathematics;
 using System;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
+using System.Linq;
+using TMPro;
 
 public class LoadDeck : MonoBehaviour
 {
@@ -14,9 +17,11 @@ public class LoadDeck : MonoBehaviour
     public Transform gridTransform;
 
     float contentHeight = 980f;
+    private GameObject empty_prefab;
 
     public void DisplayCards()
     {
+        empty_prefab = Resources.Load<GameObject>("Prefabs/Empty");
 
         IPlayer player = Locator.player;
 
@@ -95,15 +100,27 @@ public class LoadDeck : MonoBehaviour
             rectTransform.anchorMin = new Vector2(0.5f, 1);
             rectTransform.anchorMax = new Vector2(0.5f, 1);
 
-            card.GetComponent<CardView>().show();
+            Transform front = card.transform.Find("Front");
+            foreach (var renderer in front.GetComponentsInChildren<SpriteRenderer>())
+            {
+                renderer.AddComponent<Image>();
+                Image card_image = renderer.GetComponent<Image>();
+                card_image.sprite = renderer.sprite;
+            }
 
+            foreach (var tmp in front.GetComponentsInChildren<TextMeshPro>())
+            {
+                var tmp_object = Instantiate(empty_prefab, tmp.gameObject.transform);
+                tmp_object.AddComponent<TextMeshProUGUI>();
+                var tmp_gui = tmp_object.GetComponent<TextMeshProUGUI>();
+                tmp_gui.text = tmp.text;
+                tmp_gui.alignment = tmp.alignment;
+                tmp_gui.fontSize = tmp.fontSize / 10.0f;
+                tmp_gui.font = tmp.font;
+            }
 
             button.onClick.AddListener(() => OnCardClicked(card.transform.parent.gameObject));
-
-            
         }
-        
-
     }
 
     public void OnCardClicked(GameObject cardButton)
