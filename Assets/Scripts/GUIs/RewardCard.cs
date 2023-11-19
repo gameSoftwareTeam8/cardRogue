@@ -32,8 +32,6 @@ public class RewardCard : MonoBehaviour
         {
             rewardCard = card_factory.create(info);
 
-            rewardCard.transform.localScale = new Vector3(120, 120, 1);
-
 
             if(idx==1)
                 rewardCard.transform.SetParent(firstCard.transform, false);
@@ -61,7 +59,7 @@ public class RewardCard : MonoBehaviour
             
 
 
-            rewardCard.transform.localScale = new Vector3(100,100,1);
+            rewardCard.transform.localScale = new Vector3(130,130,1);
             
             
             idx++;

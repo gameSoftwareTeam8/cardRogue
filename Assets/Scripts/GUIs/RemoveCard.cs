@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class RemoveCard : MonoBehaviour
 {
+    public GameObject parentObject;
     public void ExitDeck()
     {
- 
-        GameObject parentObj = GameObject.Find("Content");
 
-        if (parentObj != null)
+        if (parentObject != null)
         {
-            foreach (Transform child in parentObj.transform)
-            {
-                if (child.name != "GameTitle")
+            foreach (Transform child in parentObject.transform)
+            {   
+                Debug.Log(child.name);
+                if (child.name != "GameTitle" && child.name != "ContentBackground")
                 {
                     Debug.Log("destroy deck card");
                     Destroy(child.gameObject);
@@ -26,12 +26,12 @@ public class RemoveCard : MonoBehaviour
 
     public void ExitCard()
     {
-        GameObject parentObj = GameObject.Find("PopCardImage");
+        GameObject parentObject = GameObject.Find("PopCardImage");
        
-        if(parentObj != null)
+        if(parentObject != null)
         {
             Debug.Log("Exit Card Information");
-            foreach (Transform child in parentObj.transform)
+            foreach (Transform child in parentObject.transform)
                 Destroy(child.gameObject);
         }
         

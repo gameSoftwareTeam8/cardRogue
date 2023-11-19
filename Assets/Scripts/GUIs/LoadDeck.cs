@@ -10,12 +10,10 @@ public class LoadDeck : MonoBehaviour
 {
     public GameObject content;
     public GameObject contentBackground;
-
     public GameObject scrollView;
-
     public Transform gridTransform;
 
-    float contentHeight = 1080f;
+    float contentHeight = 980f;
 
     public void DisplayCards()
     {
@@ -26,19 +24,30 @@ public class LoadDeck : MonoBehaviour
 
         RectTransform contentBackgroundRect = contentBackground.GetComponent<RectTransform>();
 
+        RectTransform scrollRect = scrollView.GetComponent<RectTransform>();
+
         double cardCount = Math.Ceiling(player.cards_count / 4.0); 
         
         if (cardCount > 2) 
         {
-            contentHeight += + (float)((cardCount - 2) * 400);
+            contentHeight += (float)((cardCount - 2) * 425);
+            Debug.Log(contentHeight);
         }
         
         contentRect.sizeDelta = new Vector2(1450, contentHeight);
+
+        contentRect.anchorMin = new Vector2(0.5f, 1f);
+        contentRect.anchorMax = new Vector2(0.5f, 1f);
+        contentRect.pivot = new Vector2(0.5f, 1f);
+
         contentBackgroundRect.sizeDelta = new Vector2(1450, contentHeight);
+
+        scrollRect.sizeDelta = new Vector2(1500, contentHeight+20);
 
         for (int i = 0; i < player.cards_count; i++)
         {
             Card card = player.get_card(i);
+            Debug.Log(card);
 
             card.transform.localScale = new Vector3(75, 75, 1);
 
@@ -62,32 +71,30 @@ public class LoadDeck : MonoBehaviour
             RectTransform rectTransform = cardButton.GetComponent<RectTransform>();
             if (rectTransform == null)
             {
+                Debug.Log("67 rect transform not found");
                 rectTransform = cardButton.AddComponent<RectTransform>();
             }
 
             int row = (i / 4) + 1;
             int column = i % 4;
-            float cardWidth = 265*0.75f;
-            float cardHeight = 370*0.75f;
-            float spacing = 120f;
+            float cardWidth = 265;
+            float cardHeight = 370;
 
-            float x;
-            float y = -440;
-            
+            float x = -514.5f;
+            float y = -325f;
+            // 
 
             rectTransform.sizeDelta = new Vector2(cardWidth, cardHeight);
 
-            x = (column * (cardWidth + spacing)) - (1920f / 2) + (cardWidth / 2) + spacing + 260 ;
+            x += i%4 * 343;
             
-            if(i/4==1) y -= 400;
-
+            if(i/4==1) y -= 425;
 
   
             rectTransform.anchoredPosition = new Vector2(x, y);
             rectTransform.anchorMin = new Vector2(0.5f, 1);
             rectTransform.anchorMax = new Vector2(0.5f, 1);
 
-   
             card.GetComponent<CardView>().show();
 
 
@@ -104,13 +111,6 @@ public class LoadDeck : MonoBehaviour
 
         GameObject scrollView = GameObject.Find("Deck");
 
-        Debug.Log(scrollView + "here");
-
-        if (scrollView != null)
-        { 
-            scrollView.SetActive(false);
-        }
-
         GameObject cardObject = Instantiate(cardButton.gameObject, gridTransform);
 
         RectTransform rectTransform = cardObject.GetComponent<RectTransform>();
@@ -118,9 +118,6 @@ public class LoadDeck : MonoBehaviour
         rectTransform.anchoredPosition = new Vector2(0, 0);
 
         cardObject.transform.localScale = new Vector3(1.5f, 1.5f, 1);
-
-        Debug.Log(cardObject.name);
-        
 
         GameObject popCardImageGameObject = GameObject.Find("PopCardImage");
 

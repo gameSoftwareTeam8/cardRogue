@@ -65,7 +65,7 @@ public class GetAge : MonoBehaviour
     }
     IEnumerator WaitTime()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         Destroy(destoryTarget);
     }
 }

@@ -14,8 +14,6 @@ public class RewardSelect : MonoBehaviour
 
         RewardCard rewardCard = rewardCardObj.GetComponent<RewardCard>();
 
-
-        // ScriptA의 변수에 접근합니다.
         Card addedCard = rewardCard.card1;
 
         player.add_card(addedCard);
@@ -29,8 +27,6 @@ public class RewardSelect : MonoBehaviour
 
         RewardCard rewardCard = rewardCardObj.GetComponent<RewardCard>();
 
-
-        // ScriptA의 변수에 접근합니다.
         Card addedCard = rewardCard.card2;
 
         player.add_card(addedCard);
@@ -44,8 +40,6 @@ public class RewardSelect : MonoBehaviour
 
         RewardCard rewardCard = rewardCardObj.GetComponent<RewardCard>();
 
-
-        // ScriptA의 변수에 접근합니다.
         Card addedCard = rewardCard.card3;
 
         player.add_card(addedCard);
@@ -55,7 +49,7 @@ public class RewardSelect : MonoBehaviour
 
     IEnumerator WaitTime()
     {
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene("HeaderBar");
     }
 }
