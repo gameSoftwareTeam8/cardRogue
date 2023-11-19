@@ -11,10 +11,7 @@ public class MapGenerator : MonoBehaviour
     public int height = 8;
     public GameObject nodePrefab;
 
-    public RawImage fadeImage;
-    public float fadeDuration = 3.0f;
-    private Color currentColor = Color.black;
-    private Color targetColor = new Color(0, 0, 0, 0);
+    
 
     public int MonsterNodeCount = 6;
     public int MerchantNodeCount = 3;
@@ -54,7 +51,7 @@ public class MapGenerator : MonoBehaviour
         if (scene.name == "Map" && nodes != null)
         {
             ShowActiveSprites();
-            StartCoroutine(FadeIn());
+            //StartCoroutine(FadeIn());
         }
         else
         {
@@ -120,7 +117,7 @@ public class MapGenerator : MonoBehaviour
     private void Start() { 
 
         GenerateMap();
-        StartCoroutine(FadeIn());
+        //StartCoroutine(FadeManager.Instance.FadeIn());
         //FadeIn();
     }
 
@@ -350,7 +347,7 @@ public class MapGenerator : MonoBehaviour
                     //Reset_Map();
                     CountupScore(10);
                     HideAllSprites();
-                    StartCoroutine(LoadDiffScene("BattleScene"));
+                    StartCoroutine(FadeManager.Instance.LoadDiffScene("BattleScene"));
                     //FadeInOut.Instance.FadeOut();
                     //LoadDiffScene("BattleScene");
                     //SceneManager.LoadScene("BattleScene");
@@ -358,20 +355,20 @@ public class MapGenerator : MonoBehaviour
                 case NodeType.Event:
                     CountupScore(5);
                     HideAllSprites();
-                    StartCoroutine(LoadDiffScene("Temp1"));
+                    StartCoroutine(FadeManager.Instance.LoadDiffScene("Temp1"));
                     //SceneManager.LoadScene("Shelter");
                     //SceneManager.LoadScene("Temp1");
                     break;
                 case NodeType.Merchant:
                     CountupScore(1);
                     HideAllSprites();
-                    StartCoroutine(LoadDiffScene("Merchant"));
+                    StartCoroutine(FadeManager.Instance.LoadDiffScene("Merchant"));
                     //SceneManager.LoadScene("Merchant");
                     break;
                 case NodeType.Boss:
                     CountupScore(50);
                     HideAllSprites();
-                    StartCoroutine(LoadDiffScene("Temp2"));
+                    StartCoroutine(FadeManager.Instance.LoadDiffScene("Temp2"));
                     //SceneManager.LoadScene("Temp2");
                     break;
             }
@@ -416,46 +413,7 @@ public class MapGenerator : MonoBehaviour
         return rooms;
     }
     
-    private IEnumerator FadeIn()
-    {
-        float elapsedTime = 0;
-        while (elapsedTime < fadeDuration)
-        {
-            currentColor = Color.Lerp(Color.black, Color.clear, elapsedTime / fadeDuration);
-            fadeImage.color = currentColor;
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        currentColor = Color.clear;
-        fadeImage.color = currentColor;
-    }
-    public IEnumerator FadeOut()
-    {
-        float elapsedTime = 0;
-        while (elapsedTime < fadeDuration)
-        {
-            currentColor = Color.Lerp(Color.clear, Color.black, elapsedTime / fadeDuration);
-            fadeImage.color = currentColor;
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        currentColor = Color.black;
-        fadeImage.color = currentColor;
-    }
-    public IEnumerator LoadDiffScene(string SceneName)
-    {
-        float elapsedTime = 0;
-        while(elapsedTime < fadeDuration)
-        {
-            currentColor = Color.Lerp(Color.clear, Color.black, elapsedTime / fadeDuration);
-            fadeImage.color = currentColor;
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        currentColor = Color.black;
-        fadeImage.color = currentColor;
-        SceneManager.LoadScene(SceneName);
-        StartCoroutine(FadeIn());
-    }
+    
+    
     
 }

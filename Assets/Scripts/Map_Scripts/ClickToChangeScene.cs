@@ -7,7 +7,7 @@ public class ClickToChangeScene : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            StartCoroutine(MapGenerator.Instance.LoadDiffScene("Map"));
+            StartCoroutine(FadeManager.Instance.LoadDiffScene("Map"));
         }
     }
 }
