@@ -91,6 +91,11 @@ public class TurnManager : MonoBehaviour
         ProcessDrawPhase();
         yield return delay07;
         isLoading = false;
+        
+        IBoard board = Locator.board;
+        for (int i = 0; i < board.size; i++)
+            for (int side = 0; side < 2; side++)
+                board.get_card((BoardSide)side, i)?.gameObject.SendMessage("on_turn_started", SendMessageOptions.DontRequireReceiver);
         OnTurnStarted?.Invoke(myTurn);
     }
 
@@ -158,6 +163,10 @@ public class TurnManager : MonoBehaviour
         //         }
         //     }
         // }
+
+        for (int i = 0; i < board.size; i++)
+            for (int side = 0; side < 2; side++)
+                board.get_card((BoardSide)side, i)?.gameObject.SendMessage("on_turn_ended", SendMessageOptions.DontRequireReceiver);
     }
 
     public async Task EndTurn()

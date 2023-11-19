@@ -63,5 +63,15 @@ public class Creature: Card
         creature_info.hp = value;
         current_hp += value;
         current_hp = Mathf.Min(current_hp, creature_info.hp);
+        SendMessage("on_value_changed", SendMessageOptions.DontRequireReceiver);
+    }
+
+    public void set_power(int value, Card source)
+    {
+        if (is_destroyed)
+            return;
+
+        creature_info.power = value;
+        SendMessage("on_value_changed", SendMessageOptions.DontRequireReceiver);
     }
 }

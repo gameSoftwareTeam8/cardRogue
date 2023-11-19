@@ -17,8 +17,8 @@ public class BuffEffect: CreatureEffect
             if (target == null || target == creature)
                 continue;
 
-            target.creature_info.hp += 1;
-            target.creature_info.power += 1;
+            target.set_max_hp(target.creature_info.hp + 1, creature);
+            target.set_power(target.creature_info.power + 1, creature);
             vfx_factory.create("Buff").transform.position = target.transform.position;
         }
     }
