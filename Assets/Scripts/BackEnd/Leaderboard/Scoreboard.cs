@@ -52,6 +52,7 @@ public class Scoreboard : MonoBehaviour
     void EnterMainMenu()
     {
         //StartCoroutine(MapGenerator.Instance.LoadDiffScene("StartMenu"));
-        SceneManager.LoadScene("StartMenu");
+        //SceneManager.LoadScene("StartMenu");
+        StartCoroutine(FadeManager.Instance.LoadDiffScene("StartMenu"));
     }
 }
