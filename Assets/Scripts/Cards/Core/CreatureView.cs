@@ -19,17 +19,32 @@ public class CreatureView: CardView
         hp_text = front.Find("Hp").Find("Text").GetComponent<TextMeshPro>();
         description_text = front.Find("Description").Find("Text").GetComponent<TextMeshPro>();
         character_sprite = front.Find("Character").GetComponent<SpriteRenderer>();
+        character_sprite.sprite = creature.creature_info.sprite;
 
+        update_text();
+    }
+
+    public void update_text()
+    {
         name_text.text = creature.creature_info.card_name;
         mana_text.text = creature.creature_info.cost.ToString();
         power_text.text = creature.creature_info.power.ToString();
-        hp_text.text = creature.creature_info.hp.ToString();
+        hp_text.text = creature.current_hp.ToString();
         description_text.text = creature.creature_info.description;
-        character_sprite.sprite = creature.creature_info.sprite;
     }
 
     public void on_damaged((int amount, Card source) value)
     {
         hp_text.text = creature.current_hp.ToString();
+    }
+
+    public void on_healed((int amount, Card source) value)
+    {
+        hp_text.text = creature.current_hp.ToString();
+    }
+
+    public void on_value_changed()
+    {
+        update_text();
     }
 }

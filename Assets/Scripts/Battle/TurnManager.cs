@@ -19,7 +19,7 @@ public class TurnManager : MonoBehaviour
     [SerializeField][Tooltip("�� ���")] ETurnMode eTurnMode;
     [SerializeField][Tooltip("���� ī�� ����")] int startCardCount;
     [SerializeField] GameObject damagePrefab;
-    [SerializeField] GameObject manaPrefab;
+    [SerializeField] public GameObject[] manaPrefab;
 
     [Header("Properties")]
     public bool isLoading;
@@ -54,13 +54,25 @@ public class TurnManager : MonoBehaviour
         StartCoroutine(StartTurnCo());
     }
 
-    public void mana_create(int mana)
+    public void add_mana(int cur_mana)
     {
-    //    for(int i=0;i< mana; i++)
-    //     {
-    //         mana_Renderer.sprite = manas[i];
-    //         mana_Renderer.transform.localScale = Vector3.one * 5;
-    //     }
+
+        for(int i=0; i<cur_mana; i++)
+        {
+            manaPrefab[i].transform.localScale = Vector3.one * 5;
+        }
+
+    }
+
+    public void remove_mana(int cur_mana)
+    {
+
+        for(int i =0; i<manaPrefab.Length; i++)
+        {
+            manaPrefab[i].transform.localScale = Vector3.zero;
+        }
+        add_mana(cur_mana);
+
     }
 
     public IEnumerator StartTurnCo()
@@ -71,7 +83,7 @@ public class TurnManager : MonoBehaviour
         {
             BattleManager.Inst.Notification("나의 턴");
             player.recover_mana(player.max_mana);
-            mana_create(player.max_mana);
+            add_mana(player.mana);
         }
         else
             BattleManager.Inst.Notification("상대 턴");
@@ -79,6 +91,11 @@ public class TurnManager : MonoBehaviour
         ProcessDrawPhase();
         yield return delay07;
         isLoading = false;
+        
+        IBoard board = Locator.board;
+        for (int i = 0; i < board.size; i++)
+            for (int side = 0; side < 2; side++)
+                board.get_card((BoardSide)side, i)?.gameObject.SendMessage("on_turn_started", SendMessageOptions.DontRequireReceiver);
         OnTurnStarted?.Invoke(myTurn);
     }
 
@@ -146,6 +163,10 @@ public class TurnManager : MonoBehaviour
         //         }
         //     }
         // }
+
+        for (int i = 0; i < board.size; i++)
+            for (int side = 0; side < 2; side++)
+                board.get_card((BoardSide)side, i)?.gameObject.SendMessage("on_turn_ended", SendMessageOptions.DontRequireReceiver);
     }
 
     public async Task EndTurn()
