@@ -113,6 +113,7 @@ public class TurnManager : MonoBehaviour
 
     public async Task battle()
     {
+        IPlayer player = Locator.player;
         IBoard board = Locator.board;
         IActionQueue action_queue = Locator.action_queue;
 
@@ -123,29 +124,35 @@ public class TurnManager : MonoBehaviour
             {
                 Creature card = board.get_card((BoardSide)side, i);
                 Creature target = board.get_opposite_card(card);
-                if (card != null && target != null) {
+                if (card == null)
+                    continue;
+
+                if (target == null) {
+                    if ((BoardSide)side == BoardSide.HOME)
+                        continue;
+                    Vector3 target_pos = new Vector3(card.transform.position.x, -11.0f, 0.0f);
+                    actions.Add(() => {
+                        attack_target(
+                            card.transform, target_pos, () => { player.take_damage(card.creature_info.power); }
+                        );
+                    });
+                }
+                else {
                     Vector3 OriginAttackerPos = card.transform.position;
                     Vector3 CardSize = new Vector3(0, 2.5f, 0);
-                    Vector3 Middle = side==0 ?(card.transform.position + target.transform.position) / 2 - CardSize : (card.transform.position + target.transform.position) / 2 + CardSize;
-                    Vector3 reverseDir = card.transform.position - (target.transform.position - card.transform.position) * 0.2f;
+                    Vector3 Middle = (card.transform.position + target.transform.position) / 2.0f + (side == 0 ? -1.0f : 1.0f) * CardSize ;
 
                     actions.Add(() => {
-                        DOTween.Sequence()
-                            .Append(card.transform.DOMove(reverseDir, 0.3f).SetEase(Ease.InExpo))
-                            .AppendInterval(0.2f)
-                            .Append(card.transform.DOMove(Middle, 0.01f).SetEase(Ease.Linear))
-                            .AppendCallback(() =>
-                            {
-                                target.attack(card);
-                                // SpawnDamage(card.creature_info.power, target.transform);
-                            }).Append(card.transform.DOMove((OriginAttackerPos), 0.3f).SetEase(Ease.OutCubic));
+                        attack_target(
+                            card.transform, Middle, () => { target.attack(card); }
+                        );
                     });
                 }
             }
             if (actions.Count > 0) {
                 action_queue.enqueue(() => {
-                    actions[0]();
-                    actions[1]();
+                    foreach (var action in actions)
+                        action();
                 }, 350);
             }
         }
@@ -189,5 +196,18 @@ public class TurnManager : MonoBehaviour
     public void try_turn_end()
     {
         EndTurn();
+    }
+
+    private DG.Tweening.Sequence attack_target(Transform subject, Vector3 target, DG.Tweening.TweenCallback on_attacked)
+    {
+        Vector3 start_pos = subject.transform.position;
+        Vector3 reverse_dir = subject.position - (target - subject.transform.position) * 0.2f;
+        var sequence = DOTween.Sequence()
+            .Append(subject.DOMove(reverse_dir, 0.3f).SetEase(Ease.InExpo))
+            .AppendInterval(0.2f)
+            .Append(subject.DOMove(target, 0.01f).SetEase(Ease.Linear))
+            .AppendCallback(on_attacked)
+            .Append(subject.DOMove(start_pos, 0.3f).SetEase(Ease.OutCubic));
+        return sequence;
     }
 }

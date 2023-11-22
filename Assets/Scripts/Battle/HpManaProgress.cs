@@ -20,9 +20,9 @@ public class HpManaProgress : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Hp.text = player.hp.ToString();
-        HpBar.fillAmount = player.hp / player.max_hp;
-        ManaPercent = player.mana / player.max_mana;
-        ManaBar.fillAmount = ManaPercent * 100;
+        // Hp.text = player.hp.ToString();
+        // HpBar.fillAmount = player.hp / player.max_hp;
+        // ManaPercent = player.mana / player.max_mana;
+        // ManaBar.fillAmount = ManaPercent * 100;
     }
 }
