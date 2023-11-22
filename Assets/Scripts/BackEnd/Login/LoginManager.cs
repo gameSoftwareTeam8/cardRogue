@@ -36,5 +36,7 @@ public class LoginManager : MonoBehaviour
         BackendLogin.Instance.UpdateNickname(username);
         BackendRank.Instance.RankInsert(PlayerPrefs.GetInt("Player Score", 0));
         StartCoroutine(FadeManager.Instance.LoadDiffScene("StartMenu"));
+        Destroy(MapGenerator.Instance);
+        Destroy(MusicManager.Instance);
     }
 }
