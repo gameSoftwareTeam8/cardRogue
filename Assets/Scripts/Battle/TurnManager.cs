@@ -44,6 +44,7 @@ public class TurnManager : MonoBehaviour
 
     public IEnumerator StartGameCo()
     {
+        init_mana();
         GameSetup();
         isLoading = true;
         for(int i = 0; i < startCardCount; i++)
@@ -54,25 +55,23 @@ public class TurnManager : MonoBehaviour
         StartCoroutine(StartTurnCo());
     }
 
-    public void add_mana(int cur_mana)
+    public void init_mana()
     {
-
-        for(int i=0; i<cur_mana; i++)
-        {
-            manaPrefab[i].transform.localScale = Vector3.one * 5;
-        }
-
+        IPlayer player = Locator.player;
+        for (int i = 0; i < player.max_mana; i++)
+            manaPrefab[i].GetComponent<SpriteRenderer>().enabled = true;
+        for (int i = player.max_mana; i < manaPrefab.Length; i++)
+            manaPrefab[i].GetComponent<SpriteRenderer>().enabled = false;
+        Locator.event_manager.register("on_mana_changed", on_mana_changed);
     }
 
-    public void remove_mana(int cur_mana)
+    public void on_mana_changed()
     {
-
-        for(int i =0; i<manaPrefab.Length; i++)
-        {
-            manaPrefab[i].transform.localScale = Vector3.zero;
-        }
-        add_mana(cur_mana);
-
+        IPlayer player = Locator.player;
+        for (int i = 0; i < player.mana; i++)
+            manaPrefab[i].GetComponent<SpriteRenderer>().color = Color.white;
+        for(int i = player.mana; i < player.max_mana; i++)
+            manaPrefab[i].GetComponent<SpriteRenderer>().color = new Color(0.2823f, 0.2667f, 0.2f);
     }
 
     public IEnumerator StartTurnCo()
@@ -83,7 +82,6 @@ public class TurnManager : MonoBehaviour
         {
             BattleManager.Inst.Notification("Turn " + (turn + 1).ToString());
             player.recover_mana(player.max_mana);
-            add_mana(player.mana);
         }
         else
             BattleManager.Inst.Notification("상대 턴");

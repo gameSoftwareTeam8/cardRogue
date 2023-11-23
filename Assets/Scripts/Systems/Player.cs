@@ -55,12 +55,16 @@ public class Player: IPlayer
     
     public void pay_mana(int amount)
     {
+        IEventManager event_manager = Locator.event_manager;
         mana = Mathf.Max(0, mana - amount);
+        event_manager.notify("on_mana_changed");
     }
 
     public void recover_mana(int amount)
     {
+        IEventManager event_manager = Locator.event_manager;
         mana = Mathf.Min(max_mana, mana + amount);
+        event_manager.notify("on_mana_changed");
     }
 
     public void draw(int num=1)
