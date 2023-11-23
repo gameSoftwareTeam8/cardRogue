@@ -15,6 +15,7 @@ public static class Locator
     public static IBoard board = null;
     public static CardFactory card_factory = new();
     public static ICardPool card_pool = new CardPool();
+    public static IEventManager event_manager = new EventManager();
     public static VFXFactory vfx_factory = new();
     public static IActionQueue action_queue = new ActionQueue();
     public static IPlayer player = new Player();

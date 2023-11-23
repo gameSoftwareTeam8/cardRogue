@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: 
   left: {fileID: 11400000, guid: f6833d112b4aa5a449af03d4d164a1fc, type: 2}
-  center: {fileID: 11400000, guid: f6833d112b4aa5a449af03d4d164a1fc, type: 2}
+  center: {fileID: 11400000, guid: 1ef8c468cf738f24f99f8b4f8dc9c22d, type: 2}
   right: {fileID: 11400000, guid: f6833d112b4aa5a449af03d4d164a1fc, type: 2}

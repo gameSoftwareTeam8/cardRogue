@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b20739fbedd914b4f94bf8c8a9f2b186, type: 3}
-  m_Name: 1
+  m_Name: Boss1
   m_EditorClassIdentifier: 
-  left: {fileID: 11400000, guid: 36997c4daf7ad0547856dec6aa3fd9a7, type: 2}
-  center: {fileID: 11400000, guid: bd62d39ff65cada49a64ed93182d3781, type: 2}
-  right: {fileID: 11400000, guid: 36997c4daf7ad0547856dec6aa3fd9a7, type: 2}
+  left: {fileID: 11400000, guid: bd62d39ff65cada49a64ed93182d3781, type: 2}
+  center: {fileID: 11400000, guid: d11aaf25dd72d1d459f314a31daf51b4, type: 2}
+  right: {fileID: 11400000, guid: bd62d39ff65cada49a64ed93182d3781, type: 2}

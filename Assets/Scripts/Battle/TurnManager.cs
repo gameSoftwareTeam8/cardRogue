@@ -81,7 +81,7 @@ public class TurnManager : MonoBehaviour
         isLoading = true;
         if (myTurn)
         {
-            BattleManager.Inst.Notification("나의 턴");
+            BattleManager.Inst.Notification("Turn " + (turn + 1).ToString());
             player.recover_mana(player.max_mana);
             add_mana(player.mana);
         }
@@ -175,6 +175,17 @@ public class TurnManager : MonoBehaviour
             for (int side = 0; side < 2; side++)
                 board.get_card((BoardSide)side, i)?.gameObject.SendMessage("on_turn_ended", SendMessageOptions.DontRequireReceiver);
     }
+    
+    public void check_battle_ended()
+    {
+        IBoard board = Locator.board;
+        bool is_won = true;
+        for (int i = 0; i < board.size; i++)
+            if (board.get_card(BoardSide.AWAY, i) != null)
+                is_won = false;
+        
+
+    }
 
     public async Task EndTurn()
     {
@@ -186,7 +197,7 @@ public class TurnManager : MonoBehaviour
 
         await battle();
         turn++;
-        myTurn = !myTurn;
+        // myTurn = !myTurn;
         StartCoroutine(StartTurnCo());
 
         is_running = false;

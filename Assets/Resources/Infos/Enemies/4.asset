@@ -9,15 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f2a0a188372b946973345d90e30611, type: 3}
-  m_Name: BasicCreatureInfo
+  m_Script: {fileID: 11500000, guid: b20739fbedd914b4f94bf8c8a9f2b186, type: 3}
+  m_Name: 4
   m_EditorClassIdentifier: 
-  card_name: Basic Creature
-  description: This is basic creature
-  effect_name: BasicCreatureEffect
-  rarity: 0
-  cost: 1
-  price: 30
-  sprite: {fileID: 0}
-  power: 2
-  hp: 3
+  left: {fileID: 0}
+  center: {fileID: 11400000, guid: e3c73970ba88cdb4fa052900344fccfb, type: 2}
+  right: {fileID: 11400000, guid: 1ef8c468cf738f24f99f8b4f8dc9c22d, type: 2}

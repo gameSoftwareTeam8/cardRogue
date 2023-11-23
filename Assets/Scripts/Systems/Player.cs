@@ -24,8 +24,8 @@ public interface IPlayer
 
 public class Player: IPlayer
 {
-    public int max_hp { get; private set; } = 50;
-    public int hp { get; private set; } = 50;
+    public int max_hp { get; private set; } = 20;
+    public int hp { get; private set; } = 20;
     public int max_mana { get; private set; } = 3;
     public int mana { get; private set; }
     public int balance { get; set; }
@@ -41,12 +41,16 @@ public class Player: IPlayer
 
     public void take_damage(int amount)
     {
+        IEventManager event_manager = Locator.event_manager;
         hp -= amount;
+        event_manager.notify("on_player_hp_changed");
     }
 
     public void heal(int amount)
     {
+        IEventManager event_manager = Locator.event_manager;
         hp = Mathf.Min(max_hp, hp + amount);
+        event_manager.notify("on_player_hp_changed");
     }
     
     public void pay_mana(int amount)
