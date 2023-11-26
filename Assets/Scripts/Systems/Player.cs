@@ -21,6 +21,7 @@ public interface IPlayer
     public void add_card(Card card);
     public void remove_card(Card card);
     public Card get_card(int idx);
+    public Card get_original_card(int idx);
 }
 
 public class Player: IPlayer
@@ -46,7 +47,7 @@ public class Player: IPlayer
     {
         return cards[idx];
     }
-    
+
     public void take_damage(int amount)
     {
         IEventManager event_manager = Locator.event_manager;
