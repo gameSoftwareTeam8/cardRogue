@@ -37,10 +37,16 @@ public class Player: IPlayer
     public Card get_card(int idx)
     {
         GameObject card = GameObject.Instantiate(cards[idx].gameObject);
-        GameObject.Destroy(card.GetComponent<DontDestroyer>());
+        GameObject.DestroyImmediate(card.GetComponent<DontDestroyer>());
+        Debug.Log(card.GetComponent<DontDestroyer>());
         return card.GetComponent<Card>();
     }
 
+    public Card get_original_card(int idx)
+    {
+        return cards[idx];
+    }
+    
     public void take_damage(int amount)
     {
         IEventManager event_manager = Locator.event_manager;

@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShowScore.unity
     guid: f79ee122d8c75fb46b90c6645bec99db
+  - enabled: 1
+    path: Assets/Scenes/RewardScene.unity
+    guid: d30ada0aae47245b2ac9fb5eda1c1478
   m_configObjects: {}

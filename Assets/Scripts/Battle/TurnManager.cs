@@ -141,11 +141,13 @@ public class TurnManager : MonoBehaviour
                     Vector3 CardSize = new Vector3(0, 2.5f, 0);
                     Vector3 Middle = (card.transform.position + target.transform.position) / 2.0f + (side == 0 ? -1.0f : 1.0f) * CardSize ;
 
+
                     actions.Add(() => {
                         attack_target(
                             card.transform, Middle, () => {
                                 int over_power = target.attack(card);
-                                player.take_damage(over_power);
+                                if (board.get_side(card) == BoardSide.AWAY)
+                                    player.take_damage(over_power);
                             }
                         );
                     });
@@ -160,25 +162,14 @@ public class TurnManager : MonoBehaviour
         }
         action_queue.enqueue(()=>{}, 500);
         await action_queue.run();
-        
-        // for (int i = 0; i < board.size; i++)
-        // {
-        //     for (int side = 0; side < 2; side++)
-        //     {
-        //         Creature card = board.get_card((BoardSide)side, i);
-        //         if (card != null && card.is_destroyed) {
-        //             card.gameObject.SendMessage("on_destroyed", SendMessageOptions.DontRequireReceiver);
-        //             board.remove_card(card);
-        //         }
-        //     }
-        // }
 
         for (int i = 0; i < board.size; i++)
             for (int side = 0; side < 2; side++)
                 board.get_card((BoardSide)side, i)?.gameObject.SendMessage("on_turn_ended", SendMessageOptions.DontRequireReceiver);
+        StartCoroutine(check_battle_ended());
     }
     
-    public void check_battle_ended()
+    public IEnumerator check_battle_ended()
     {
         IBoard board = Locator.board;
         bool is_won = true;
@@ -186,7 +177,10 @@ public class TurnManager : MonoBehaviour
             if (board.get_card(BoardSide.AWAY, i) != null)
                 is_won = false;
         
-
+        if (is_won) {
+            yield return delay07;
+            SceneManager.LoadScene("RewardScene");
+        }
     }
 
     public async Task EndTurn()

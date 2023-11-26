@@ -60,7 +60,7 @@ public class FadeManager : MonoBehaviour
         currentColor = Color.black;
         fadeImage.color = currentColor;
     }
-    public IEnumerator LoadDiffScene(string SceneName)
+    public IEnumerator LoadDiffScene(string SceneName, LoadSceneMode mode = LoadSceneMode.Single)
     {
         float elapsedTime = 0;
         while (elapsedTime < fadeDuration)
@@ -72,7 +72,7 @@ public class FadeManager : MonoBehaviour
         }
         currentColor = Color.black;
         fadeImage.color = currentColor;
-        SceneManager.LoadScene(SceneName);
+        SceneManager.LoadScene(SceneName, mode);
         StartCoroutine(FadeIn());
     }
 

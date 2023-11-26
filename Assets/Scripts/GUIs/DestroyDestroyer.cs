@@ -8,7 +8,5 @@ public class FindDontDestroyOnLoad : MonoBehaviour
     
     public void DestroyAll()
     {
-        rootsFromDontDestroyOnLoad = DontdestroyOnLoadAccessor.Instance.GetAllRootsOfDontDestroyOnLoad();
-        Debug.Log(rootsFromDontDestroyOnLoad);
     }
 }

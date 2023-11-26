@@ -219,9 +219,9 @@ public class HandsManagerView : MonoBehaviour
             var card_factory = Locator.card_factory;
             Creature creature = card_factory.create(card.info).GetComponent<Creature>();
             creature.transform.localScale = Vector2.one * 1.5f * cardScale;
+            player.pay_mana(card.info.cost);
             board.add_card(side, idx, creature);
             HandsManager.Inst.RemoveCard(card);
-            player.pay_mana(card.info.cost);
         }
         else if (card_effect is TargetingMagicEffect && target != null) {
             ((TargetingMagicEffect)card_effect).on_used_to_target((Creature)target);
