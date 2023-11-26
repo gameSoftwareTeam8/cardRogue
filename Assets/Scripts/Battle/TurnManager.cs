@@ -200,9 +200,12 @@ public class TurnManager : MonoBehaviour
         IPlayer player = Locator.player;
         if (player.hp <= 0)
         {
-            SceneManager.LoadScene("GameOver");
+            StartCoroutine(FadeManager.Instance.LoadDiffScene("GameOver"));
         }
-        StartCoroutine(StartTurnCo());
+        else
+        {
+            StartCoroutine(StartTurnCo());
+        }
 
         is_running = false;
         lock (end_turn_lock) { is_running = false; }
