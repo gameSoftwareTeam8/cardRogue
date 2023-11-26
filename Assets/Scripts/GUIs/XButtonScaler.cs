@@ -7,7 +7,7 @@ public class XButtonScaler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 {
     public GameObject XButton;
     public Vector3 normalScale = new Vector3(1, 1, 1); // 기본 크기
-    public Vector3 enlargedScale = new Vector3(1.1f, 1.1f, 1.1f); // 확대될 크기
+    public Vector3 enlargedScale = new Vector3(2f, 2f, 2f); // 확대될 크기
 
     public void OnPointerEnter(PointerEventData eventData)
     {

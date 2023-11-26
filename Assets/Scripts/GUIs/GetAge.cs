@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GetAge : MonoBehaviour
 {
     public GameObject destoryTarget;
+    public GameObject leftCard;
+    public GameObject checkButton;
     public float ageValue;
     public float onOffValue;
     public Material material;
@@ -29,13 +32,19 @@ public class GetAge : MonoBehaviour
     public void StartFlipbook()
     {
         StartCoroutine(AnimateFlipbook());
+        Button buttonComponent = checkButton.GetComponent<Button>();
+
+        if (buttonComponent != null)
+        {
+            Destroy(buttonComponent);
+        }
     }
 
     IEnumerator AnimateFlipbook()
     {
         if (destoryTarget.name == "HealCard")
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1.0f);
         }
            
         else if (destoryTarget.name == "DeckRemoveCard")
@@ -55,17 +64,23 @@ public class GetAge : MonoBehaviour
             material.SetFloat("_Age", ageValue);
             yield return new WaitForSeconds(delay);
         }
-
-        if (destoryTarget.name != "DeckRemoveCard")
-        {
-            StartCoroutine(WaitTime());
-            material.SetFloat("_Age", 7);
-        }
+        
+        StartCoroutine(WaitTime());
+        
             
     }
     IEnumerator WaitTime()
     {
-        yield return new WaitForSeconds(1f);
-        Destroy(destoryTarget);
+        yield return new WaitForSeconds(0.1f);
+        destoryTarget.transform.position = new Vector3(10000, 0, 0);
+        material.SetFloat("_Age", 7);
+        if(destoryTarget.name == "DeckRemoveCard")
+            DisplayDeckToElimination();
+    }
+
+    void DisplayDeckToElimination()
+    {
+        DeckEliminator deckEliminator = GetComponent<DeckEliminator>();
+        deckEliminator.DisplayCards();
     }
 }

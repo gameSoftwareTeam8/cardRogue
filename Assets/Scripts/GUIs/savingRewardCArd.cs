@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
-public class savingRewardCArd : MonoBehaviour
+public class SavingRewardCard : MonoBehaviour
 {/*
     IPlayer player = Locator.player;
     public GameObject firstCard;
