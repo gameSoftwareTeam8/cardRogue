@@ -12,6 +12,7 @@ public class ShelterCardSelectionHandler : MonoBehaviour
     public GameObject leftParticle;
     public GameObject rightParticle;
     public GameObject SmokeParticle;
+    public GameObject CardFireParticle;
     public Material material;
 
     public Player player;
@@ -19,6 +20,7 @@ public class ShelterCardSelectionHandler : MonoBehaviour
     public void OnCardClicked()
     {
         ActivateParticle(button);
+        ActiveCard(button);
     }
 
     private void ActivateParticle(Button buttonClicked)
@@ -65,30 +67,15 @@ public class ShelterCardSelectionHandler : MonoBehaviour
         IPlayer player = Locator.player;
         if (button.name == "HealCard")
         {
-            //체력
             player.heal(5);
 
             GameObject destoryButton = GameObject.Find("HealCard");
             Destroy(destoryButton.GetComponent<Button>());
+            StartCoroutine(HealingTime());
         }
         else if (button.name == "DeckRemoveCard")
         {
-            // 카드 제거
-            // 덱에 있는 카드 다시 보여주고 클릭하면 확인 창 뜨게 하고
-            // 확인하면 삭제 취소하면 다시
-            // 확인하면 그 골랐던 카드를 삭제
-            //Card removedCard = Card.
-            //player.remove_card();
-            
-            GameObject destoryButton = GameObject.Find("DeckRemoveCard");
-            GameObject destoryButton2 = GameObject.Find("HealCard");
-            GameObject destoryWood = GameObject.Find("LeftCampfire");
-            Destroy(destoryButton);
-            Destroy(destoryButton2);
-            Destroy(destoryWood);
-
-            deckScrollViewObject.SetActive(true);
-            selectedCardObject.SetActive(true);
+            StartCoroutine(WaitGetAge());
 
             material.SetFloat("_Age", 7);
         }
@@ -97,10 +84,31 @@ public class ShelterCardSelectionHandler : MonoBehaviour
 
     IEnumerator UsingTime()
     {
-        yield return new WaitForSeconds(2.7f);
+        yield return new WaitForSeconds(2.0f);
 
         CardScaler(button);
         ActiveCard(button);
+    }
+
+    IEnumerator WaitGetAge()
+    {
+        yield return new WaitForSeconds(3.0f);
+        
+        GameObject destoryButton = GameObject.Find("DeckRemoveCard");
+        GameObject destoryButton2 = GameObject.Find("HealCard");
+        GameObject destoryWood = GameObject.Find("LeftCampfire");
+        Destroy(destoryButton);
+        Destroy(destoryButton2);
+        Destroy(destoryWood);
+        deckScrollViewObject.SetActive(true);
+        selectedCardObject.SetActive(true);
+        CardFireParticle.SetActive(true);
+    }
+
+    IEnumerator HealingTime()
+    {
+        yield return new WaitForSeconds(4.5f);
+        StartCoroutine(FadeManager.Instance.LoadDiffScene("HeaderBar"));
     }
     
 }

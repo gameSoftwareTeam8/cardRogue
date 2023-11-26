@@ -49,7 +49,7 @@ public class RewardSelect : MonoBehaviour
 
     IEnumerator WaitTime()
     {
-        yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("HeaderBar");
+        yield return new WaitForSeconds(1);
+        StartCoroutine(FadeManager.Instance.LoadDiffScene("HeaderBar"));
     }
 }

@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.U2D.IK;
 using Random = UnityEngine.Random;
 
@@ -199,6 +200,11 @@ public class TurnManager : MonoBehaviour
         await battle();
         turn++;
         // myTurn = !myTurn;
+        IPlayer player = Locator.player;
+        if (player.hp <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
         StartCoroutine(StartTurnCo());
 
         is_running = false;

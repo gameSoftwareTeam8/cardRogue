@@ -6,6 +6,6 @@ public class ToHeaderBar : MonoBehaviour
 {
      public void ToHeader()
      {
-        SceneManager.LoadScene("HeaderBar");
+        StartCoroutine(FadeManager.Instance.LoadDiffScene("HeaderBar"));
      }
 }
