@@ -12,6 +12,7 @@ public interface IPlayer
     public int mana { get; }
     public int balance { get; set; }
     public int cards_count { get; }
+    public int score { get; set; }
     public void take_damage(int amount);
     public void heal(int amount);
     public void pay_mana(int amount);
@@ -30,6 +31,7 @@ public class Player: IPlayer
     public int mana { get; private set; }
     public int balance { get; set; }
     public int cards_count { get { return cards.Count; }}
+    public int score { get; set; } = 0;
 
     private List<Card> cards = new();
     public Card get_card(int idx)

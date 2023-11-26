@@ -7059,9 +7059,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 11400000, guid: e1bbbb2884da0a843b0d28c90cdb019f, type: 2}
-  - {fileID: 11400000, guid: fd1f71dd570ec5146a30d5e3dfbe2301, type: 2}
-  - {fileID: 11400000, guid: 592465de9bcd7d14495ce885e741b756, type: 2}
+  - {fileID: 11400000, guid: 13e6fa588686e1c4eba71e1f6f088e80, type: 2}
+  - {fileID: 11400000, guid: 13e6fa588686e1c4eba71e1f6f088e80, type: 2}
+  - {fileID: 11400000, guid: 13e6fa588686e1c4eba71e1f6f088e80, type: 2}
 --- !u!114 &1571738987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7983,7 +7983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1808653842
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8723,7 +8723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1906464546
 RectTransform:
   m_ObjectHideFlags: 0
