@@ -143,7 +143,10 @@ public class TurnManager : MonoBehaviour
 
                     actions.Add(() => {
                         attack_target(
-                            card.transform, Middle, () => { target.attack(card); }
+                            card.transform, Middle, () => {
+                                int over_power = target.attack(card);
+                                player.take_damage(over_power);
+                            }
                         );
                     });
                 }

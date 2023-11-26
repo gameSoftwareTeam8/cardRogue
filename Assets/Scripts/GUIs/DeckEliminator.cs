@@ -8,10 +8,12 @@ using System;
 public class DeckEliminator : MonoBehaviour
 {
     public Transform gridTransform;
-
-    public GameObject deckScrollViewObject; ///
-
+    public GameObject deckScrollViewObject; 
     public GameObject contentObject;
+    public GameObject selectedCardObject;
+    public GameObject alreadyChosenObject;
+    public GameObject cardFireParticleObject;
+    
 
     public void DisplayCards()
     {
@@ -38,8 +40,6 @@ public class DeckEliminator : MonoBehaviour
             Button button = cardButton.AddComponent<Button>();
 
             image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
-
-            button.onClick.AddListener(() => OnClickMyButton());
 
 
             //
@@ -74,13 +74,19 @@ public class DeckEliminator : MonoBehaviour
             rectTransform.anchorMin = new Vector2(0, 1);
             rectTransform.anchorMax = new Vector2(0, 1);
 
+            deckScrollViewObject.SetActive(true);
+            selectedCardObject.SetActive(true);
+            cardFireParticleObject.SetActive(true); 
+
+            RectTransform contentRectTransform = contentObject.GetComponent<RectTransform>();
+            contentRectTransform.sizeDelta = new Vector2(863, row*400);
+
    
             card.GetComponent<CardView>().show();
 
+            
+            button.onClick.AddListener(() => OnCardClicked(card.transform.parent.gameObject, card));
 
-            Debug.Log("checking");
-            Debug.Log(card.transform.parent.gameObject);
-            //button.onClick.AddListener(() => OnCardClicked(card.transform.parent.gameObject));
 
             
         }
@@ -88,55 +94,56 @@ public class DeckEliminator : MonoBehaviour
     }
 
 
-    public void OnCardClicked(GameObject cardButton)
+    public void OnCardClicked(GameObject cardButton, Card card)
     {
-
-        GameObject scrollView = GameObject.Find("Deck Scroll View");
-
-        if (scrollView != null)
-        { 
-            scrollView.SetActive(false);
-        }
-
-        GameObject cardObject = Instantiate(cardButton.gameObject, gridTransform);
-
-        RectTransform rectTransform = cardObject.GetComponent<RectTransform>();
-
-        rectTransform.anchoredPosition = new Vector2(0, 0);
-
-        cardObject.transform.localScale = new Vector3(1.5f, 1.5f, 1);
-
-        Debug.Log(cardObject.name);
-        
-
-        GameObject popCardImageGameObject = GameObject.Find("PopCardImage");
-
-        cardObject.transform.SetParent(popCardImageGameObject.transform, false);
-
-        if (popCardImageGameObject != null)
+        if (ShelterBool.is_exists == false)
         {
+            GameObject cardObject = Instantiate(cardButton.gameObject, gridTransform);
 
-            Image popCardImage = cardObject.GetComponent<Image>();
+            RectTransform rectTransform = cardObject.GetComponent<RectTransform>();
 
+            rectTransform.anchoredPosition = new Vector2(0, 0);
+
+            cardObject.transform.localScale = new Vector3(2f, 2f, 1);
+
+            cardObject.transform.SetParent(selectedCardObject.transform, false);
+
+            if (selectedCardObject != null)
+            {
+               Image popCardImage = cardObject.GetComponent<Image>();
+            }
+
+            Transform parentTransform = cardObject.transform; // 부모 오브젝트의 Transform 컴포넌트
+            if (parentTransform.childCount > 0)
+            {
+                Transform firstChildTransform = parentTransform.GetChild(0);
+
+                rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+                rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+
+                firstChildTransform.GetComponent<CardView>().show();
+
+                Debug.Log("FirstChild: " + firstChildTransform);
+            }
+            ShelterBool.is_exists = true;
+
+            ShelterBool.remove_card = card;
         }
-
-        Transform parentTransform = cardObject.transform; // 부모 오브젝트의 Transform 컴포넌트
-        if (parentTransform.childCount > 0)
+        else
         {
-            Transform firstChildTransform = parentTransform.GetChild(0);
-
-            rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
-            rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
-
-            firstChildTransform.GetComponent<CardView>().show();
-
-            Debug.Log("FirstChild: " + firstChildTransform);
+            alreadyChosenObject.SetActive(true);
+            StartCoroutine(NotifyExists());
         }
 
-        Debug.Log("working");
     }
 
-
+    IEnumerator NotifyExists()
+    {
+        yield return new WaitForSeconds(0.5f);
+        alreadyChosenObject.SetActive(false);
+    }
+    
+    
     public void OnClickMyButton()
     {
         PopupSystem.instance.OpenPopup(

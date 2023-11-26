@@ -28,22 +28,26 @@ public class Creature: Card
         Locator.board.remove_card(this);
     }
 
-    public void attack(Creature target)
+    public int attack(Creature target)
     {
         SendMessage("on_battle_started", SendMessageOptions.DontRequireReceiver);
-        target.take_damage(creature_info.power, this);
+        int over_power = target.take_damage(creature_info.power, this);
         SendMessage("on_battle_ended", SendMessageOptions.DontRequireReceiver);
+        return over_power;
     }
 
-    public void take_damage(int amount, Card source)
+    public int take_damage(int amount, Card source)
     {
         if (is_destroyed)
-            return;
+            return 0;
 
         current_hp -= amount;
         SendMessage("on_damaged", (amount, source), SendMessageOptions.DontRequireReceiver);
-        if (current_hp <= 0)
+        if (current_hp <= 0) {
             destroy();
+            return -current_hp;
+        }
+        return 0;
     }
 
     public void heal(int amount, Card source)
