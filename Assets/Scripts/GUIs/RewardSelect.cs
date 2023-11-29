@@ -8,48 +8,35 @@ public class RewardSelect : MonoBehaviour
 {
     public GameObject rewardCardObj;
 
-    public void SelectFirstCard()
+    public void addCard(Card card)
     {
         IPlayer player = Locator.player;
-
-        RewardCard rewardCard = rewardCardObj.GetComponent<RewardCard>();
-
-        Card addedCard = rewardCard.card1;
-
-        player.add_card(addedCard);
-        
+        CardFactory card_factory = Locator.card_factory;
+        player.add_card(card_factory.create(card.info).GetComponent<Card>());
         StartCoroutine(WaitTime());
+    }
+    
+    public void SelectFirstCard()
+    {
+        RewardCard rewardCard = rewardCardObj.GetComponent<RewardCard>();
+        addCard(rewardCard.card1);
     }
 
     public void SelectSecondCard()
     {
-        IPlayer player = Locator.player;
-
         RewardCard rewardCard = rewardCardObj.GetComponent<RewardCard>();
-
-        Card addedCard = rewardCard.card2;
-
-        player.add_card(addedCard);
-
-        StartCoroutine(WaitTime());
+        addCard(rewardCard.card2);
     }
     
     public void SelectThirdCard()
     {
-        IPlayer player = Locator.player;
-
         RewardCard rewardCard = rewardCardObj.GetComponent<RewardCard>();
-
-        Card addedCard = rewardCard.card3;
-
-        player.add_card(addedCard);
-        
-        StartCoroutine(WaitTime());
+        addCard(rewardCard.card3);
     }
 
     IEnumerator WaitTime()
     {
-        yield return new WaitForSeconds(1);
-        StartCoroutine(FadeManager.Instance.LoadDiffScene("HeaderBar"));
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(FadeManager.Instance.LoadDiffScene("Map"));
     }
 }

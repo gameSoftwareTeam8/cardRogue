@@ -30,9 +30,9 @@ public class TurnManager : MonoBehaviour
     enum ETurnMode {My, Enemy}
     WaitForSeconds delay = new WaitForSeconds(0.1f);
     WaitForSeconds delay07 = new WaitForSeconds(0.7f);
-    public static event Action<bool> OnTurnStarted;
+    public event Action<bool> OnTurnStarted;
     public SpriteRenderer mana_Renderer;
-    [SerializeField] public static Sprite[] manas = new Sprite[4];
+    [SerializeField] public Sprite[] manas = new Sprite[4];
     private object end_turn_lock = new object();
     private bool is_running = false;
     void GameSetup()
@@ -71,7 +71,7 @@ public class TurnManager : MonoBehaviour
         IPlayer player = Locator.player;
         for (int i = 0; i < player.mana; i++)
             manaPrefab[i].GetComponent<SpriteRenderer>().color = Color.white;
-        for(int i = player.mana; i < player.max_mana; i++)
+        for (int i = player.mana; i < player.max_mana; i++)
             manaPrefab[i].GetComponent<SpriteRenderer>().color = new Color(0.2823f, 0.2667f, 0.2f);
     }
 
@@ -224,5 +224,10 @@ public class TurnManager : MonoBehaviour
             .AppendCallback(on_attacked)
             .Append(subject.DOMove(start_pos, 0.3f).SetEase(Ease.OutCubic));
         return sequence;
+    }
+
+    void OnDestroy()
+    {
+        Locator.event_manager.remove("on_mana_changed", on_mana_changed);
     }
 }

@@ -37,9 +37,9 @@ public class Player: IPlayer
     private List<Card> cards = new();
     public Card get_card(int idx)
     {
+        GameObject.DestroyImmediate(cards[idx].GetComponent<DontDestroyer>());
         GameObject card = GameObject.Instantiate(cards[idx].gameObject);
-        GameObject.DestroyImmediate(card.GetComponent<DontDestroyer>());
-        Debug.Log(card.GetComponent<DontDestroyer>());
+        cards[idx].AddComponent<DontDestroyer>();
         return card.GetComponent<Card>();
     }
 
@@ -85,6 +85,7 @@ public class Player: IPlayer
     public void add_card(Card card)
     {
         card.AddComponent<DontDestroyer>();
+        card.GetComponent<DontDestroyer>().dont_destroy();
         cards.Add(card);
     }
 

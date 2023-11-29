@@ -11,12 +11,12 @@ public class TurnEndButton : MonoBehaviour
     void Start()
     {
         Setup(false);
-        TurnManager.OnTurnStarted += Setup;
+        TurnManager.Inst.OnTurnStarted += Setup;
     }
 
     private void OnDestroy()
     {
-        TurnManager.OnTurnStarted -= Setup;
+        TurnManager.Inst.OnTurnStarted -= Setup;
     }
 
     public void Setup(bool isActive)

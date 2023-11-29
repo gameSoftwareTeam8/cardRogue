@@ -11,6 +11,11 @@ public class DontDestroyer : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void dont_destroy()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+    
     public void SetCanvasActive(bool isActive)
     {
         myCanvas.gameObject.SetActive(isActive);

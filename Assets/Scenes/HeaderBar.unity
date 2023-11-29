@@ -6939,10 +6939,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 11400000, guid: 68b98f9e0cb9a7546a70e46c859938ad, type: 2}
-  - {fileID: 11400000, guid: aa5dc3604f2ee254f983617e8c564533, type: 2}
-  - {fileID: 11400000, guid: 943985ef229f0f44589364d45dc0221d, type: 2}
-  - {fileID: 11400000, guid: 9d0ede4fdc35bcb49a3ca863dde1ba33, type: 2}
+  - {fileID: 11400000, guid: 7fc008741b0cfe643ab064b745ff5820, type: 2}
+  - {fileID: 11400000, guid: 7fc008741b0cfe643ab064b745ff5820, type: 2}
+  - {fileID: 11400000, guid: 7fc008741b0cfe643ab064b745ff5820, type: 2}
+  - {fileID: 11400000, guid: 7fc008741b0cfe643ab064b745ff5820, type: 2}
 --- !u!114 &1571738987
 MonoBehaviour:
   m_ObjectHideFlags: 0
