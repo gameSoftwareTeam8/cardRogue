@@ -108,7 +108,7 @@ public class ShelterCardSelectionHandler : MonoBehaviour
     IEnumerator HealingTime()
     {
         yield return new WaitForSeconds(4.5f);
-        StartCoroutine(FadeManager.Instance.LoadDiffScene("HeaderBar"));
+        StartCoroutine(FadeManager.Instance.LoadDiffScene("Map"));
     }
     
 }

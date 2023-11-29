@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Basilisk
   m_EditorClassIdentifier: 
   card_name: Basilisk
-  description: "\uB9E4\uCC28\uB840 \uC801 \uBAA8\uB450\uC5D0\uAC8C \uD53C\uD574\uB97C
-    1\uC90D\uB2C8\uB2E4."
+  description: Deal 1 damge to all enemies when turn ended.
   effect_name: BasiliskEffect
   rarity: 3
   cost: 5

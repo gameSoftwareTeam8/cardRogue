@@ -28,6 +28,7 @@ public class DeckEliminator : MonoBehaviour
         for (int i = 0; i < player.cards_count; i++)
         {
             Card card = player.get_card(i);
+            Card original_card = player.get_original_card(i);
 
             card.transform.localScale = new Vector3(75, 75, 1);
 
@@ -85,7 +86,7 @@ public class DeckEliminator : MonoBehaviour
             card.GetComponent<CardView>().show();
 
             
-            button.onClick.AddListener(() => OnCardClicked(card.transform.parent.gameObject, card));
+            button.onClick.AddListener(() => OnCardClicked(card.transform.parent.gameObject, card, original_card));
 
 
             
@@ -94,7 +95,7 @@ public class DeckEliminator : MonoBehaviour
     }
 
 
-    public void OnCardClicked(GameObject cardButton, Card card)
+    public void OnCardClicked(GameObject cardButton, Card card, Card original_card)
     {
         if (ShelterBool.is_exists == false)
         {
@@ -127,7 +128,7 @@ public class DeckEliminator : MonoBehaviour
             }
             ShelterBool.is_exists = true;
 
-            ShelterBool.remove_card = card;
+            ShelterBool.remove_card = original_card;
         }
         else
         {

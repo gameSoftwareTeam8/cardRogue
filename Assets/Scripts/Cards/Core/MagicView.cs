@@ -7,7 +7,7 @@ using UnityEngine;
 public class MagicView: CardView
 {
     Magic magic;
-    TextMeshPro name_text, mana_text;
+    TextMeshPro name_text, mana_text, description_text;
     SpriteRenderer magic_sprite;
     public void init()
     {
@@ -19,6 +19,8 @@ public class MagicView: CardView
 
         name_text.text = magic.magic_info.card_name;
         mana_text.text = magic.magic_info.cost.ToString();
+        description_text = front.Find("Description").Find("Text").GetComponent<TextMeshPro>();
+        description_text.text = magic.magic_info.description;
         magic_sprite.sprite = magic.magic_info.sprite;
     }
 }
