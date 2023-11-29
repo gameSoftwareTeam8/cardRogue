@@ -11,21 +11,23 @@ public class ShelterCardCheckButton : MonoBehaviour
     {
         IPlayer player = Locator.player;
 
+        /*
         for (int i = 0; i < player.cards_count; i++)
         {
-            if(ShelterBool.remove_card.name==player.get_card(i).name)
-            {
-                player.remove_card(player.get_card(i));
+            string check = ShelterBool.remove_card.name + "(clone)";
+            if(check==player.get_card(i).name)
+            {   
+                player.remove_card(player.get_original_card(i));
                 break;
             }
-
+        
         }
         for (int i = 0; i < player.cards_count; i++)
         {
-            Card card = player.get_card(i);
+            Card card = player.get_original_card(i);
             Debug.Log(card);
         }
-
+        */
 
         StartCoroutine(WaitParticle());
     }
