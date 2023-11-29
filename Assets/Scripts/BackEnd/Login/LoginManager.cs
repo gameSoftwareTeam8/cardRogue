@@ -34,7 +34,9 @@ public class LoginManager : MonoBehaviour
         BackendLogin.Instance.CustomSignUp(username, "1234");
         BackendLogin.Instance.CustomLogin(username, "1234");
         BackendLogin.Instance.UpdateNickname(username);
-        BackendRank.Instance.RankInsert(PlayerPrefs.GetInt("Player Score", 0));
+        IPlayer player = Locator.player;
+        //BackendRank.Instance.RankInsert(PlayerPrefs.GetInt("Player Score", 0));
+        BackendRank.Instance.RankInsert(player.score);
         StartCoroutine(FadeManager.Instance.LoadDiffScene("StartMenu"));
         Destroy(MapGenerator.Instance);
         Destroy(MusicManager.Instance);
