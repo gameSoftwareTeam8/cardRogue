@@ -6943,6 +6943,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aa5dc3604f2ee254f983617e8c564533, type: 2}
   - {fileID: 11400000, guid: 943985ef229f0f44589364d45dc0221d, type: 2}
   - {fileID: 11400000, guid: 9d0ede4fdc35bcb49a3ca863dde1ba33, type: 2}
+  bosses:
+  - {fileID: 11400000, guid: 13e6fa588686e1c4eba71e1f6f088e80, type: 2}
 --- !u!114 &1571738987
 MonoBehaviour:
   m_ObjectHideFlags: 0

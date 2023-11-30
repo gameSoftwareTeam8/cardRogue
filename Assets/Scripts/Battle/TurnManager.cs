@@ -178,6 +178,7 @@ public class TurnManager : MonoBehaviour
                 is_won = false;
         
         if (is_won) {
+            Locator.player.balance += 25;
             yield return delay07;
             SceneManager.LoadScene("RewardScene");
         }

@@ -368,7 +368,7 @@ public class MapGenerator : MonoBehaviour
                 case NodeType.Boss:
                     CountupScore(50);
                     HideAllSprites();
-                    StartCoroutine(FadeManager.Instance.LoadDiffScene("Temp2"));
+                    StartCoroutine(FadeManager.Instance.LoadDiffScene("BossScene"));
                     //SceneManager.LoadScene("Temp2");
                     break;
             }

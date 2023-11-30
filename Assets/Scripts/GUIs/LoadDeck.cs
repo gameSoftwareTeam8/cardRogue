@@ -117,6 +117,7 @@ public class LoadDeck : MonoBehaviour
                 tmp_gui.alignment = tmp.alignment;
                 tmp_gui.fontSize = tmp.fontSize / 10.0f;
                 tmp_gui.font = tmp.font;
+                tmp_gui.rectTransform.sizeDelta = tmp.rectTransform.sizeDelta;
             }
 
             button.onClick.AddListener(() => OnCardClicked(card.transform.parent.gameObject));

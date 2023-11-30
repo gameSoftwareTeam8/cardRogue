@@ -44,7 +44,6 @@ public class Merchant: IMerchant
     public bool buy(int idx)
     {
         IPlayer player = Locator.player;
-        player.balance = 1000; // FOR TEST
         Card card = get_card(idx);
         if (player.balance >= card.info.price) {
             player.balance -= card.info.price;

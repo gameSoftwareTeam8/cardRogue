@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
+    public bool is_boss = false;
     public static BattleManager Inst {  get; private set; }
     void Awake() => Inst = this;
     [SerializeField] NotificationPanel notificationPanel;
  
     void Start()
     {
-        Locator.enemy_manager.create_enemy();
+        Locator.enemy_manager.create_enemy(is_boss);
         StartGame();
     }
 
