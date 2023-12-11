@@ -9,7 +9,7 @@ public class PrintScore : MonoBehaviour
     {
         // PlayerPrefs���� "score"��� Ű�� ����� ���� �����ɴϴ�.
         // ���� "score"��� Ű�� ���ٸ�, �⺻������ 0�� ��ȯ�մϴ�.
-        int score = PlayerPrefs.GetInt("score", 0);
+        int score = PlayerPrefs.GetInt("score", Locator.player.score);
 
         // Text UI ������Ʈ�� text �Ӽ��� ������Ʈ�մϴ�.
         textUI.text = "Score: " + score.ToString();

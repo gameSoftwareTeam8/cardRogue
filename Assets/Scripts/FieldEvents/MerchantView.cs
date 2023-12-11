@@ -35,8 +35,10 @@ public class MerchantView: MonoBehaviour
         CardView card_view = (CardView)sender;
         Card card = card_view.GetComponent<Card>();
         if (merchant.buy(card)) {
+            card_view.on_mouse_down -= on_card_cliked;
+            card_view.hide();
+            Destroy(card.transform.Find("PriceTag(Clone)").gameObject);
             Debug.Log("Bought");
-            merchant.remove_card(card);
         }
         else
             Debug.Log("Not enough money");

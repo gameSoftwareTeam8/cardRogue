@@ -14,16 +14,16 @@ public class LoginManager : MonoBehaviour
     private void Start()
     {
         loginButton.onClick.AddListener(TryLogin);
-        var bro = Backend.Initialize(true); // µÚ³¡ ÃÊ±âÈ­
+        var bro = Backend.Initialize(true); // ï¿½Ú³ï¿½ ï¿½Ê±ï¿½È­
 
-        // µÚ³¡ ÃÊ±âÈ­¿¡ ´ëÇÑ ÀÀ´ä°ª
+        // ï¿½Ú³ï¿½ ï¿½Ê±ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ä°ª
         if (bro.IsSuccess())
         {
-            Debug.Log("ÃÊ±âÈ­ ¼º°ø : " + bro); // ¼º°øÀÏ °æ¿ì statusCode 204 Success
+            Debug.Log("ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ : " + bro); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ statusCode 204 Success
         }
         else
         {
-            Debug.LogError("ÃÊ±âÈ­ ½ÇÆÐ : " + bro); // ½ÇÆÐÀÏ °æ¿ì statusCode 400´ë ¿¡·¯ ¹ß»ý
+            Debug.LogError("ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ : " + bro); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ statusCode 400ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½
         }
     }
 
@@ -37,6 +37,7 @@ public class LoginManager : MonoBehaviour
         IPlayer player = Locator.player;
         //BackendRank.Instance.RankInsert(PlayerPrefs.GetInt("Player Score", 0));
         BackendRank.Instance.RankInsert(player.score);
+        Locator.init();
         StartCoroutine(FadeManager.Instance.LoadDiffScene("StartMenu"));
         Destroy(MapGenerator.Instance);
         Destroy(MusicManager.Instance);

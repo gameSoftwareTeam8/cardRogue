@@ -20,4 +20,9 @@ public static class Locator
     public static IActionQueue action_queue = new ActionQueue();
     public static IPlayer player = new Player();
     public static EnemyManager enemy_manager = null;
+    public static void init()
+    {
+        player = new Player();
+        card_pool = new CardPool();
+    }
 }

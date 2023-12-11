@@ -143,7 +143,7 @@ public class HandsManagerView : MonoBehaviour
 
         selectCard = cardTransform;
         EnlargeCard(true, enlargedInstance.GetComponent<CardTransform>());
-        selectCard.GetComponent<CardView>().hide();
+        selectCard.GetComponent<CardView>().hide(true);
     }
 
     public void CardMouseExit(object sender, CardEventArgs args)

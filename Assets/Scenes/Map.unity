@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 569457870}
   - component: {fileID: 569457869}
   - component: {fileID: 569457871}
+  - component: {fileID: 569457872}
   m_Layer: 0
   m_Name: Music_Manager
   m_TagString: Untagged
@@ -266,6 +267,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &569457872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569457868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e223a5cedf720d428f71b167eb8562c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCanvas: {fileID: 0}
 --- !u!1 &876840923
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1495402482}
   - component: {fileID: 1495402483}
+  - component: {fileID: 1495402484}
   m_Layer: 0
   m_Name: Map_Generator
   m_TagString: Untagged
@@ -430,6 +445,19 @@ MonoBehaviour:
   MonsterNodeCount: 6
   MerchantNodeCount: 3
   EventNodeCount: 3
+--- !u!114 &1495402484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495402480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e223a5cedf720d428f71b167eb8562c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCanvas: {fileID: 0}
 --- !u!1 &1763789200
 GameObject:
   m_ObjectHideFlags: 0

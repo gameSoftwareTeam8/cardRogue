@@ -32,14 +32,16 @@ public abstract class CardView: MonoBehaviour
             renderer.enabled = true;
         foreach (var tmp in GetComponentsInChildren<TextMeshPro>())
             tmp.enabled = true;
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 
-    public void hide()
+    public void hide(bool enable_collider=false)
     {
         foreach (var renderer in GetComponentsInChildren<SpriteRenderer>())
             renderer.enabled = false;
         foreach (var tmp in GetComponentsInChildren<TextMeshPro>())
             tmp.enabled = false;
+        GetComponent<BoxCollider2D>().enabled = enable_collider;
     }
 
     public void flip(bool is_front)

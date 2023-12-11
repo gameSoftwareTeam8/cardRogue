@@ -13,7 +13,7 @@ public class PriceTag: MonoBehaviour
         }
         set {
             _price = value;
-            text.text = _price.ToString();
+            text.text = _price.ToString() + " Gold";
         }
     }
     private int _price;

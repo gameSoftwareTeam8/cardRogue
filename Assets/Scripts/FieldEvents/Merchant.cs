@@ -16,7 +16,7 @@ public interface IMerchant
 
 public class Merchant: IMerchant
 {
-    private const int CARDS_NUM = 3;
+    private const int CARDS_NUM = 6;
     private const int COST_TO_REMOVE = 75;
     private const int COST_TO_REMOVE_ADDEND = 25;
 
@@ -32,7 +32,9 @@ public class Merchant: IMerchant
         var sampled = Locator.card_pool.sample_without_replacement(CARDS_NUM);
         foreach (CardInfo info in sampled)
         {
-            cards.Add(card_factory.create(info).GetComponent<Card>());
+            Card card = card_factory.create(info).GetComponent<Card>();
+            card.transform.localScale *= 0.8f;
+            cards.Add(card);
         }
     }
 

@@ -178,9 +178,16 @@ public class TurnManager : MonoBehaviour
                 is_won = false;
         
         if (is_won) {
-            Locator.player.balance += 25;
             yield return delay07;
-            SceneManager.LoadScene("RewardScene");
+            if (SceneManager.GetActiveScene().name == "BossScene") {
+                Locator.player.score += 1000;
+                StartCoroutine(FadeManager.Instance.LoadDiffScene("GameOver"));
+            }
+            else {
+                Locator.player.balance += 25;
+                Locator.player.score += 100;
+                SceneManager.LoadScene("RewardScene");
+            }
         }
     }
 

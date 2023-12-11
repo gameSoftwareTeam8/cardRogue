@@ -30,7 +30,7 @@ public class Player: IPlayer
     public int hp { get; private set; } = 20;
     public int max_mana { get; private set; } = 3;
     public int mana { get; private set; }
-    public int balance { get; set; }
+    public int balance { get; set; } = 100;
     public int cards_count { get { return cards.Count; }}
     public int score { get; set; } = 0;
 
