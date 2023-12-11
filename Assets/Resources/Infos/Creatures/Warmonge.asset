@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f2a0a188372b946973345d90e30611, type: 3}
   m_Name: Warmonge
   m_EditorClassIdentifier: 
-  card_name: Warmonge
+  card_name: Warmonger
   description: Gain +1/+1 before battle
   effect_name: BuffOnBattleEffect
   rarity: 2
